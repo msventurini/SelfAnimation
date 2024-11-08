@@ -114,8 +114,6 @@ struct MyIcon: Shape {
     }
 }
 
-
-
 extension UIBezierPath {
     
     convenience init(emotionShapeIn rect: CGRect) {
@@ -149,5 +147,3 @@ extension UIBezierPath {
         
     }
 }
-
-
