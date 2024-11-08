@@ -5,8 +5,6 @@
 //  Created by Matheus Silveira Venturini on 08/11/24.
 //
 
-
-import UIKit
 import SwiftUI
 
 struct SwiftUITestShape: Shape {
