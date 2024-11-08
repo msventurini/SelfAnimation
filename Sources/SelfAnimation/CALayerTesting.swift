@@ -52,7 +52,7 @@ class CALayerTesting: UIViewController {
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
              
         
-        shapeLayer.add(lineDashAniSmation, forKey: nil)
+        shapeLayer.add(lineDashAnimation, forKey: nil)
     }
     
     func cubeTopFace(inputLayer: CALayer,numberOfLayers: Int) -> CAReplicatorLayer {
