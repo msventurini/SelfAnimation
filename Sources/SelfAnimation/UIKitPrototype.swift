@@ -14,7 +14,7 @@ class CALayerTesting: UIViewController {
 
         super.viewDidLoad()
         
-                let uit = UIView(frame: .init(x: view.center.x - 100, y: view.center.y - 100, width: 225, height: 225))
+                let uit = UIView(frame: .init(x: view.center.x - 100, y: view.center.y - 100, width: 225, height: 453))
                 let testeLayer = CALayer()
 
         testeLayer.frame = uit.bounds
@@ -25,7 +25,6 @@ class CALayerTesting: UIViewController {
         shapeLayer.fillColor = UIColor.clear.cgColor
         
         shapeLayer.lineWidth = 3.25
-//        shapeLayer.lineWidth = 4.0
         shapeLayer.lineDashPattern = [0.01, 8]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
              
@@ -37,7 +36,7 @@ class CALayerTesting: UIViewController {
         shapeLayer.frame = uit.bounds
 
         testeLayer.addSublayer(shapeLayer)
-        let replicated = cubeTopFace(inputLayer: testeLayer, numberOfLayers: 30)
+        let replicated = getReplicatorLayer(inputLayer: testeLayer, numberOfLayers: 30)
 
         replicated.frame = testeLayer.bounds
         uit.layer.addSublayer(replicated)
@@ -50,34 +49,12 @@ class CALayerTesting: UIViewController {
         lineDashAnimation.fillMode = .backwards
         lineDashAnimation.speed = 1
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-             
         
         shapeLayer.add(lineDashAnimation, forKey: nil)
         
-        let lineAppearAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
-        lineAppearAnimation.fromValue = 0
-        lineAppearAnimation.toValue = 1
-        lineAppearAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
-        lineAppearAnimation.duration = 2
-        lineAppearAnimation.repeatCount = 0
-        shapeLayer.add(lineAppearAnimation, forKey: nil)
-        shapeLayer.anchorPoint = .init(x: 0.15, y: 0.5)
-        
-        
-        let lineAppearAnimation2 = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeStart))
-        lineAppearAnimation2.fromValue = 0.5
-        lineAppearAnimation2.toValue = 0
-        lineAppearAnimation2.timingFunction = CAMediaTimingFunction(name: .linear)
-        lineAppearAnimation2.duration = 2
-        lineAppearAnimation2.repeatCount = 0
-        shapeLayer.add(lineAppearAnimation2, forKey: nil)
-        shapeLayer.anchorPoint = .init(x: 0.15, y: 0.5)
-        
-        
-        
     }
     
-    func cubeTopFace(inputLayer: CALayer,numberOfLayers: Int) -> CAReplicatorLayer {
+    func getReplicatorLayer(inputLayer: CALayer,numberOfLayers: Int) -> CAReplicatorLayer {
         
         let replicatorLayer = CAReplicatorLayer()
         let numberOfInstances: Int = numberOfLayers
@@ -85,7 +62,7 @@ class CALayerTesting: UIViewController {
         replicatorLayer.instanceCount = numberOfInstances
          
         var newTransform = CATransform3DMakeRotation(
-            Angle(degrees: 4).radians,
+            Angle(degrees: 7).radians,
             0, 0, 1
         )
         
@@ -97,20 +74,13 @@ class CALayerTesting: UIViewController {
         
         newTransform = CATransform3DTranslate(
             newTransform,
-            2, 10, 0
+            0, 0, 0
         )
 
         replicatorLayer.instanceTransform = newTransform
-
         replicatorLayer.addSublayer(inputLayer)
-        
         return replicatorLayer
-        
     }
-    
-
-    
-    
 }
 
 #Preview {
@@ -158,195 +128,26 @@ extension UIBezierPath {
         let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
-        
-        
-        
-        
-        
-//        struct MyIcon: Shape {
-//            func path(in rect: CGRect) -> Path {
-//                var path = Path()
-//                let width = rect.size.width
-//                let height = rect.size.height
-                path.move(to: CGPoint(x: 0.51884*width, y: 0))
-                path.addLine(to: CGPoint(x: 0.51884*width, y: 1.01689*height))
-                path.move(to: CGPoint(x: 0, y: 0.50844*height))
-                path.addLine(to: CGPoint(x: 1.02271*width, y: 0.50844*height))
-                path.move(to: CGPoint(x: 0.22893*width, y: 0.78443*height))
-                path.addLine(to: CGPoint(x: 0.81316*width, y: 0.21507*height))
-                path.move(to: CGPoint(x: 0.77866*width, y: 0.78443*height))
-                path.addLine(to: CGPoint(x: 0.24405*width, y: 0.21507*height))
-//                return path
-//            }
-//        }
-        
-        
-        
-        
-        
-        
-//        path.move(to: CGPoint(x: 0.47819*width, y: 0.00434*height))
-//        path.addCurve(to: CGPoint(x: 0.04209*width, y: 0.20135*height), control1: CGPoint(x: 0.21445*width, y: -0.00202*height), control2: CGPoint(x: 0.02504*width, y: 0.10413*height))
-//        path.addCurve(to: CGPoint(x: 0.35925*width, y: 0.35441*height), control1: CGPoint(x: 0.05558*width, y: 0.27835*height), control2: CGPoint(x: 0.19812*width, y: 0.34728*height))
-//        path.addCurve(to: CGPoint(x: 0.70337*width, y: 0.24857*height), control1: CGPoint(x: 0.50121*width, y: 0.36068*height), control2: CGPoint(x: 0.68472*width, y: 0.32018*height))
-//        path.addCurve(to: CGPoint(x: 0.52576*width, y: 0.11994*height), control1: CGPoint(x: 0.71771*width, y: 0.19351*height), control2: CGPoint(x: 0.63403*width, y: 0.12215*height))
-//        path.addCurve(to: CGPoint(x: 0.32753*width, y: 0.23555*height), control1: CGPoint(x: 0.4188*width, y: 0.11776*height), control2: CGPoint(x: 0.3216*width, y: 0.18379*height))
-//        path.addCurve(to: CGPoint(x: 0.66373*width, y: 0.39511*height), control1: CGPoint(x: 0.33362*width, y: 0.28868*height), control2: CGPoint(x: 0.44828*width, y: 0.32565*height))
-//        path.addCurve(to: CGPoint(x: 0.9349*width, y: 0.48955*height), control1: CGPoint(x: 0.84286*width, y: 0.45287*height), control2: CGPoint(x: 0.88844*width, y: 0.45227*height))
-//        path.addCurve(to: CGPoint(x: 0.89526*width, y: 0.71018*height), control1: CGPoint(x: 1.01725*width, y: 0.55562*height), control2: CGPoint(x: 1.01616*width, y: 0.67153*height))
-//        path.addCurve(to: CGPoint(x: 0.47184*width, y: 0.60515*height), control1: CGPoint(x: 0.74283*width, y: 0.75889*height), control2: CGPoint(x: 0.46666*width, y: 0.66349*height))
-//        path.addCurve(to: CGPoint(x: 0.6114*width, y: 0.5099*height), control1: CGPoint(x: 0.4754*width, y: 0.56523*height), control2: CGPoint(x: 0.60962*width, y: 0.55517*height))
-//        path.addCurve(to: CGPoint(x: 0.41951*width, y: 0.42849*height), control1: CGPoint(x: 0.61311*width, y: 0.46628*height), control2: CGPoint(x: 0.49086*width, y: 0.41416*height))
-//        path.addCurve(to: CGPoint(x: 0.37987*width, y: 0.55061*height), control1: CGPoint(x: 0.35289*width, y: 0.44188*height), control2: CGPoint(x: 0.32853*width, y: 0.51365*height))
-//        path.addCurve(to: CGPoint(x: 0.63677*width, y: 0.59457*height), control1: CGPoint(x: 0.43887*width, y: 0.59309*height), control2: CGPoint(x: 0.56442*width, y: 0.56547*height))
-//        path.addCurve(to: CGPoint(x: 0.51783*width, y: 0.9886*height), control1: CGPoint(x: 0.71831*width, y: 0.62737*height), control2: CGPoint(x: 0.72535*width, y: 0.72948*height))
+
+        path.move(to: CGPoint(x: 0.47819*width, y: 0.00434*height))
+        path.addCurve(to: CGPoint(x: 0.04209*width, y: 0.20135*height), control1: CGPoint(x: 0.21445*width, y: -0.00202*height), control2: CGPoint(x: 0.02504*width, y: 0.10413*height))
+        path.addCurve(to: CGPoint(x: 0.35925*width, y: 0.35441*height), control1: CGPoint(x: 0.05558*width, y: 0.27835*height), control2: CGPoint(x: 0.19812*width, y: 0.34728*height))
+        path.addCurve(to: CGPoint(x: 0.70337*width, y: 0.24857*height), control1: CGPoint(x: 0.50121*width, y: 0.36068*height), control2: CGPoint(x: 0.68472*width, y: 0.32018*height))
+        path.addCurve(to: CGPoint(x: 0.52576*width, y: 0.11994*height), control1: CGPoint(x: 0.71771*width, y: 0.19351*height), control2: CGPoint(x: 0.63403*width, y: 0.12215*height))
+        path.addCurve(to: CGPoint(x: 0.32753*width, y: 0.23555*height), control1: CGPoint(x: 0.4188*width, y: 0.11776*height), control2: CGPoint(x: 0.3216*width, y: 0.18379*height))
+        path.addCurve(to: CGPoint(x: 0.66373*width, y: 0.39511*height), control1: CGPoint(x: 0.33362*width, y: 0.28868*height), control2: CGPoint(x: 0.44828*width, y: 0.32565*height))
+        path.addCurve(to: CGPoint(x: 0.9349*width, y: 0.48955*height), control1: CGPoint(x: 0.84286*width, y: 0.45287*height), control2: CGPoint(x: 0.88844*width, y: 0.45227*height))
+        path.addCurve(to: CGPoint(x: 0.89526*width, y: 0.71018*height), control1: CGPoint(x: 1.01725*width, y: 0.55562*height), control2: CGPoint(x: 1.01616*width, y: 0.67153*height))
+        path.addCurve(to: CGPoint(x: 0.47184*width, y: 0.60515*height), control1: CGPoint(x: 0.74283*width, y: 0.75889*height), control2: CGPoint(x: 0.46666*width, y: 0.66349*height))
+        path.addCurve(to: CGPoint(x: 0.6114*width, y: 0.5099*height), control1: CGPoint(x: 0.4754*width, y: 0.56523*height), control2: CGPoint(x: 0.60962*width, y: 0.55517*height))
+        path.addCurve(to: CGPoint(x: 0.41951*width, y: 0.42849*height), control1: CGPoint(x: 0.61311*width, y: 0.46628*height), control2: CGPoint(x: 0.49086*width, y: 0.41416*height))
+        path.addCurve(to: CGPoint(x: 0.37987*width, y: 0.55061*height), control1: CGPoint(x: 0.35289*width, y: 0.44188*height), control2: CGPoint(x: 0.32853*width, y: 0.51365*height))
+        path.addCurve(to: CGPoint(x: 0.63677*width, y: 0.59457*height), control1: CGPoint(x: 0.43887*width, y: 0.59309*height), control2: CGPoint(x: 0.56442*width, y: 0.56547*height))
+        path.addCurve(to: CGPoint(x: 0.51783*width, y: 0.9886*height), control1: CGPoint(x: 0.71831*width, y: 0.62737*height), control2: CGPoint(x: 0.72535*width, y: 0.72948*height))
         
         self.init(cgPath: path)
         
     }
 }
 
-class TesteShapeView2: UIView {
-    
-    init() {
-        super.init(frame: .init(x: 0, y: 0, width: 315, height: 614))
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    override func layoutSubviews() {
-        
-        
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.black.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        
-        shapeLayer.lineWidth = 2
-//        shapeLayer.lineDashPattern = [10,5,5,5]
-        shapeLayer.lineDashPattern = [0.01, 8]
-        shapeLayer.lineCap = CAShapeLayerLineCap.round
 
-             
-        let path = CGMutablePath()
-//        path.addLines(between: [CGPoint(x: 30, y: 100),
-        path.addPath(UIBezierPath(emotionShapeIn: .init(x: 0, y: 0, width: 315, height: 614)).cgPath)
-        shapeLayer.path = path
-        shapeLayer.frame = self.frame/*.init(origin: .init(x: self.b, y: 300), size: .init(width: 300, height: 300))*/
-        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
-        lineDashAnimation.fromValue = 0
-        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue }
-        lineDashAnimation.duration = 1
-        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-
-        shapeLayer.frame = frame
-
-        let lineAppearAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeStart))
-        lineAppearAnimation.fromValue = 0
-        lineAppearAnimation.toValue = 1
-        lineAppearAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
-        lineAppearAnimation.duration = 15
-        lineAppearAnimation.repeatCount = 0
-        shapeLayer.add(lineAppearAnimation, forKey: nil)
-        shapeLayer.anchorPoint = .init(x: 0.15, y: 0.5)
-        let replicated = cubeTopFace(inputLayer: shapeLayer, numberOfLayers: 30)
-        self.layer.addSublayer(replicated)
-    }
-    
-    func cubeTopFace(inputLayer: CAShapeLayer,numberOfLayers: Int) -> CAReplicatorLayer {
-        
-        
-        
-        
-        
-        let replicatorLayer = CAReplicatorLayer()
-        
-        
-        let numberOfInstances: Int = numberOfLayers
-        
-        replicatorLayer.instanceCount = numberOfInstances
-        
-        
-
-        
-        var transformThing = CATransform3DIdentity
-        transformThing = CATransform3DTranslate(transformThing, 315, 614/2, 1)
-                transformThing = CATransform3DScale(transformThing, 0.91, 0.91, 1)
-                transformThing = CATransform3DRotate(transformThing, -0.25 ,0, 0, 1)
-
-        transformThing = CATransform3DTranslate(transformThing, -315, -614/2, 1)
-        
-
-        
-        //CATransform3DMakeTranslation(614 * 0.5, 315 * 0.5, 0)
-//        transformThing = CATransform3DTranslate(transformThing, 614 * 0.5, 315 * 0.5, 0)
-//        transformThing = CATransform3DTranslate(transformThing, 614 * -0.5, 315 * -0.5, 0)
-        
-//        transformThing = CATransform3D
-        
-//        replicatorLayer.instanceTransform = transformThing
-        
-        
-        
-//        replicatorLayer.instanceTransform = CATransform3DMakeTranslation(21, 0.1, -0.1)
-//        replicatorLayer.instanceTransform = CATransform3DMakeRotation(0.1, 0, 0, 1)
-//        replicatorLayer.instanceTransform = .init(m11: <#T##CGFloat#>, m12: <#T##CGFloat#>, m13: <#T##CGFloat#>, m14: <#T##CGFloat#>, m21: <#T##CGFloat#>, m22: <#T##CGFloat#>, m23: <#T##CGFloat#>, m24: <#T##CGFloat#>, m31: <#T##CGFloat#>, m32: <#T##CGFloat#>, m33: <#T##CGFloat#>, m34: <#T##CGFloat#>, m41: <#T##CGFloat#>, m42: <#T##CGFloat#>, m43: <#T##CGFloat#>, m44: <#T##CGFloat#>)
-        
-//        replicatorLayer.anchorPoint = .zero
-        
-        replicatorLayer.instanceTransform = transformThing
-        replicatorLayer.instanceDelay = 0.2
-        replicatorLayer.addSublayer(inputLayer)
-        
-        return replicatorLayer
-        
-    }
-    
-    
-}
-
-class TesteShapeView1: UIView {
-    
-    override func layoutSubviews() {
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.black.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        
-        shapeLayer.lineWidth = 2
-//        shapeLayer.lineDashPattern = [10,5,5,5]
-        shapeLayer.lineDashPattern = [0.01, 8]
-        shapeLayer.lineCap = CAShapeLayerLineCap.round
-
-             
-        let path = CGMutablePath()
-//        path.addLines(between: [CGPoint(x: 30, y: 100),
-        path.addPath(UIBezierPath(emotionShapeIn: .init(x: 0, y: 0, width: 200, height: 300)).cgPath)
-        shapeLayer.path = path
-        shapeLayer.frame = self.frame/*.init(origin: .init(x: self.b, y: 300), size: .init(width: 300, height: 300))*/
-        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
-        lineDashAnimation.fromValue = 0
-        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue }
-        lineDashAnimation.duration = 1
-        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-             
-        
-        shapeLayer.add(lineDashAnimation, forKey: nil)
-        
-        let lineAppearAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeStart))
-        lineAppearAnimation.fromValue = 0
-        lineAppearAnimation.toValue = 1
-        lineAppearAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
-        lineAppearAnimation.duration = 15
-        lineAppearAnimation.repeatCount = 0
-//        shapeLayer.add(lineAppearAnimation, forKey: nil)
-
-        
-        self.layer.addSublayer(shapeLayer)
-    }
-    
-    
-}

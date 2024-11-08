@@ -9,7 +9,7 @@
 import UIKit
 import SwiftUI
 
-struct FinalShape2: Shape {
+struct SwiftUITestShape: Shape {
     
     func getDefaultPath(in rect: CGRect) -> Path {
         var path = Path()
