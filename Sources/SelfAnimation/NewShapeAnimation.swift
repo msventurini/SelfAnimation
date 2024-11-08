@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct ContentView3: View {
+struct SwiftuiPrototype: View {
     
     @State var teste: Bool = false
     
