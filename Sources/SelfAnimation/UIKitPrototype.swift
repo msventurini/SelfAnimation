@@ -10,7 +10,7 @@ import SwiftUI
 
 public class CALayerTesting: UIViewController {
     
-    var selfShape: SelfShape = .surprise
+    var selfShape: SelfShape = .euphoria
     
     
     public init() {
@@ -25,7 +25,7 @@ public class CALayerTesting: UIViewController {
 
         super.viewDidLoad()
         
-        let uit = UIView(frame: .init(x: 0, y: 0, width: selfShape.frame.width, height: selfShape.frame.height))
+        let uit = UIView(frame: selfShape.frame)
                 let testeLayer = CALayer()
         
         uit.center = view.center
@@ -42,14 +42,14 @@ public class CALayerTesting: UIViewController {
         shapeLayer.lineCap = CAShapeLayerLineCap.round
              
         let path = CGMutablePath()
-        path.addPath(UIBezierPath(emotionShapeIn: testeLayer.frame).cgPath)
+        path.addPath(UIBezierPath(emotionShape: selfShape,in: testeLayer.frame).cgPath)
         shapeLayer.path = path
         shapeLayer.frame = uit.bounds
         
         shapeLayer.frame = uit.bounds
 
         testeLayer.addSublayer(shapeLayer)
-        let replicated = getReplicatorLayer(inputLayer: testeLayer, numberOfLayers: 30)
+        let replicated = getReplicatorLayer(inputLayer: testeLayer, numberOfLayers: selfShape.numberOfLayers)
 
         replicated.frame = testeLayer.bounds
         uit.layer.addSublayer(replicated)
@@ -91,10 +91,10 @@ public class CALayerTesting: UIViewController {
 
 extension UIBezierPath {
     
-    convenience init(emotionShapeIn rect: CGRect) {
+    convenience init(emotionShape: SelfShape,in rect: CGRect) {
 
     
-        let path = SelfShape.path(emotion: .surprise, rect: rect)
+        let path = SelfShape.path(emotion: emotionShape, rect: rect)
 
         self.init(cgPath: path)
         
