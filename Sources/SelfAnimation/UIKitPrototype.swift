@@ -114,15 +114,6 @@ public struct testeBolinhas: View {
     }
 }
 
-#Preview {
-    
-    
-    testeBolinhas()
-    
-    
-        
-        
-}
 
 extension UIBezierPath {
     
@@ -136,11 +127,15 @@ extension UIBezierPath {
     }
 }
 
+
+
+
+
 class SelfShapeView: UIView
 {
-    override var intrinsicContentSize: CGSize {
-        return UIView.layoutFittingCompressedSize
-    }
+//    override var intrinsicContentSize: CGSize {
+//        return .init(width: 300, height: 300)
+//    }
     
     let emotionShape: SelfShape
     var shapeLayer = CAShapeLayer()
@@ -153,21 +148,26 @@ class SelfShapeView: UIView
     
     init(emotion: SelfShape) {
         self.emotionShape = emotion
-        super.init(frame: .init(x: 0, y: 0, width: 10, height: 10))
+        super.init(frame: .init(x: 0, y: 0, width: 400, height: 400))
         setNeedsLayout()
         setup()
     }
     
     init(emotion: SelfShape, frame: CGRect) {
         self.emotionShape = emotion
-        super.init(frame: frame)
-        invalidateIntrinsicContentSize()
+        super.init(frame: .init(x: 0, y: 0, width: 400, height: 400))
+//        invalidateIntrinsicContentSize()
         setNeedsLayout()
         setup()
     }
     
+    
+    
     func setup() {
-        self.layer.backgroundColor = UIColor.red.cgColor
+        
+        
+        
+        
         
         shapeLayer.strokeColor = UIColor.black.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -187,6 +187,7 @@ class SelfShapeView: UIView
         
         replicatorLayer.bounds = self.layer.bounds
         
+        replicatorLayer.instanceDelay = -0.25
         
         replicatorLayer.instanceCount = 30
         let newTransform = emotionShape.transform
@@ -194,6 +195,73 @@ class SelfShapeView: UIView
 //        replicatorLayer.addSublayer(inputLayer)
 //        return replicatorLayer
         
+        
+        
+        
+        rotationAnimation()
+        
+    }
+    
+    func runAnimation() {
+        
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        
+        shapeLayer.opacity = 0
+        
+        CATransaction.commit()
+        
+        let opacityAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.opacity))
+        opacityAnimation.fromValue = 0
+        opacityAnimation.toValue = 1
+        opacityAnimation.duration = 5
+        opacityAnimation.fillMode = .forwards
+        opacityAnimation.isRemovedOnCompletion = false
+        opacityAnimation.speed = 1
+        
+        
+        shapeLayer.add(opacityAnimation, forKey: nil)
+        
+        
+        
+    }
+    
+    func createKeyframeAnimation() {
+        let animation = CAKeyframeAnimation(keyPath: "position")
+        
+        // Scale the view while animating
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 1.0
+        scaleAnimation.toValue = 0.5
+        scaleAnimation.duration = 2.0
+        
+        // Group both animations
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = [scaleAnimation]
+        groupAnimation.duration = 2.0
+        
+        // Apply the animations to the UIView
+        shapeLayer.add(groupAnimation, forKey: "positionAndScale")
+    }
+    
+    func transitionOutAnimation() {
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 2.0
+        animationGroup.repeatCount = 3
+        animationGroup.fillMode = .forwards
+
+        let rotateAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.opacity))
+        rotateAnimation.fromValue = 1.0
+        rotateAnimation.toValue = 0.0
+                                               
+        animationGroup.animations = [/*scaleAnimation*/ rotateAnimation]
+
+        shapeLayer.add(animationGroup, forKey: nil)
+    }
+    
+    
+    
+    func rotationAnimation() {
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
         lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + emotionShape.lineDashAnimationOffset.intValue }
@@ -203,64 +271,54 @@ class SelfShapeView: UIView
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
         
         shapeLayer.add(lineDashAnimation, forKey: nil)
-
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-//    override static var layerClass:AnyClass {
-//        return CAReplicatorLayer.self
-//    }
-//    
-//        return self.layer as! CAReplicatorLayer
-//    }
-
-//    override func display(_ layer: CALayer) {
-//        super.display(layer)
-//        print(layer.frame)
-//    }
     
-    override func layoutSublayers(of layer: CALayer) {
-        super.layoutSublayers(of: layer)
-//        print("layoutSubLayers")
-        
-//        let boundingBox = path.boundingBox
+    func transformLayers() {
+        let boundingBox = path.boundingBox
         
         
-//        let boundingBoxAspectRatio = boundingBox.width/boundingBox.height
-//        let viewAspectRatio = self.bounds.width/self.bounds.height
-//
-//        let xScaleFactor = self.bounds.width  / boundingBox.width
-//        let yScaleFactor = self.bounds.height / boundingBox.height
-//        
-//
-//        let scaleFactor: CGFloat
-//        if (boundingBoxAspectRatio > viewAspectRatio) {
-//            // Width is limiting factor
-//            scaleFactor = self.bounds.width/boundingBox.width
-//        } else {
-//            // Height is limiting factor
-//            scaleFactor = self.bounds.height/boundingBox.height
-//        }
-//        let scaleTransform = CATransform3DMakeScale(xScaleFactor, yScaleFactor, 1.0)
-//        let finalTransform = CATransform3DTranslate(scaleTransform, self.bounds.width/2, self.bounds.height/2, 0)
-//        
-//        replicatorLayer.frame = self.bounds
-//        shapeLayer.transform = scaleTransform
-//        
-//        
+        let boundingBoxAspectRatio = boundingBox.width/boundingBox.height
+        let viewAspectRatio = self.bounds.width/self.bounds.height
+
+        let xScaleFactor = self.bounds.width  / boundingBox.width
+        let yScaleFactor = self.bounds.height / boundingBox.height
+        
+
+        let scaleFactor: CGFloat
+        if (boundingBoxAspectRatio > viewAspectRatio) {
+            // Width is limiting factor
+            scaleFactor = self.bounds.width/boundingBox.width
+        } else {
+            // Height is limiting factor
+            scaleFactor = self.bounds.height/boundingBox.height
+        }
+        let scaleTransform = CATransform3DMakeScale(xScaleFactor, yScaleFactor, 1.0)
+        let finalTransform = CATransform3DTranslate(scaleTransform, self.bounds.width/2, self.bounds.height/2, 0)
+        
+        replicatorLayer.frame = self.bounds
+        shapeLayer.transform = scaleTransform
+        
+        
 //        var affineTransform = CGAffineTransformMakeScale(scaleFactor, scaleFactor)
 //        let transformedPath = path.copy(using: &affineTransform)
 //        shapeLayer.path = transformedPath
+        
+//        replicatorLayer.bounds = self.bounds
+//        replicatorLayer.position = self.center
+//        shapeLayer.bounds = replicatorLayer.bounds
+//        shapeLayer.position = self.center
+    }
+    
+    
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
 
-        
-        
-//        shapeLayer.frame = self.bounds
-//        shapeLayer.transform = CATransform3DMakeTranslation(-self.frame.width, -self.frame.height, 0)
-//        
-//        CGAffineTransform(translationX: -self.frame.width, y: -self.frame.height)
+
     }
     
     
@@ -268,72 +326,73 @@ class SelfShapeView: UIView
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        transformLayers()
     }
     
 
 }
 
 
-//class CircleView: UIView
-//{
-//
-//    let emotionShape: SelfShape
-//
-//    init(emotion: SelfShape) {
-//        self.emotionShape = emotion
-//        super.init(frame: .zero)
-//
-//        self.layer.delegate = self
-//
-//        setNeedsLayout()
-//
+class CircleView: UIView
+{
+
+    let emotionShape: SelfShape
+
+    init(emotion: SelfShape) {
+        self.emotionShape = emotion
+        super.init(frame: .zero)
+
+        self.layer.delegate = self
+
+        setNeedsLayout()
+
+    }
+
+    init(emotion: SelfShape, frame: CGRect) {
+        self.emotionShape = emotion
+        super.init(frame: frame)
+        setNeedsLayout()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    var color:UIColor = .black {
+        didSet { self.shapeLayer.fillColor = color.cgColor  }
+    }
+
+    var strokeColor:UIColor = .black {
+        didSet { self.shapeLayer.strokeColor = strokeColor.cgColor  }
+    }
+
+    override static var layerClass:AnyClass {
+        return CAShapeLayer.self
+    }
+
+    private var shapeLayer:CAShapeLayer {
+        return self.layer as! CAShapeLayer
+    }
+
+//    override func display(_ layer: CALayer) {
+//        super.display(layer)
+//        print(layer.frame)
 //    }
-//
-//    init(emotion: SelfShape, frame: CGRect) {
-//        self.emotionShape = emotion
-//        super.init(frame: frame)
-//        setNeedsLayout()
-//    }
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    var color:UIColor = .black {
-//        didSet { self.shapeLayer.fillColor = color.cgColor  }
-//    }
-//
-//    var strokeColor:UIColor = .black {
-//        didSet { self.shapeLayer.strokeColor = strokeColor.cgColor  }
-//    }
-//
-//    override static var layerClass:AnyClass {
-//        return CAShapeLayer.self
-//    }
-//
-//    private var shapeLayer:CAShapeLayer {
-//        return self.layer as! CAShapeLayer
-//    }
-//
-////    override func display(_ layer: CALayer) {
-////        super.display(layer)
-////        print(layer.frame)
-////    }
-//
-//    override func layoutSublayers(of layer: CALayer) {
-//        super.layoutSublayers(of: layer)
-//        print("a")
-//    }
-//
-//
-//
-//
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        self.shapeLayer.path = SelfShape.path(emotion: emotionShape, rect: self.bounds)
-//    }
-//
-//
-//}
+
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        print("a")
+    }
+
+
+
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.shapeLayer.path = SelfShape.path(emotion: emotionShape, rect: self.bounds)
+    }
+
+
+}
 
 
 enum SelfShape: Int, Identifiable, CaseIterable, Hashable {
@@ -498,5 +557,12 @@ enum SelfShape: Int, Identifiable, CaseIterable, Hashable {
         
         return path
     }
+    
+}
+
+#Preview {
+    
+    let vc = CALayerTesting()
+    return vc
     
 }
