@@ -56,7 +56,6 @@ public class CALayerTesting: UIViewController {
         
         testeLayer.addSublayer(shapeLayer)
         let replicated = getReplicatorLayer(inputLayer: testeLayer, numberOfLayers: 30)
-        replicated.drawsAsynchronously = isAsyncRendered
         replicated.frame = testeLayer.bounds
         uit.layer.addSublayer(replicated)
         view.addSubview(uit)
@@ -83,6 +82,8 @@ public class CALayerTesting: UIViewController {
         let newTransform = selfShape.transform
         replicatorLayer.instanceTransform = newTransform
         replicatorLayer.addSublayer(inputLayer)
+        replicatorLayer.drawsAsynchronously = isAsyncRendered
+
         return replicatorLayer
     }
 }
@@ -313,23 +314,46 @@ extension SelfShape {
 
 class testeRepVC: UIViewController {
     
-    
+    var selfShape: SelfShape = .bravery
+    var weight: ShapeWeight = .light
+
     
     override func viewDidLoad() {
-        let replicator = SelfReplicatorview(emotion: .bravery, frame: .init(x: 0, y: 0, width: 200, height: 200))
+        let replicator = SelfReplicatorview(emotion: selfShape, frame: .init(x: 0, y: 0, width: 250, height: 250))
         replicator.backgroundColor = .purple
         
         view.addSubview(replicator)
         
         replicator.center = view.center
+
+        let shapeLayer = CAShapeLayer()
         
-        let shape = SelfShapeView(emotion: .bravery, frame: .init(x: 0, y: 0, width: 200, height: 250))
-//        shape.backgroundColor = .purple
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
+        shapeLayer.lineDashPattern = [0, SelfShape.lineDashSpacing(for: weight)]
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
         
-        view.addSubview(replicator)
+        let path = CGMutablePath()
+        path.addPath(UIBezierPath(emotionShape: selfShape, in: replicator.bounds).cgPath)
+        shapeLayer.path = path
+        shapeLayer.frame = replicator.bounds
         
-//        view.addSubview(replicator)
-        view.addSubview(shape)
+        replicator.replicatorLayer.addSublayer(shapeLayer)
+        replicator.replicatorLayer.instanceCount = 30
+        let newTransform = selfShape.transform
+        replicator.replicatorLayer.instanceTransform = newTransform
+        replicator.replicatorLayer.drawsAsynchronously = true
+        
+        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
+        lineDashAnimation.fromValue = 0
+        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
+        lineDashAnimation.duration = 3
+        lineDashAnimation.fillMode = .removed
+        lineDashAnimation.speed = 1
+        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
+        
+        shapeLayer.add(lineDashAnimation, forKey: nil)
         
         
     }
@@ -366,7 +390,7 @@ class SelfReplicatorview: UIView
         return CAReplicatorLayer.self
     }
 
-    private var shapeLayer:CAReplicatorLayer {
+    var replicatorLayer:CAReplicatorLayer {
         return self.layer as! CAReplicatorLayer
     }
 
