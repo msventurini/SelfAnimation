@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import AVFoundation
 
 public class CALayerTesting: UIViewController {
     
@@ -312,6 +313,8 @@ extension SelfShape {
     }
 
 
+
+
 class testeRepVC: UIViewController {
     
     var selfShape: SelfShape = .bravery
@@ -333,11 +336,16 @@ class testeRepVC: UIViewController {
         shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
         shapeLayer.lineDashPattern = [0, SelfShape.lineDashSpacing(for: weight)]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
-        
+        shapeLayer.masksToBounds = false
         let path = CGMutablePath()
-        path.addPath(UIBezierPath(emotionShape: selfShape, in: replicator.bounds).cgPath)
+        
+        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)
+//        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: view.bounds)
+        
+        
+        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
         shapeLayer.path = path
-        shapeLayer.frame = replicator.bounds
+        shapeLayer.frame = newSize
         
         replicator.replicatorLayer.addSublayer(shapeLayer)
         replicator.replicatorLayer.instanceCount = 30
