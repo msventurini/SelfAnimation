@@ -314,6 +314,74 @@ extension SelfShape {
 
 
 
+class SelfShapeHomeView: UIView {
+    
+    var selfShape: SelfShape
+    var weight: ShapeWeight
+    
+    
+    override var intrinsicContentSize: CGSize {
+        return .init(width: 250, height: 250)
+    }
+    
+    
+    
+    init(selfShape: SelfShape, weight: ShapeWeight) {
+        
+        self.selfShape = selfShape
+        self.weight = weight
+        
+        super.init(frame: .zero)
+        
+        let replicator = SelfReplicatorview(emotion: selfShape, frame: .init(x: 0, y: 0, width: 250, height: 250))
+        
+        addSubview(replicator)
+        
+        replicator.center = .init(x: frame.maxX, y: frame.maxY)
+
+        let shapeLayer = CAShapeLayer()
+
+        
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
+        shapeLayer.lineDashPattern = [0, SelfShape.lineDashSpacing(for: weight)]
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
+        shapeLayer.masksToBounds = false
+        
+        
+        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds).offsetBy(dx: 125, dy: 125)
+
+//        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
+        shapeLayer.path = SelfShape.braveryShape(rect: newSize)
+        shapeLayer.frame = newSize
+        
+        replicator.replicatorLayer.addSublayer(shapeLayer)
+        
+        replicator.replicatorLayer.instanceCount = 30
+        let newTransform = selfShape.transform
+        replicator.replicatorLayer.instanceTransform = newTransform
+        replicator.replicatorLayer.drawsAsynchronously = true
+        
+        
+        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
+        lineDashAnimation.fromValue = 0
+        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
+        lineDashAnimation.duration = 3
+        lineDashAnimation.fillMode = .removed
+        lineDashAnimation.speed = 1
+        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
+        
+        shapeLayer.add(lineDashAnimation, forKey: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
 
 class testeRepVC: UIViewController {
     
@@ -346,6 +414,8 @@ class testeRepVC: UIViewController {
         path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
         shapeLayer.path = path
         shapeLayer.frame = newSize
+        
+        
         
         replicator.replicatorLayer.addSublayer(shapeLayer)
         replicator.replicatorLayer.instanceCount = 30
@@ -565,7 +635,8 @@ class SelfShapeViewHome: UIView
 
 #Preview {
 //    let testing = test(shape: .bravery, weight: .light, isAsyncRendered: true)
-    let test = testeRepVC()
+    let test = SelfShapeHomeView(selfShape: .bravery, weight: .dark)
+    test.backgroundColor = .blue
 //    test.posit
     return test
 //    ShapeDemoRepresentable(shape: .euphoria, weight: .light, isAsyncRendered: true)

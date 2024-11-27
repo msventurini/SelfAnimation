@@ -112,7 +112,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     
             newTransform = CATransform3DTranslate(
                 newTransform,
-                0, 0, 0
+                125, 125, 0
             )
             
             
