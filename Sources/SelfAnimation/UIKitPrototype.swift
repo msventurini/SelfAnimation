@@ -12,8 +12,13 @@ public class CALayerTesting: UIViewController {
     
     var selfShape: SelfShape = .euphoria
     
+    let isAsyncRendered: Bool
     
-    public init() {
+    
+    
+    public init(isAsyncRendered: Bool) {
+        
+        self.isAsyncRendered = isAsyncRendered
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,7 +53,7 @@ public class CALayerTesting: UIViewController {
         
         testeLayer.addSublayer(shapeLayer)
         let replicated = getReplicatorLayer(inputLayer: testeLayer, numberOfLayers: 30)
-        
+        replicated.drawsAsynchronously = isAsyncRendered
         replicated.frame = testeLayer.bounds
         uit.layer.addSublayer(replicated)
         view.addSubview(uit)
@@ -165,7 +170,7 @@ class SelfShapeView: UIView
     
     func setup() {
         
-        
+ 
         
         
         
@@ -496,6 +501,8 @@ enum SelfShape: Int, Identifiable, CaseIterable, Hashable {
         let width = rect.size.width
         let height = rect.size.height
         switch emotion {
+            
+            
         case .surprise:
             path.move(to: CGPoint(x: 0.20358*width, y: 0.71124*height))
             path.addCurve(to: CGPoint(x: 0.40717*width, y: 0.35562*height), control1: CGPoint(x: 0.31602*width, y: 0.71124*height), control2: CGPoint(x: 0.40717*width, y: 0.55202*height))
@@ -559,10 +566,10 @@ enum SelfShape: Int, Identifiable, CaseIterable, Hashable {
     }
     
 }
-
-#Preview {
-    
-    let vc = CALayerTesting()
-    return vc
-    
-}
+//
+//#Preview {
+//    
+//    let vc = CALayerTesting()
+//    return vc
+//    
+//}
