@@ -189,7 +189,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             
         case .euphoria:
             
-            return SelfShape.surpriseShape(rect: rect)
+            return SelfShape.euphoriaShape(rect: rect)
     
         case .bravery:
             return SelfShape.braveryShape(rect: rect)

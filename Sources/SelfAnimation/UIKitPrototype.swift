@@ -63,8 +63,6 @@ public class CALayerTesting: UIViewController {
         
         replicated.drawsAsynchronously = true
         
-//        testeLayer.position = view.center
-        
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
         lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
@@ -162,39 +160,44 @@ extension SelfShape {
         let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
+        
         path.move(to: CGPoint(x: 0.52928*width, y: 0.20446*height))
-        path.addLine(to: CGPoint(x: 0.65981*width, y: 0.01936*height))
-        path.addCurve(to: CGPoint(x: 0.72525*width, y: 0.04651*height), control1: CGPoint(x: 0.68213*width, y: -0.01231*height), control2: CGPoint(x: 0.73182*width, y: 0.00831*height))
-        path.addLine(to: CGPoint(x: 0.68685*width, y: 0.26984*height))
-        path.addCurve(to: CGPoint(x: 0.7288*width, y: 0.31185*height), control1: CGPoint(x: 0.68258*width, y: 0.29459*height), control2: CGPoint(x: 0.70408*width, y: 0.31612*height))
-        path.addLine(to: CGPoint(x: 0.9518*width, y: 0.27338*height))
-        path.addCurve(to: CGPoint(x: 0.97891*width, y: 0.33893*height), control1: CGPoint(x: 0.98994*width, y: 0.2668*height), control2: CGPoint(x: 1.01053*width, y: 0.31657*height))
-        path.addLine(to: CGPoint(x: 0.79407*width, y: 0.46965*height))
-        path.addCurve(to: CGPoint(x: 0.79407*width, y: 0.52906*height), control1: CGPoint(x: 0.77358*width, y: 0.48414*height), control2: CGPoint(x: 0.77358*width, y: 0.51457*height))
-        path.addLine(to: CGPoint(x: 0.97891*width, y: 0.65978*height))
-        path.addCurve(to: CGPoint(x: 0.9518*width, y: 0.72532*height), control1: CGPoint(x: 1.01053*width, y: 0.68213*height), control2: CGPoint(x: 0.98994*width, y: 0.7319*height))
-        path.addLine(to: CGPoint(x: 0.7288*width, y: 0.68686*height))
-        path.addCurve(to: CGPoint(x: 0.68685*width, y: 0.72886*height), control1: CGPoint(x: 0.70408*width, y: 0.68259*height), control2: CGPoint(x: 0.68258*width, y: 0.70411*height))
-        path.addLine(to: CGPoint(x: 0.72525*width, y: 0.95219*height))
-        path.addCurve(to: CGPoint(x: 0.65981*width, y: 0.97934*height), control1: CGPoint(x: 0.73182*width, y: 0.99038*height), control2: CGPoint(x: 0.68213*width, y: 1.011*height))
-        path.addLine(to: CGPoint(x: 0.52928*width, y: 0.79423*height))
-        path.addCurve(to: CGPoint(x: 0.46995*width, y: 0.79423*height), control1: CGPoint(x: 0.51481*width, y: 0.77372*height), control2: CGPoint(x: 0.48442*width, y: 0.77372*height))
-        path.addLine(to: CGPoint(x: 0.33942*width, y: 0.97934*height))
-        path.addCurve(to: CGPoint(x: 0.27397*width, y: 0.95219*height), control1: CGPoint(x: 0.3171*width, y: 1.011*height), control2: CGPoint(x: 0.2674*width, y: 0.99038*height))
-        path.addLine(to: CGPoint(x: 0.31238*width, y: 0.72886*height))
-        path.addCurve(to: CGPoint(x: 0.27044*width, y: 0.68686*height), control1: CGPoint(x: 0.31665*width, y: 0.70411*height), control2: CGPoint(x: 0.29515*width, y: 0.68259*height))
-        path.addLine(to: CGPoint(x: 0.04743*width, y: 0.72532*height))
-        path.addCurve(to: CGPoint(x: 0.02032*width, y: 0.65978*height), control1: CGPoint(x: 0.00929*width, y: 0.7319*height), control2: CGPoint(x: -0.0113*width, y: 0.68213*height))
-        path.addLine(to: CGPoint(x: 0.20515*width, y: 0.52906*height))
-        path.addCurve(to: CGPoint(x: 0.20515*width, y: 0.46965*height), control1: CGPoint(x: 0.22565*width, y: 0.51457*height), control2: CGPoint(x: 0.22565*width, y: 0.48414*height))
-        path.addLine(to: CGPoint(x: 0.02032*width, y: 0.33893*height))
-        path.addCurve(to: CGPoint(x: 0.04743*width, y: 0.27338*height), control1: CGPoint(x: -0.0113*width, y: 0.31657*height), control2: CGPoint(x: 0.00929*width, y: 0.2668*height))
-        path.addLine(to: CGPoint(x: 0.27044*width, y: 0.31185*height))
-        path.addCurve(to: CGPoint(x: 0.31238*width, y: 0.26984*height), control1: CGPoint(x: 0.29515*width, y: 0.31612*height), control2: CGPoint(x: 0.31665*width, y: 0.29459*height))
-        path.addLine(to: CGPoint(x: 0.27397*width, y: 0.04651*height))
-        path.addCurve(to: CGPoint(x: 0.33942*width, y: 0.01936*height), control1: CGPoint(x: 0.2674*width, y: 0.00831*height), control2: CGPoint(x: 0.3171*width, y: -0.01231*height))
-        path.addLine(to: CGPoint(x: 0.46995*width, y: 0.20446*height))
-        path.addCurve(to: CGPoint(x: 0.52928*width, y: 0.20446*height), control1: CGPoint(x: 0.48442*width, y: 0.22499*height), control2: CGPoint(x: 0.51481*width, y: 0.22499*height))
+                    path.addLine(to: CGPoint(x: 0.65981*width, y: 0.01936*height))
+                    path.addCurve(to: CGPoint(x: 0.72525*width, y: 0.04651*height), control1: CGPoint(x: 0.68213*width, y: -0.01231*height), control2: CGPoint(x: 0.73182*width, y: 0.00831*height))
+                    path.addLine(to: CGPoint(x: 0.68685*width, y: 0.26984*height))
+                    path.addCurve(to: CGPoint(x: 0.7288*width, y: 0.31185*height), control1: CGPoint(x: 0.68258*width, y: 0.29459*height), control2: CGPoint(x: 0.70408*width, y: 0.31612*height))
+                    path.addLine(to: CGPoint(x: 0.9518*width, y: 0.27338*height))
+                    path.addCurve(to: CGPoint(x: 0.97891*width, y: 0.33893*height), control1: CGPoint(x: 0.98994*width, y: 0.2668*height), control2: CGPoint(x: 1.01053*width, y: 0.31657*height))
+                    path.addLine(to: CGPoint(x: 0.79407*width, y: 0.46965*height))
+                    path.addCurve(to: CGPoint(x: 0.79407*width, y: 0.52906*height), control1: CGPoint(x: 0.77358*width, y: 0.48414*height), control2: CGPoint(x: 0.77358*width, y: 0.51457*height))
+                    path.addLine(to: CGPoint(x: 0.97891*width, y: 0.65978*height))
+                    path.addCurve(to: CGPoint(x: 0.9518*width, y: 0.72532*height), control1: CGPoint(x: 1.01053*width, y: 0.68213*height), control2: CGPoint(x: 0.98994*width, y: 0.7319*height))
+                    path.addLine(to: CGPoint(x: 0.7288*width, y: 0.68686*height))
+                    path.addCurve(to: CGPoint(x: 0.68685*width, y: 0.72886*height), control1: CGPoint(x: 0.70408*width, y: 0.68259*height), control2: CGPoint(x: 0.68258*width, y: 0.70411*height))
+                    path.addLine(to: CGPoint(x: 0.72525*width, y: 0.95219*height))
+                    path.addCurve(to: CGPoint(x: 0.65981*width, y: 0.97934*height), control1: CGPoint(x: 0.73182*width, y: 0.99038*height), control2: CGPoint(x: 0.68213*width, y: 1.011*height))
+                    path.addLine(to: CGPoint(x: 0.52928*width, y: 0.79423*height))
+                    path.addCurve(to: CGPoint(x: 0.46995*width, y: 0.79423*height), control1: CGPoint(x: 0.51481*width, y: 0.77372*height), control2: CGPoint(x: 0.48442*width, y: 0.77372*height))
+                    path.addLine(to: CGPoint(x: 0.33942*width, y: 0.97934*height))
+                    path.addCurve(to: CGPoint(x: 0.27397*width, y: 0.95219*height), control1: CGPoint(x: 0.3171*width, y: 1.011*height), control2: CGPoint(x: 0.2674*width, y: 0.99038*height))
+                    path.addLine(to: CGPoint(x: 0.31238*width, y: 0.72886*height))
+                    path.addCurve(to: CGPoint(x: 0.27044*width, y: 0.68686*height), control1: CGPoint(x: 0.31665*width, y: 0.70411*height), control2: CGPoint(x: 0.29515*width, y: 0.68259*height))
+                    path.addLine(to: CGPoint(x: 0.04743*width, y: 0.72532*height))
+                    path.addCurve(to: CGPoint(x: 0.02032*width, y: 0.65978*height), control1: CGPoint(x: 0.00929*width, y: 0.7319*height), control2: CGPoint(x: -0.0113*width, y: 0.68213*height))
+                    path.addLine(to: CGPoint(x: 0.20515*width, y: 0.52906*height))
+                    path.addCurve(to: CGPoint(x: 0.20515*width, y: 0.46965*height), control1: CGPoint(x: 0.22565*width, y: 0.51457*height), control2: CGPoint(x: 0.22565*width, y: 0.48414*height))
+                    path.addLine(to: CGPoint(x: 0.02032*width, y: 0.33893*height))
+                    path.addCurve(to: CGPoint(x: 0.04743*width, y: 0.27338*height), control1: CGPoint(x: -0.0113*width, y: 0.31657*height), control2: CGPoint(x: 0.00929*width, y: 0.2668*height))
+                    path.addLine(to: CGPoint(x: 0.27044*width, y: 0.31185*height))
+                    path.addCurve(to: CGPoint(x: 0.31238*width, y: 0.26984*height), control1: CGPoint(x: 0.29515*width, y: 0.31612*height), control2: CGPoint(x: 0.31665*width, y: 0.29459*height))
+                    path.addLine(to: CGPoint(x: 0.27397*width, y: 0.04651*height))
+                    path.addCurve(to: CGPoint(x: 0.33942*width, y: 0.01936*height), control1: CGPoint(x: 0.2674*width, y: 0.00831*height), control2: CGPoint(x: 0.3171*width, y: -0.01231*height))
+                    path.addLine(to: CGPoint(x: 0.46995*width, y: 0.20446*height))
+                    path.addCurve(to: CGPoint(x: 0.52928*width, y: 0.20446*height), control1: CGPoint(x: 0.48442*width, y: 0.22499*height), control2: CGPoint(x: 0.51481*width, y: 0.22499*height))
+                    path.closeSubpath()
+        
+        
         path.closeSubpath()
         return path
         
@@ -307,9 +310,238 @@ extension SelfShape {
     
     }
 
+
+class testeRepVC: UIViewController {
+    
+    
+    
+    override func viewDidLoad() {
+        let replicator = SelfReplicatorview(emotion: .bravery, frame: .init(x: 0, y: 0, width: 200, height: 200))
+        replicator.backgroundColor = .purple
+        
+        view.addSubview(replicator)
+        
+        replicator.center = view.center
+        
+        let shape = SelfShapeView(emotion: .bravery, frame: .init(x: 0, y: 0, width: 200, height: 250))
+//        shape.backgroundColor = .purple
+        
+        view.addSubview(replicator)
+        
+//        view.addSubview(replicator)
+        view.addSubview(shape)
+        
+        
+    }
+    
+}
+
+class SelfReplicatorview: UIView
+{
+    
+    override var intrinsicContentSize: CGSize {
+        return .init(width: 250, height: 250)
+    }
+
+    init(emotion: SelfShape) {
+        
+        super.init(frame: .zero)
+
+        self.layer.delegate = self
+
+        setNeedsLayout()
+
+    }
+
+    init(emotion: SelfShape, frame: CGRect) {
+        
+        super.init(frame: frame)
+        setNeedsLayout()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override static var layerClass:AnyClass {
+        return CAReplicatorLayer.self
+    }
+
+    private var shapeLayer:CAReplicatorLayer {
+        return self.layer as! CAReplicatorLayer
+    }
+
+
+
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        print("a")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        
+        
+        
+    }
+
+
+}
+
+enum KindOfSuperview {
+    case homeScreen
+    case emotionSelection
+    
+    
+    
+    
+}
+
+
+class SelfShapeView: UIView
+{
+    
+    override var intrinsicContentSize: CGSize {
+        return .init(width: 250, height: 250)
+    }
+   
+    let emotionShape: SelfShape
+    
+
+    init(emotion: SelfShape) {
+        self.emotionShape = emotion
+        super.init(frame: .zero)
+
+        self.layer.delegate = self
+
+        setNeedsLayout()
+
+    }
+
+    init(emotion: SelfShape, frame: CGRect) {
+        self.emotionShape = emotion
+        super.init(frame: frame)
+        
+        
+        
+        setNeedsLayout()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    var color:UIColor = .black {
+        didSet { self.shapeLayer.fillColor = color.cgColor  }
+    }
+
+    var strokeColor:UIColor = .black {
+        didSet { self.shapeLayer.strokeColor = strokeColor.cgColor  }
+    }
+
+    override static var layerClass:AnyClass {
+        return CAShapeLayer.self
+    }
+
+    private var shapeLayer:CAShapeLayer {
+        return self.layer as! CAShapeLayer
+    }
+
+    override func display(_ layer: CALayer) {
+        super.display(layer)
+        print(layer.frame)
+    }
+
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        print("a")
+    }
+
+
+
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.shapeLayer.path = SelfShape.path(emotion: emotionShape, rect: self.bounds)
+    }
+
+
+}
+
+
+class SelfShapeViewHome: UIView
+{
+   
+    override var intrinsicContentSize: CGSize {
+        return .init(width: 250, height: 250)
+    }
+    
+    let emotionShape: SelfShape
+//    let kindOfSuperview: KindOfSuperview
+
+    init(emotion: SelfShape) {
+        self.emotionShape = emotion
+        super.init(frame: .zero)
+
+        self.layer.delegate = self
+
+        setNeedsLayout()
+
+    }
+
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    var color:UIColor = .black {
+        didSet { self.shapeLayer.fillColor = color.cgColor  }
+    }
+
+    var strokeColor:UIColor = .black {
+        didSet { self.shapeLayer.strokeColor = strokeColor.cgColor  }
+    }
+
+    override static var layerClass:AnyClass {
+        return CAShapeLayer.self
+    }
+
+    private var shapeLayer:CAShapeLayer {
+        return self.layer as! CAShapeLayer
+    }
+
+    override func display(_ layer: CALayer) {
+        super.display(layer)
+        print(layer.frame)
+    }
+
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        print("a")
+    }
+
+
+
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.shapeLayer.path = SelfShape.path(emotion: emotionShape, rect: self.bounds)
+    }
+
+
+}
+
+
 #Preview {
-//    let testing = CALayerTesting(shape: .bravery, weight: .light, isAsyncRendered: true)
-//    return testing
-    ShapeDemoRepresentable(shape: .euphoria, weight: .light, isAsyncRendered: true)
+//    let testing = test(shape: .bravery, weight: .light, isAsyncRendered: true)
+    let test = testeRepVC()
+//    test.posit
+    return test
+//    ShapeDemoRepresentable(shape: .euphoria, weight: .light, isAsyncRendered: true)
+    
+//    let vi = SelfShapeViewHome(emotion: .bravery)
+//    vi.translatesAutoresizingMaskIntoConstraints = false
+//    vi.frame = .init(x: 0, y: 0, width: 200, height: 200)
+//    return vi
+//    
 
 }
