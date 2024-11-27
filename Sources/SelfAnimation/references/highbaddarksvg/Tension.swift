@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct Tension: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+struct Tension: EmotionShapePath {
+    
+    static func cgPath(in rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+        
         path.move(to: CGPoint(x: 0.59778*width, y: 0.59754*height))
         path.addLine(to: CGPoint(x: 0.62444*width, y: 0.57303*height))
         path.addCurve(to: CGPoint(x: 0.62439*width, y: 0.57164*height), control1: CGPoint(x: 0.62486*width, y: 0.57265*height), control2: CGPoint(x: 0.62484*width, y: 0.572*height))
@@ -653,5 +655,5 @@ struct Tension: Shape {
 }
 
 #Preview {
-    Tension()
+    
 }
