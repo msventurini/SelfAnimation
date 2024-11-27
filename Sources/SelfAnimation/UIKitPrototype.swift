@@ -63,6 +63,8 @@ public class CALayerTesting: UIViewController {
         
         replicated.drawsAsynchronously = true
         
+        testeLayer.position = view.center
+        
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
         lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
@@ -326,3 +328,7 @@ extension SelfShape {
     
     }
 
+#Preview {
+    let testing = CALayerTesting(shape: .euphoria, weight: .dark, isAsyncRendered: true)
+    return testing
+}
