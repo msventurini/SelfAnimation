@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "disgust.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
