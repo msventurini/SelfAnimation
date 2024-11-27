@@ -9,7 +9,7 @@ import UIKit
 
 public class CALayerTesting: UIViewController {
     
-    var selfShape: EmotionShapeAttributes = BraveryAttributes()
+    var selfShape: EmotionShapeAttributes = BraveryAttributes(weightType: .Light, currentFrame: .init(x: 0, y: 0, width: 636, height: 906))
     
     let isAsyncRendered: Bool
     
@@ -42,7 +42,7 @@ public class CALayerTesting: UIViewController {
         shapeLayer.fillColor = UIColor.clear.cgColor
         
         shapeLayer.lineWidth = selfShape.lineWidth
-        shapeLayer.lineDashPattern = [0.01, selfShape.lineDashSpacing]
+        shapeLayer.lineDashPattern = [0.0, selfShape.ogLineDashSpacing]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         
         let path = CGMutablePath()
@@ -59,8 +59,8 @@ public class CALayerTesting: UIViewController {
         
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
-        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
-        lineDashAnimation.duration = 5
+        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.ogLineDashSpacing.intValue }
+        lineDashAnimation.duration = 2
         lineDashAnimation.fillMode = .removed
         lineDashAnimation.speed = 1
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
@@ -75,6 +75,9 @@ public class CALayerTesting: UIViewController {
         let numberOfInstances: Int = numberOfLayers
         replicatorLayer.instanceCount = numberOfInstances
         let newTransform = selfShape.transform
+        
+        replicatorLayer.sublayerTransform = selfShape.transform
+        
         replicatorLayer.instanceTransform = newTransform
         replicatorLayer.addSublayer(inputLayer)
         return replicatorLayer
@@ -85,10 +88,10 @@ public class CALayerTesting: UIViewController {
 
 extension UIBezierPath {
     
-    convenience init(emotionShape: SelfShape,in rect: CGRect) {
+    convenience init(emotionShape: EmotionShapeAttributes, in rect: CGRect) {
         
         
-        let path = SelfShape.path(emotion: emotionShape, rect: rect)
+        let path = emotionShape.getPath(in: rect, for: emotionShape.weightType)
         
         self.init(cgPath: path)
         
@@ -99,6 +102,6 @@ extension UIBezierPath {
 
 
 #Preview {
-    let test = CALayerTesting()
+    let test = CALayerTesting(isAsyncRendered: true)
     return test
 }

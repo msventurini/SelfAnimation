@@ -9,7 +9,7 @@
 import SwiftUI
 import UIKit
 
-public enum EmotionType: String {
+public enum EmotionWeight: String {
     
     case Light = "Light"
     case Dark = "Dark"

@@ -7,8 +7,16 @@
 
 
 import UIKit
+import SwiftUI
+import AVFoundation
 
 class BraveryAttributes: EmotionShapeAttributes {
+    
+    
+    
+    
+    
+    var weightType: EmotionWeight
     
     var ogFrame: CGRect
     
@@ -26,9 +34,58 @@ class BraveryAttributes: EmotionShapeAttributes {
     
     var transform: CATransform3D
     
+    init(weightType: EmotionWeight, currentFrame: CGRect) {
+        
+        self.weightType = weightType
+        
+        self.ogFrame = .init(x: 0, y: 0, width: 636, height: 903)
+        
+        
+        switch weightType {
+        case .Light:
+            self.ogLineWidth = 7.5
+        case .Dark:
+            self.ogLineWidth = 11.25
+        }
+        
+        self.ogLineDashSpacing = 37.5  as NSNumber
+        
+        self.frame = AVMakeRect(aspectRatio: ogFrame.size, insideRect: currentFrame)
+
+        let proportion = frame.width / ogFrame.width
+        
+//        newTransform  CATransform3D
+    
+            transform = CATransform3DMakeRotation(
+                Angle(degrees: 5).radians,
+                0, 0, 1
+            )
+    
+        transform = CATransform3DScale(
+            transform,
+                0.91, 0.91, 0
+    
+            )
+    
+        transform = CATransform3DTranslate(
+            transform,
+                0, 0, 0
+            )
+        
+        
+        
+        self.lineDashSpacing = (CGFloat(ogLineDashSpacing) * proportion as NSNumber)
+        
+        self.lineDashAnimationOffset = ogLineDashSpacing.doubleValue + ogLineWidth as NSNumber
+        
+        self.lineWidth = ogLineWidth * (proportion)
+        
+
+    }
     
     
-    static func getPath(in rect: CGRect, for emotionWeight: EmotionType) -> CGPath {
+    
+    func getPath(in rect: CGRect, for emotionWeight: EmotionWeight) -> CGPath {
         var path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
@@ -103,4 +160,9 @@ class BraveryAttributes: EmotionShapeAttributes {
     
     
     
+}
+
+#Preview {
+    let test = CALayerTesting(isAsyncRendered: true)
+    return test
 }

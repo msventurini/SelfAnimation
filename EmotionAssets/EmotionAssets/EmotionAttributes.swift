@@ -115,7 +115,7 @@ public enum EmotionAttributes: Int, Identifiable, CaseIterable, Hashable {
         }
     }
     
-    public func image(emotionType: EmotionType) -> Image {
+    public func image(emotionType: EmotionShapeAttributes) -> Image {
         
         guard let bundle = Bundle(identifier: "com.msventurini.EmotionAssets") else {
             fatalError()

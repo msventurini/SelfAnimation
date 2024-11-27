@@ -9,13 +9,13 @@ import UIKit
 
 public protocol EmotionShapeAttributes {
     
+    var weightType: EmotionWeight { get set }
+    
     var ogFrame: CGRect { get set }
     
-    var ogLineDashSpacing: NSNumber  { get set } //oggap antes
+    var ogLineDashSpacing: NSNumber  { get set }
     
     var ogLineWidth: CGFloat { get set }
-    
-    
     
     var frame: CGRect { get set }
     
@@ -23,10 +23,9 @@ public protocol EmotionShapeAttributes {
     
     var lineWidth: CGFloat { get set }
 
-
     var lineDashAnimationOffset: NSNumber { get set }
     
     var transform: CATransform3D { get set }
     
-    func getPath(in rect: CGRect) -> CGPath
+    func getPath(in rect: CGRect, for emotionWeight: EmotionWeight) -> CGPath
 }
