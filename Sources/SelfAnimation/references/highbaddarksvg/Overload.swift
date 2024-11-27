@@ -41,3 +41,7 @@ struct Overload: Shape {
         return path
     }
 }
+
+#Preview {
+    Overload()
+}

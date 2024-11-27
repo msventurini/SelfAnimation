@@ -29,3 +29,7 @@ struct Panic: Shape {
         return path
     }
 }
+
+#Preview {
+    Panic()
+}

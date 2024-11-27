@@ -651,3 +651,7 @@ struct Tension: Shape {
         return path
     }
 }
+
+#Preview {
+    Tension()
+}

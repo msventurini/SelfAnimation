@@ -288,3 +288,7 @@ struct Stress: Shape {
         return path
     }
 }
+
+#Preview {
+    Stress()
+}

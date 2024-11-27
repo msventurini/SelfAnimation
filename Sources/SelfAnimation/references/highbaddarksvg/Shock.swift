@@ -36,3 +36,7 @@ struct Shock: Shape {
         return path
     }
 }
+
+#Preview {
+    Shock()
+}
