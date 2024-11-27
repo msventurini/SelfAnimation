@@ -120,28 +120,6 @@ public struct testeBolinhas: View {
 }
 
 
-extension UIBezierPath {
-    
-    convenience init(emotionShape: SelfShape,in rect: CGRect) {
-        
-        
-        let path = SelfShape.path(emotion: emotionShape, rect: rect)
-        
-        self.init(cgPath: path)
-        
-    }
-    
-    convenience init(emotionShape2: SelfShape2,in rect: CGRect) {
-        
-        
-        let path = SelfShape2.path(emotion: emotionShape2, rect: rect)
-        
-        self.init(cgPath: path)
-        
-    }
-}
-
-
 
 
 

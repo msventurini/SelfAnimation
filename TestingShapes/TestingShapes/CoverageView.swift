@@ -49,9 +49,41 @@ struct CoverageListRowView: View {
                 .controlSize(.large)
                 .zIndex(2)
             
+            
+            VStack {
+                Text("Light Mode")
+                if item.lightShapeAttributes != nil {
+                    Image(systemName: "checkmark.circle.fill")
+                        .renderingMode(.template)
+                        .symbolRenderingMode(.multicolor)
+                        
+                } else {
+                    Image(systemName: "xmark.circle.fill")
+                        .renderingMode(.template)
+                        .symbolRenderingMode(.multicolor)
+                }
+            }
+            VStack {
+                
+                Text("Dark Mode")
+                if item.darkShapeAttributes != nil {
+                    Image(systemName: "checkmark.circle.fill")
+                        .renderingMode(.template)
+                        .symbolRenderingMode(.multicolor)
+                } else {
+                    Image(systemName: "xmark.circle.fill")
+                        .renderingMode(.template)
+                        .symbolRenderingMode(.multicolor)
+                }
+            }
         }
+        .padding()
+        
+        
+        .background(.ultraThickMaterial.blendMode(.colorDodge))
+        .clipShape(.buttonBorder, style: .init())
         .ignoresSafeArea()
-        .background((item.image(emotionType: .Dark)))
+        .background((item.image(emotionType: .Light)))
         
         .frame(maxWidth: .infinity, idealHeight: 220, maxHeight: 220)
         

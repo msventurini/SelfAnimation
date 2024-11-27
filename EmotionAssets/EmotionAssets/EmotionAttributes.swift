@@ -19,12 +19,7 @@ import UIKit
 
 
 
-public enum EmotionType: String {
-    
-    case Light = "Light"
-    case Dark = "Dark"
-    
-}
+
 
 public enum EmotionAttributes: Int, Identifiable, CaseIterable, Hashable {
     
@@ -59,8 +54,14 @@ public enum EmotionAttributes: Int, Identifiable, CaseIterable, Hashable {
     
     public static var good: [EmotionAttributes] = [.bravery, .fullfilment, .interest, .curiosity, .fun, .joy, .determination, .happiness, .pleasure, .euphoria, .inspiration, .surprise]
     
-    
     public static var bad: [EmotionAttributes] = [.anger, .disgust, .frustration, .shock, .anxiety, .envy, .overload, .stress, .confusion, .fear, .panic, .tension]
+    
+    public var lightShapeAttributes: EmotionShapeAttributes? {
+        return nil
+    }
+    public var darkShapeAttributes: EmotionShapeAttributes? {
+        return nil
+    }
     
     public var isGood: Bool {
         if EmotionAttributes.good.contains(self) {
