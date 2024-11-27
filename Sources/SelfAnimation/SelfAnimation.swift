@@ -6,8 +6,13 @@
 import SwiftUI
 
 
-struct CoverageView: View {
-    var body: some View {
+public struct CoverageView: View {
+    
+    public init() {
+        
+    }
+    
+    public var body: some View {
         
         NavigationStack {
             ScrollView {
@@ -24,10 +29,7 @@ struct CoverageView: View {
    
                 }
             }
-            
-            
-            
-            //        .listStyle(.plain)
+
             .ignoresSafeArea(.keyboard)
         }
     }

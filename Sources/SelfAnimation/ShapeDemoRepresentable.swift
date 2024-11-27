@@ -11,12 +11,10 @@ import SwiftUI
 struct ShapeDemoRepresentable: UIViewControllerRepresentable {
     typealias UIViewControllerType = CALayerTesting
     
-    var selfShape: SelfShape
-    var weight: ShapeWeight
+    public var selfShape: SelfShape
+    public var weight: ShapeWeight
     
     let isAsyncRendered: Bool
-    
-    
     
     public init(shape: SelfShape, weight: ShapeWeight = .light,isAsyncRendered: Bool) {
         
@@ -25,14 +23,13 @@ struct ShapeDemoRepresentable: UIViewControllerRepresentable {
         self.isAsyncRendered = isAsyncRendered
     }
     
-    
-    func makeUIViewController(context: Context) -> CALayerTesting {
+    public func makeUIViewController(context: Context) -> CALayerTesting {
         let vc = CALayerTesting(shape: selfShape, weight: weight, isAsyncRendered: true)
         
         return vc
     }
     
-    func updateUIViewController(_ uiViewController: CALayerTesting, context: Context) {
+    public func updateUIViewController(_ uiViewController: CALayerTesting, context: Context) {
         
     }
     

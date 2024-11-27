@@ -63,7 +63,7 @@ public class CALayerTesting: UIViewController {
         
         replicated.drawsAsynchronously = true
         
-        testeLayer.position = view.center
+//        testeLayer.position = view.center
         
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
@@ -107,27 +107,6 @@ extension UIBezierPath {
 
 
 
-
-
-
-
-
-
-
-//
-//#Preview {
-//    
-//    let vc = CALayerTesting(isAsyncRendered: true)
-//    return vc
-//    
-//}
-
-//
-//  SelfShape 2.swift
-//  SelfAnimation
-//
-//  Created by Matheus Silveira Venturini on 27/11/24.
-//
 
 
 import UIKit
@@ -329,6 +308,8 @@ extension SelfShape {
     }
 
 #Preview {
-    let testing = CALayerTesting(shape: .euphoria, weight: .dark, isAsyncRendered: true)
-    return testing
+//    let testing = CALayerTesting(shape: .bravery, weight: .light, isAsyncRendered: true)
+//    return testing
+    ShapeDemoRepresentable(shape: .euphoria, weight: .light, isAsyncRendered: true)
+
 }
