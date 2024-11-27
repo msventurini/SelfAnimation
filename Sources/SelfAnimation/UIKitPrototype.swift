@@ -316,15 +316,12 @@ extension SelfShape {
 
 class SelfShapeHomeView: UIView {
     
-    var selfShape: SelfShape
-    var weight: ShapeWeight
-    
-    
     override var intrinsicContentSize: CGSize {
         return .init(width: 250, height: 250)
     }
     
-    
+    var selfShape: SelfShape
+    var weight: ShapeWeight
     
     init(selfShape: SelfShape, weight: ShapeWeight) {
         
@@ -350,7 +347,7 @@ class SelfShapeHomeView: UIView {
         shapeLayer.masksToBounds = false
         
         
-        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds).offsetBy(dx: 125, dy: 125)
+        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
 
 //        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
         shapeLayer.path = SelfShape.braveryShape(rect: newSize)
@@ -635,7 +632,7 @@ class SelfShapeViewHome: UIView
 
 #Preview {
 //    let testing = test(shape: .bravery, weight: .light, isAsyncRendered: true)
-    let test = SelfShapeHomeView(selfShape: .bravery, weight: .dark)
+    let test = SelfShapeHomeView(selfShape: .bravery, weight: .light)
     test.backgroundColor = .blue
 //    test.posit
     return test
