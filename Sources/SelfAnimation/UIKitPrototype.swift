@@ -10,7 +10,7 @@ import SwiftUI
 
 public class CALayerTesting: UIViewController {
     
-    var selfShape: SelfShape = .determination
+    var selfShape: SelfShape = .fullfillment
     var weight: ShapeWeight = .light
     
     let isAsyncRendered: Bool
@@ -30,8 +30,6 @@ public class CALayerTesting: UIViewController {
     public override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
         
         let uit = UIView(frame: selfShape.frame)
         let testeLayer = CALayer()
@@ -141,6 +139,7 @@ import SwiftUI
     case bravery = 2
     case curiosity = 3
     case determination = 4
+        case fullfillment = 5
     
     
     
@@ -156,7 +155,8 @@ import SwiftUI
                 .init(x: 0, y: 0, width: 752, height: 478)
         case .determination:
                 .init(x: 0, y: 0, width: 814, height: 668)
-            
+        case .fullfillment:
+                .init(x: 0, y: 0, width: 684, height: 696)
         }
     }
     
@@ -268,8 +268,22 @@ import SwiftUI
                 0, 0, 0
             )
             
-        
+        case .fullfillment:
             
+            newTransform = CATransform3DMakeTranslation(
+                40.72, 42.40, 0
+            )
+            
+            newTransform = CATransform3DScale(
+                newTransform,
+                0.91, 0.91, 0
+    
+            )
+            
+            newTransform = CATransform3DRotate(newTransform,
+                Angle(degrees: 132).radians,
+                0, 0, 1
+            )
         }
 
         return newTransform
@@ -299,6 +313,8 @@ import SwiftUI
             
         case .determination:
             return SelfShape.determinationShape(rect: rect)
+        case .fullfillment:
+            return fullfilmentShape(rect: rect)
         }
         
         
@@ -467,6 +483,38 @@ extension SelfShape {
         path.addLine(to: CGPoint(x: 0.45307*width, y: 0.28021*height))
         path.closeSubpath()
         return path
+    }
+    
+    static func fullfilmentShape(rect: CGRect) -> CGPath {
+        var path = CGMutablePath()
+        
+                let width = rect.size.width
+                let height = rect.size.height
+                path.move(to: CGPoint(x: 1.03903*width, y: 0.52785*height))
+                path.addCurve(to: CGPoint(x: 0.54377*width, y: 1.02302*height), control1: CGPoint(x: 1.03903*width, y: 0.80133*height), control2: CGPoint(x: 0.81729*width, y: 1.02302*height))
+                path.addCurve(to: CGPoint(x: 0.04853*width, y: 0.52785*height), control1: CGPoint(x: 0.27026*width, y: 1.02302*height), control2: CGPoint(x: 0.04853*width, y: 0.80133*height))
+                path.addCurve(to: CGPoint(x: 0.54377*width, y: 0.03268*height), control1: CGPoint(x: 0.04853*width, y: 0.25437*height), control2: CGPoint(x: 0.27026*width, y: 0.03268*height))
+                path.addCurve(to: CGPoint(x: 1.03903*width, y: 0.52785*height), control1: CGPoint(x: 0.81729*width, y: 0.03268*height), control2: CGPoint(x: 1.03903*width, y: 0.25437*height))
+                path.closeSubpath()
+            
+            
+        
+        return path
+    }
+    
+    struct MyIcon: Shape {
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            let width = rect.size.width
+            let height = rect.size.height
+            path.move(to: CGPoint(x: 1.03903*width, y: 0.52785*height))
+            path.addCurve(to: CGPoint(x: 0.54377*width, y: 1.02302*height), control1: CGPoint(x: 1.03903*width, y: 0.80133*height), control2: CGPoint(x: 0.81729*width, y: 1.02302*height))
+            path.addCurve(to: CGPoint(x: 0.04853*width, y: 0.52785*height), control1: CGPoint(x: 0.27026*width, y: 1.02302*height), control2: CGPoint(x: 0.04853*width, y: 0.80133*height))
+            path.addCurve(to: CGPoint(x: 0.54377*width, y: 0.03268*height), control1: CGPoint(x: 0.04853*width, y: 0.25437*height), control2: CGPoint(x: 0.27026*width, y: 0.03268*height))
+            path.addCurve(to: CGPoint(x: 1.03903*width, y: 0.52785*height), control1: CGPoint(x: 0.81729*width, y: 0.03268*height), control2: CGPoint(x: 1.03903*width, y: 0.25437*height))
+            path.closeSubpath()
+            return path
+        }
     }
     
     }
