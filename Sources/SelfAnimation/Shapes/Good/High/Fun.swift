@@ -29,7 +29,7 @@ extension SelfShape {
         
         
         
-        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 15).radians,
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 180).radians,
                                           0, 0, 1
         )
         
@@ -60,3 +60,15 @@ extension SelfShape {
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .fun, weight: .light)
+        ShapeHomeRepresentable(shape: .fun, weight: .dark)
+    }
+    
+})
+

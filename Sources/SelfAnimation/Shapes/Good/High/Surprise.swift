@@ -10,7 +10,7 @@ import UIKit
 
 extension SelfShape {
     
-    static func someTransform() -> CATransform3D {
+    static func surpriseTransform() -> CATransform3D {
         
         
         var newTransform = CATransform3DIdentity
@@ -29,7 +29,7 @@ extension SelfShape {
         
         
         
-        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 7).radians,
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: -7).radians,
                                           0, 0, 1
         )
         
@@ -64,3 +64,16 @@ extension SelfShape {
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .surprise, weight: .light)
+        ShapeHomeRepresentable(shape: .surprise, weight: .dark)
+    }
+    
+})
+
+

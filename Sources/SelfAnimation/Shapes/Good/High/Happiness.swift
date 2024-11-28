@@ -66,3 +66,14 @@ extension SelfShape {
         return path
     }
 }
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .happiness, weight: .light)
+        ShapeHomeRepresentable(shape: .happiness, weight: .dark)
+    }
+    
+})
+

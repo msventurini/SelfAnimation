@@ -28,7 +28,7 @@ extension SelfShape {
         
         
         
-        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 11).radians,
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: -11).radians,
                                           0, 0, 1
         )
         

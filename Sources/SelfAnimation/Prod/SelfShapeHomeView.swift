@@ -73,6 +73,12 @@ public class SelfShapeHomeView: UIView {
 //        shapeLayer.add(lineDashAnimation, forKey: nil)
 //
 //        replicatorPt1()
+        
+        if selfShape == .fun {
+            alternate()
+        } else {
+            
+        }
         lineDashAnimation()
 
     }
@@ -81,10 +87,27 @@ public class SelfShapeHomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    func alternate() {
+//        var maskLayer = CAGradientLayer()
+//        maskLayer.type = .conic
+//        maskLayer.frame = shapeLayer.bounds
+//        maskLayer.colors = [UIColor.black, UIColor.clear].map { $0.cgColor }
+//        
+//        shapeLayer.mask = maskLayer
+//        shapeLayer.lineJoin = .miter
+    }
+    
     func lineDashAnimation() {
 
-//
-        shapeLayer.lineJoin = .miter
+        
+//        var maskLayer = CAGradientLayer()
+//        maskLayer.type = .conic
+//        maskLayer.frame = shapeLayer.bounds
+//        maskLayer.colors = [UIColor.black, UIColor.clear].map { $0.cgColor }
+//        
+//        shapeLayer.mask = maskLayer
+//        shapeLayer.lineJoin = .miter
         
         
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
@@ -173,9 +196,9 @@ public struct DetailViewHome: View {
     public var body: some View {
         
         VStack {
-            ShapeHomeRepresentable(shape: .panic, weight: .light)
+            ShapeHomeRepresentable(shape: .fun, weight: .light)
                 .fixedSize()
-            ShapeHomeRepresentable(shape: .panic, weight: .dark)
+            ShapeHomeRepresentable(shape: .fun, weight: .dark)
                 .fixedSize()
         }
         
