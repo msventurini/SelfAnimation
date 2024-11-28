@@ -25,7 +25,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     }
     
     
-//    case anger = "anger"
+    case anger = "anger"
     case anxiety = "anxiety"
 //    case confusion = "confusion"
 //    case disgust = "disgust"
@@ -54,6 +54,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         switch self {
         case .anxiety:
             return .init(x: 0, y: 0, width: 1092, height: 1146)
+        case .anger:
+            return .init(x: 0, y: 0, width: 750, height: 750)
         }
     }
     
@@ -61,14 +63,27 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         switch self {
         case .anxiety:
             -1.35
+        case .anger:
+            0
         }
     }
     
+    var direction: CGFloat {
+        switch self {
+        
+        case .anger:
+            return -1
+        default:
+            return 1
+        }
+    }
     
     var ogGap: NSNumber {
         switch self {
         case .anxiety:
             41.72
+        case .anger:
+            37.5
         }
     }
     
@@ -105,6 +120,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             
         case .anxiety:
             return SelfShape.anxietyTransform()
+        case .anger:
+            return SelfShape.angerTransform()
 
         }
         
@@ -120,6 +137,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             
         case .anxiety:
             return anxietyPath(rect: rect)
+        case .anger:
+            return angerPath(rect: rect)
         }
         
         
@@ -130,8 +149,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 #Preview(body: {
     VStack {
         
-        ShapeHomeRepresentable(shape: .anxiety, weight: .light)
-        ShapeHomeRepresentable(shape: .anxiety, weight: .dark)
+        ShapeHomeRepresentable(shape: .anger, weight: .light)
+        ShapeHomeRepresentable(shape: .anger, weight: .dark)
     }
     
 })

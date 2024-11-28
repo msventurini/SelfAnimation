@@ -63,7 +63,7 @@ public class SelfShapeHomeView: UIView {
         lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
         lineDashAnimation.duration = 3
         lineDashAnimation.fillMode = .removed
-        lineDashAnimation.speed = 1
+        lineDashAnimation.speed = Float(1 * selfShape.direction)
         
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
         
