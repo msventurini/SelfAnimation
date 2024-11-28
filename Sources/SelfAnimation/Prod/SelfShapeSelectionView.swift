@@ -51,7 +51,7 @@ public class SelfShapeSelectionView: UIView {
         
         replicator.replicatorLayer.addSublayer(shapeLayer)
         
-        replicator.replicatorLayer.instanceCount = 10
+        replicator.replicatorLayer.instanceCount = 30
         let newTransform = selfShape.transform
         replicator.replicatorLayer.instanceTransform = newTransform
         replicator.replicatorLayer.drawsAsynchronously = true
@@ -103,7 +103,7 @@ public struct ShapeSelectionRepresentable: UIViewRepresentable {
 }
 
 #Preview {
-    DetailView(shape: .anxiety)
+    DetailView(shape: .panic)
 //    NavigationStack {
 //        List(SelfShape.allCases) { shape in
 //            

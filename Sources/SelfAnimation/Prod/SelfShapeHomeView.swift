@@ -82,26 +82,10 @@ public class SelfShapeHomeView: UIView {
     }
     
     func lineDashAnimation() {
+
+//
+        shapeLayer.lineJoin = .miter
         
-//        let rotAnimation = CABasicAnimation(keyPath: "opacity")
-//        rotAnimation.fromValue = 0
-//        rotAnimation.toValue = Angle(degrees: 360).radians
-//        rotAnimation.duration = 4
-//        rotAnimation.fillMode = .forwards
-//        rotAnimation.speed = 1
-//        rotAnimation.autoreverses = false
-//        rotAnimation.repeatCount = Float.greatestFiniteMagnitude
-//        shapeLayer.add(rotAnimation, forKey: nil)
-//        
-//        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
-//        scaleAnimation.fromValue = 1
-//        scaleAnimation.toValue = 0
-//        scaleAnimation.duration = 4
-//        scaleAnimation.fillMode = .removed
-//        scaleAnimation.speed = 1
-//        scaleAnimation.repeatCount = Float.greatestFiniteMagnitude
-//        shapeLayer.add(scaleAnimation, forKey: nil)
-//        
         
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
@@ -109,8 +93,12 @@ public class SelfShapeHomeView: UIView {
         lineDashAnimation.duration = 3
         lineDashAnimation.fillMode = .removed
         lineDashAnimation.speed = Float(1 * selfShape.direction)
+    
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
         shapeLayer.add(lineDashAnimation, forKey: nil)
+        
+        
+        
     }
     
     func replicatorPt1() {
@@ -185,9 +173,9 @@ public struct DetailViewHome: View {
     public var body: some View {
         
         VStack {
-            ShapeHomeRepresentable(shape: .anxiety, weight: .light)
+            ShapeHomeRepresentable(shape: .panic, weight: .light)
                 .fixedSize()
-            ShapeHomeRepresentable(shape: .anxiety, weight: .dark)
+            ShapeHomeRepresentable(shape: .panic, weight: .dark)
                 .fixedSize()
         }
         

@@ -23,12 +23,12 @@ extension SelfShape {
         
         newTransform = CATransform3DTranslate(
             newTransform,
-            45/30, 7/30, 0
+            45/3, -7, 0
         )
         
         
         
-        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 346).radians,
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: -346).radians,
                                           0, 0, 1
         )
         
@@ -65,3 +65,13 @@ extension SelfShape {
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        ShapeHomeRepresentable(shape: .fear, weight: .light)
+            .background(.blue)
+        ShapeHomeRepresentable(shape: .fear, weight: .dark)
+            .background(.blue)
+    }
+    
+})

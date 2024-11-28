@@ -28,15 +28,15 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     case anger = "anger"
     case anxiety = "anxiety"
     case confusion = "confusion"
-//    case disgust = "disgust"
-//    case envy = "envy"
-//    case fear = "fear"
-//    case frustration = "frustration"
-//    case overload = "overload"
-//    case panic = "panic"
-//    case shock = "shock"
-//    case stress = "stress"
-//    case tension = "tension"
+    case disgust = "disgust"
+    case envy = "envy"
+    case fear = "fear"
+    case frustration = "frustration"
+    case overload = "overload"
+    case panic = "panic"
+    case shock = "shock"
+    case stress = "stress"
+    case tension = "tension"
     case bravery = "bravery"
 //    case euphoria = "euphoria"
 //    case surprise = "surprise"
@@ -65,6 +65,26 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         case .determination:
             return .init(x: 0, y: 0, width: 814, height: 668)
             
+        case .disgust:
+            return .init(x: 0, y: 0, width: 842, height: 644)
+        case .envy:
+            return .init(x: 0, y: 0, width: 650, height: 750)
+        case .fear:
+            return .init(x: 0, y: 0, width: 750, height: 732)
+        case .frustration:
+            return .init(x: 0, y: 0, width: 750, height: 730)
+        case .overload:
+            return .init(x: 0, y: 0, width: 800, height: 850)
+        case .panic:
+            return .init(x: 0, y: 0, width: 870, height: 794)
+        case .shock:
+            return .init(x: 0, y: 0, width: 750, height: 684)
+        case .tension:
+            return .init(x: 0, y: 0, width: 758, height: 800)
+            
+            
+        case .stress:
+            return .init(x: 0, y: 0, width: 750, height: 606)
         }
     }
     
@@ -79,10 +99,12 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         }
     }
     
+    
+    
     var direction: CGFloat {
         switch self {
         
-        case .anger:
+        case .anger, .panic:
             return -1
         default:
             return 1
@@ -98,6 +120,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             35.72
         case .determination:
             40.0
+        case .stress:
+            28.0
         default:
             37.5
         }
@@ -153,6 +177,24 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return SelfShape.determinationTransform()
             
             
+        case .disgust:
+            return SelfShape.disgustTransform()
+        case .envy:
+            return SelfShape.envyTransform()
+        case .fear:
+            return SelfShape.fearTransform()
+        case .frustration:
+            return SelfShape.frustrationTransform()
+        case .overload:
+            return SelfShape.overloadTransform()
+        case .panic:
+            return SelfShape.panicTransform()
+        case .shock:
+            return SelfShape.shockTransform()
+        case .tension:
+            return SelfShape.shockTransform()
+        case .stress:
+            return SelfShape.stressTransform()
         }
         
         
@@ -179,6 +221,24 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             
         case .determination:
             return SelfShape.determinationShape(rect: rect)
+        case .disgust:
+            return disgustPath(rect: rect)
+        case .envy:
+            return envyPath(rect: rect)
+        case .fear:
+            return fearPath(rect: rect)
+        case .frustration:
+            return frustrationPath(rect: rect)
+        case .overload:
+            return ovearloadPath(rect: rect)
+        case .panic:
+            return panicPath(rect: rect)
+        case .shock:
+            return shockPath(rect: rect)
+        case .tension:
+            return tensionPath(rect: rect)
+        case .stress:
+            return stressPath(rect: rect)
         }
         
         
@@ -189,8 +249,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 #Preview(body: {
     VStack {
         
-        ShapeHomeRepresentable(shape: .curiosity, weight: .light)
-        ShapeHomeRepresentable(shape: .curiosity, weight: .dark)
+        ShapeHomeRepresentable(shape: .anger, weight: .light)
+        ShapeHomeRepresentable(shape: .panic, weight: .dark)
     }
     
 })

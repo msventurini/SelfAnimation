@@ -1,12 +1,13 @@
+//////
+//////  ShapeDemoRepresentable.swift
+//////  SelfAnimation
+//////
+//////  Created by Matheus Silveira Venturini on 27/11/24.
+//////
 ////
-////  ShapeDemoRepresentable.swift
-////  SelfAnimation
 ////
-////  Created by Matheus Silveira Venturini on 27/11/24.
-////
-//
-//
 //import SwiftUI
+//import UIKit
 //
 //struct ShapeDemoRepresentable: UIViewControllerRepresentable {
 //    typealias UIViewControllerType = CALayerTesting
@@ -35,7 +36,7 @@
 //    
 //    
 //}
-//
-//#Preview {
-//    ShapeDemoRepresentable(shape: .anger, isAsyncRendered: true)
-//}
+////
+////#Preview {
+////    ShapeDemoRepresentable(shape: .anger, isAsyncRendered: true)
+////}

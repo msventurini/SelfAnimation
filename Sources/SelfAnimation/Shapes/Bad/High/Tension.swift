@@ -64,3 +64,13 @@ extension SelfShape {
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        ShapeHomeRepresentable(shape: .tension, weight: .light)
+            
+        ShapeHomeRepresentable(shape: .tension, weight: .dark)
+            
+    }
+    
+})

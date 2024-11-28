@@ -24,7 +24,7 @@ extension SelfShape {
         
         newTransform = CATransform3DTranslate(
             newTransform,
-            -23/30, 5/30, 0
+            -23/30, 5, 0
         )
         
         
