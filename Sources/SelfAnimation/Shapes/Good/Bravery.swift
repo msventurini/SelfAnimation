@@ -5,8 +5,10 @@
 //  Created by Matheus Silveira Venturini on 27/11/24.
 //
 
+import UIKit
 
-static func braveryShape(rect: CGRect) -> CGPath{
+extension SelfShape {
+    static func braveryShape(rect: CGRect) -> CGPath{
         
         
         let path = CGMutablePath()
@@ -42,3 +44,4 @@ static func braveryShape(rect: CGRect) -> CGPath{
         return path
         
     }
+}
