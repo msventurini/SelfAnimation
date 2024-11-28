@@ -42,8 +42,22 @@ extension SelfShape {
         let width = rect.size.width
         let height = rect.size.height
         
-        
+        path.move(to: CGPoint(x: 0.44866*width, y: height))
+        path.addLine(to: CGPoint(x: 0, y: 0.53723*height))
+        path.addLine(to: CGPoint(x: 0.89733*width, y: 0.53723*height))
+        path.addLine(to: CGPoint(x: 0.44866*width, y: height))
         path.closeSubpath()
+        path.move(to: CGPoint(x: 0.47966*width, y: 0.7687*height))
+        path.addLine(to: CGPoint(x: 0.11092*width, y: 0.24709*height))
+        path.addLine(to: CGPoint(x: 0.99782*width, y: 0.3755*height))
+        path.addLine(to: CGPoint(x: 0.47966*width, y: 0.7687*height))
+        path.closeSubpath()
+        path.move(to: CGPoint(x: 0.61072*width, y: 0.5082*height))
+        path.addLine(to: CGPoint(x: 0.10861*width, y: 0.09697*height))
+        path.addLine(to: CGPoint(x: width, y: 0))
+        path.addLine(to: CGPoint(x: 0.61072*width, y: 0.5082*height))
+        path.closeSubpath()
+        
         return path
     }
 }

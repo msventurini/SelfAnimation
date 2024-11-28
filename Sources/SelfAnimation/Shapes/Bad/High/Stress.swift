@@ -41,6 +41,14 @@ extension SelfShape {
         
         let width = rect.size.width
         let height = rect.size.height
+        path.move(to: CGPoint(x: 0.98947*width, y: 0))
+        path.addCurve(to: CGPoint(x: 0.02117*width, y: 0.37455*height), control1: CGPoint(x: 0.33699*width, y: 0.16717*height), control2: CGPoint(x: 0.0142*width, y: 0.29201*height))
+        path.addCurve(to: CGPoint(x: 0.25975*width, y: 0.46423*height), control1: CGPoint(x: 0.02451*width, y: 0.41422*height), control2: CGPoint(x: 0.10404*width, y: 0.44411*height))
+        path.addLine(to: CGPoint(x: 0.76533*width, y: 0.46423*height))
+        path.addCurve(to: CGPoint(x: 0.98689*width, y: 0.50511*height), control1: CGPoint(x: 0.90756*width, y: 0.45988*height), control2: CGPoint(x: 0.98142*width, y: 0.4735*height))
+        path.addCurve(to: CGPoint(x: 0, y: 0.986*height), control1: CGPoint(x: 0.9991*width, y: 0.5757*height), control2: CGPoint(x: 0.67015*width, y: 0.73599*height))
+        path.addCurve(to: CGPoint(x: 0.98947*width, y: 0), control1: CGPoint(x: 0.32982*width, y: 0.65734*height), control2: CGPoint(x: 0.65965*width, y: 0.32867*height))
+        path.closeSubpath()
         
         
         path.closeSubpath()
