@@ -7,6 +7,35 @@
 import SwiftUI
 
 extension SelfShape {
+    
+    static func curiosityTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 11).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+
+    
     static func curiosityShape(rect: CGRect) -> CGPath {
         let path = CGMutablePath()
         let width = rect.size.width
@@ -27,3 +56,15 @@ extension SelfShape {
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .curiosity, weight: .light)
+        ShapeHomeRepresentable(shape: .curiosity, weight: .dark)
+    }
+    
+})
+

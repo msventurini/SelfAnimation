@@ -24,7 +24,7 @@ extension SelfShape {
         
         newTransform = CATransform3DTranslate(
             newTransform,
-            -17/30, 17/30, 0
+            -23/30, 5/30, 0
         )
         
         
@@ -36,6 +36,8 @@ extension SelfShape {
         
         return newTransform
     }
+    
+
     
     static func angerPath(rect: CGRect) -> CGPath {
         let path = CGMutablePath()
@@ -58,7 +60,7 @@ extension SelfShape {
     VStack {
         
         
-//        MyIconsdasa()
+        //        MyIconsdasa()
         ShapeHomeRepresentable(shape: .anger, weight: .light)
         ShapeHomeRepresentable(shape: .anger, weight: .dark)
     }

@@ -22,13 +22,17 @@ public class SelfShapeHomeView: UIView {
     var selfShape: SelfShape
     var weight: ShapeWeight
     
+    let replicator: SelfReplicatorview
+
+    let shapeLayer = CAShapeLayer()
+
+    
     public init(selfShape: SelfShape, weight: ShapeWeight) {
         self.selfShape = selfShape
         self.weight = weight
-        
+        replicator = SelfReplicatorview(emotion: selfShape, frame: .init(x: 0, y: 0, width: 250, height: 250))
         super.init(frame: .init(x: 0, y: 0, width: 250, height: 250))
         
-        let replicator = SelfReplicatorview(emotion: selfShape, frame: .init(x: 0, y: 0, width: 250, height: 250))
         
         addSubview(replicator)
         
@@ -36,7 +40,6 @@ public class SelfShapeHomeView: UIView {
 
         replicator.anchorPoint = .init(x: 0.5, y: 0.5)
         
-        let shapeLayer = CAShapeLayer()
         
         shapeLayer.strokeColor = UIColor.black.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -58,24 +61,100 @@ public class SelfShapeHomeView: UIView {
         replicator.replicatorLayer.drawsAsynchronously = true
         
         
-        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
-        lineDashAnimation.fromValue = 0
-        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
-        lineDashAnimation.duration = 3
-        lineDashAnimation.fillMode = .removed
-        lineDashAnimation.speed = Float(1 * selfShape.direction)
-        
-        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-        
-        shapeLayer.add(lineDashAnimation, forKey: nil)
-        
+//        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
+//        lineDashAnimation.fromValue = 0
+//        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
+//        lineDashAnimation.duration = 3
+//        lineDashAnimation.fillMode = .removed
+//        lineDashAnimation.speed = Float(1 * selfShape.direction)
+//        
+//        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
+//        
+//        shapeLayer.add(lineDashAnimation, forKey: nil)
+//
+//        replicatorPt1()
+        lineDashAnimation()
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func lineDashAnimation() {
+        
+//        let rotAnimation = CABasicAnimation(keyPath: "opacity")
+//        rotAnimation.fromValue = 0
+//        rotAnimation.toValue = Angle(degrees: 360).radians
+//        rotAnimation.duration = 4
+//        rotAnimation.fillMode = .forwards
+//        rotAnimation.speed = 1
+//        rotAnimation.autoreverses = false
+//        rotAnimation.repeatCount = Float.greatestFiniteMagnitude
+//        shapeLayer.add(rotAnimation, forKey: nil)
+//        
+//        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+//        scaleAnimation.fromValue = 1
+//        scaleAnimation.toValue = 0
+//        scaleAnimation.duration = 4
+//        scaleAnimation.fillMode = .removed
+//        scaleAnimation.speed = 1
+//        scaleAnimation.repeatCount = Float.greatestFiniteMagnitude
+//        shapeLayer.add(scaleAnimation, forKey: nil)
+//        
+        
+        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
+        lineDashAnimation.fromValue = 0
+        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
+        lineDashAnimation.duration = 3
+        lineDashAnimation.fillMode = .removed
+        lineDashAnimation.speed = Float(1 * selfShape.direction)
+        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
+        shapeLayer.add(lineDashAnimation, forKey: nil)
+    }
+    
+    func replicatorPt1() {
+        
+        shapeLayer.strokeColor = UIColor.clear.cgColor
+
+        let r = CAReplicatorLayer()
+        r.bounds = CGRect(x: 0.0, y: 0.0, width: 250, height: 250)
+        r.cornerRadius = 0.0
+        r.position = center
+        r.instanceAlphaOffset = 0
+        r.instanceCount = 30
+        r.instanceDelay = 0.1
+        r.instanceAlphaOffset = 0.1
+        r.repeatCount = Float.infinity
+        
+        replicator.replicatorLayer.addSublayer(r)
+        
+        let dot = CALayer()
+        dot.bounds = .init(x: 0, y: 0, width: 10, height: 10)
+        dot.position = center
+        
+        
+        dot.backgroundColor = UIColor(white: 0, alpha: 1.0).cgColor
+        dot.borderColor = UIColor(white: 1.0, alpha: 1.0).cgColor
+        dot.rasterizationScale = 2
+        dot.shouldRasterize = true
+        dot.borderWidth = 1.5
+        dot.cornerRadius = 5.0
+        dot.shouldRasterize = true
+
+        r.addSublayer(dot)
+        
+        let move = CAKeyframeAnimation(keyPath: "position")
+        move.path = shapeLayer.path
+        move.repeatCount = Float.infinity
+        move.duration = 5.0
+        dot.add(move, forKey: nil)
+    }
+//    
+    
 }
+
+
 
 
 
@@ -106,9 +185,9 @@ public struct DetailViewHome: View {
     public var body: some View {
         
         VStack {
-            ShapeHomeRepresentable(shape: shape, weight: .light)
+            ShapeHomeRepresentable(shape: .anxiety, weight: .light)
                 .fixedSize()
-            ShapeHomeRepresentable(shape: shape, weight: .dark)
+            ShapeHomeRepresentable(shape: .anxiety, weight: .dark)
                 .fixedSize()
         }
         

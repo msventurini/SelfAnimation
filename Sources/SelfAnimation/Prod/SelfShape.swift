@@ -27,7 +27,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     
     case anger = "anger"
     case anxiety = "anxiety"
-//    case confusion = "confusion"
+    case confusion = "confusion"
 //    case disgust = "disgust"
 //    case envy = "envy"
 //    case fear = "fear"
@@ -37,11 +37,11 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 //    case shock = "shock"
 //    case stress = "stress"
 //    case tension = "tension"
-//    case bravery = "bravery"
+    case bravery = "bravery"
 //    case euphoria = "euphoria"
 //    case surprise = "surprise"
 //    case pleasure = "pleasure"
-//    case curiosity = "curiosity"
+    case curiosity = "curiosity"
 //    case fun = "fun"
 //    case determination = "determination"
 //    case fullfilment = "fullfilment"
@@ -49,13 +49,20 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 //    case inspiration = "inspiration"
 //    case interest = "interest"
 //    case joy = "joy"
-    
+
     var ogFrame: CGRect {
         switch self {
         case .anxiety:
             return .init(x: 0, y: 0, width: 1092, height: 1146)
         case .anger:
             return .init(x: 0, y: 0, width: 750, height: 750)
+        case .confusion:
+            return .init(x: 0, y: 0, width: 842, height: 842)
+        case .bravery:
+            return .init(x: 0, y: 0, width: 848, height: 1204)
+        case .curiosity:
+            return .init(x: 0, y: 0, width: 752, height: 478)
+            
         }
     }
     
@@ -63,7 +70,9 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         switch self {
         case .anxiety:
             -1.35
-        case .anger:
+        case .curiosity:
+            -0.15
+        default:
             0
         }
     }
@@ -82,7 +91,10 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         switch self {
         case .anxiety:
             41.72
-        case .anger:
+        
+        case .confusion:
+            35.72
+        default:
             37.5
         }
     }
@@ -123,6 +135,15 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         case .anger:
             return SelfShape.angerTransform()
 
+        case .confusion:
+            return SelfShape.confusionTransform()
+        
+        case .bravery:
+            return SelfShape.braveryTransform()
+            
+            
+        case .curiosity:
+            return SelfShape.curiosityTransform()
         }
         
         
@@ -139,6 +160,13 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return anxietyPath(rect: rect)
         case .anger:
             return angerPath(rect: rect)
+            
+        case .confusion:
+            return confusionPath(rect: rect)
+        case .bravery:
+            return SelfShape.braveryShape(rect: rect)
+        case .curiosity:
+            return SelfShape.curiosityShape(rect: rect)
         }
         
         
@@ -149,8 +177,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 #Preview(body: {
     VStack {
         
-        ShapeHomeRepresentable(shape: .anger, weight: .light)
-        ShapeHomeRepresentable(shape: .anger, weight: .dark)
+        ShapeHomeRepresentable(shape: .curiosity, weight: .light)
+        ShapeHomeRepresentable(shape: .curiosity, weight: .dark)
     }
     
 })
