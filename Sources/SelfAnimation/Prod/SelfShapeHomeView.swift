@@ -12,6 +12,7 @@ import AVFoundation
 import UIKit
 import SwiftUI
 
+
 public class SelfShapeHomeView: UIView {
     
     public override var intrinsicContentSize: CGSize {
@@ -43,9 +44,8 @@ public class SelfShapeHomeView: UIView {
         shapeLayer.masksToBounds = false
         
         
-        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
-
-//        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
+        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)
+        
         shapeLayer.path = SelfShape.braveryShape(rect: newSize)
         shapeLayer.frame = newSize
         

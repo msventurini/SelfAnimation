@@ -17,7 +17,6 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         return self.rawValue
     }
     
-    
     case anger = "anger"
     case anxiety = "anxiety"
     case confusion = "confusion"
