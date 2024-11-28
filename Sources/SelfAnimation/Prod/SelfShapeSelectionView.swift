@@ -43,7 +43,7 @@ public class SelfShapeSelectionView: UIView {
         shapeLayer.masksToBounds = false
         
         
-        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
+        let newSize = AVMakeRect(aspectRatio: selfShape.ogFrame.size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
 
 //        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
         shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)//braveryShape(rect: newSize)
@@ -103,22 +103,22 @@ public struct ShapeSelectionRepresentable: UIViewRepresentable {
 }
 
 #Preview {
-    
-    NavigationStack {
-        List(SelfShape.allCases) { shape in
-            
-            GroupBox {
-                
-                NavigationLink {
-                    DetailView(shape: shape)
-                } label: {
-                    Text(shape.rawValue)
-                }
-                
-            }
-            
-        }
-    }
+    DetailView(shape: .anxiety)
+//    NavigationStack {
+//        List(SelfShape.allCases) { shape in
+//            
+//            GroupBox {
+//                
+//                NavigationLink {
+//                    DetailView(shape: shape)
+//                } label: {
+//                    Text(shape.rawValue)
+//                }
+//                
+//            }
+//            
+//        }
+//    }
 
 }
 

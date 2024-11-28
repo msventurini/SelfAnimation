@@ -34,6 +34,8 @@ public class SelfShapeHomeView: UIView {
         
         replicator.center = .init(x: frame.midX, y: frame.midY)
 
+        replicator.anchorPoint = .init(x: 0.5, y: 0.5)
+        
         let shapeLayer = CAShapeLayer()
         
         shapeLayer.strokeColor = UIColor.black.cgColor
@@ -42,10 +44,8 @@ public class SelfShapeHomeView: UIView {
         shapeLayer.lineDashPattern = [0, selfShape.lineDashSpacing(for: weight)]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.masksToBounds = false
-        
-        
-        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)
-        
+        replicator.replicatorLayer.preservesDepth = true
+        let newSize = AVMakeRect(aspectRatio: selfShape.ogFrame.size, insideRect: replicator.bounds)
         shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)
         shapeLayer.frame = newSize
         
@@ -54,6 +54,7 @@ public class SelfShapeHomeView: UIView {
         replicator.replicatorLayer.instanceCount = 30
         let newTransform = selfShape.transform
         replicator.replicatorLayer.instanceTransform = newTransform
+        replicator.replicatorLayer.instanceDelay = selfShape.instanceDelay
         replicator.replicatorLayer.drawsAsynchronously = true
         
         
@@ -63,6 +64,7 @@ public class SelfShapeHomeView: UIView {
         lineDashAnimation.duration = 3
         lineDashAnimation.fillMode = .removed
         lineDashAnimation.speed = 1
+        
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
         
         shapeLayer.add(lineDashAnimation, forKey: nil)
@@ -79,21 +81,21 @@ public class SelfShapeHomeView: UIView {
 
 #Preview {
     
-    NavigationStack {
-        List(SelfShape.allCases) { shape in
-            
-            GroupBox {
-                
-                NavigationLink {
-                    DetailViewHome(shape: shape)
-                } label: {
-                    Text(shape.rawValue)
-                }
-                
-            }
-            
-        }
-    }
+//    NavigationStack {
+//        List(SelfShape.allCases) { shape in
+//            
+//            GroupBox {
+//                
+//                NavigationLink {
+    DetailViewHome(shape: .anxiety)
+//                } label: {
+//                    Text(shape.rawValue)
+//                }
+//                
+//            }
+//            
+//        }
+//    }
 
 }
 

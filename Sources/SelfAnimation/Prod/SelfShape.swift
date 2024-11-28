@@ -53,7 +53,14 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     var ogFrame: CGRect {
         switch self {
         case .anxiety:
-            return .init(x: 0, y: 0, width: 750, height: 830)
+            return .init(x: 0, y: 0, width: 1092, height: 1146)
+        }
+    }
+    
+    var instanceDelay: CGFloat {
+        switch self {
+        case .anxiety:
+            -1.35
         }
     }
     
@@ -90,9 +97,6 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         return NSNumber(floatLiteral: (self.ogGap.doubleValue+0.5) )
     }
     
-    var frame: CGRect {
-        return ogFrame.insetBy(dx: ogFrame.width/4, dy: ogFrame.height/4)
-    }
     
     var transform: CATransform3D {
         
@@ -122,3 +126,12 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     }
     
 }
+
+#Preview(body: {
+    VStack {
+        
+        ShapeHomeRepresentable(shape: .anxiety, weight: .light)
+        ShapeHomeRepresentable(shape: .anxiety, weight: .dark)
+    }
+    
+})

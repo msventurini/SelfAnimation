@@ -11,21 +11,28 @@ import SwiftUI
 extension SelfShape {
     
     static func anxietyTransform() -> CATransform3D {
-                    var newTransform = CATransform3DMakeRotation(
-                        Angle(degrees: 7).radians,
-                        0, 0, 1
-                    )
         
-                    newTransform = CATransform3DScale(
-                        newTransform,
-                        0.91, 0.91, 0
         
-                    )
+        var newTransform = CATransform3DIdentity
         
-                    newTransform = CATransform3DTranslate(
-                        newTransform,
-                        -23, 5, 0
-                    )
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            -23/30, 5/30, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: -7).radians,
+                                          0, 0, 1
+        )
+        
         
         return newTransform
     }
@@ -49,8 +56,8 @@ extension SelfShape {
 
 #Preview(body: {
     VStack {
-        ShapeSelectionRepresentable(shape: .anxiety, weight: .light)
-        ShapeSelectionRepresentable(shape: .anxiety, weight: .dark)
+        ShapeHomeRepresentable(shape: .anxiety, weight: .light)
+        ShapeHomeRepresentable(shape: .anxiety, weight: .dark)
     }
     
 })
