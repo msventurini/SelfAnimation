@@ -85,8 +85,10 @@ extension SelfShape {
                 .Dark.curiosity
         case .determination:
                 .Dark.determination
-        case .fullfillment:
+        case .fullfilment:
                 .Dark.fullfilment
+        default:
+                .Dark.bravery
         }
     }
     

@@ -17,14 +17,31 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         return self.rawValue
     }
     
-    case surprise = "surprise"
-    case euphoria = "euphoria"
+    
+    case anger = "anger"
+    case anxiety = "anxiety"
+    case confusion = "confusion"
+    case disgust = "disgust"
+    case envy = "envy"
+    case fear = "fear"
+    case frustration = "frustration"
+    case overload = "overload"
+    case panic = "panic"
+    case shock = "shock"
+    case stress = "stress"
+    case tension = "tension"
     case bravery = "bravery"
+    case euphoria = "euphoria"
+    case surprise = "surprise"
+    case pleasure = "pleasure"
     case curiosity = "curiosity"
+    case fun = "fun"
     case determination = "determination"
-    case fullfillment = "fullfillment"
-    
-    
+    case fullfilment = "fullfilment"
+    case happiness = "happiness"
+    case inspiration = "inspiration"
+    case interest = "interest"
+    case joy = "joy"
     
     var ogFrame: CGRect {
         switch self {
@@ -38,8 +55,10 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
                 .init(x: 0, y: 0, width: 752, height: 478)
         case .determination:
                 .init(x: 0, y: 0, width: 814, height: 668)
-        case .fullfillment:
+        case .fullfilment:
                 .init(x: 0, y: 0, width: 684, height: 696)
+        default:
+                .init(x: 0, y: 0, width: 752, height: 478)
         }
     }
     
@@ -151,7 +170,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
                 0, 0, 0
             )
             
-        case .fullfillment:
+        case .fullfilment:
             
             newTransform = CATransform3DMakeTranslation(
                 40.72, 42.40, 0
@@ -167,7 +186,26 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
                 Angle(degrees: 132).radians,
                 0, 0, 1
             )
+            
+        default:
+            
+            newTransform = CATransform3DMakeRotation(
+                Angle(degrees: 5).radians,
+                0, 0, 1
+            )
+    
+            newTransform = CATransform3DScale(
+                newTransform,
+                0.91, 0.91, 0
+    
+            )
+    
+            newTransform = CATransform3DTranslate(
+                newTransform,
+                0, 0, 0
+            )
         }
+        
 
         return newTransform
     }
@@ -196,8 +234,10 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             
         case .determination:
             return SelfShape.determinationShape(rect: rect)
-        case .fullfillment:
-            return fullfilmentShape(rect: rect)
+        case .fullfilment:
+            return SelfShape.fullfilmentShape(rect: rect)
+        default:
+            return SelfShape.braveryShape(rect: rect)
         }
         
         
