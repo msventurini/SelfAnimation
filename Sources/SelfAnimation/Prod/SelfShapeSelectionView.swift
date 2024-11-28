@@ -74,3 +74,61 @@ class SelfShapeSelectionView: UIView {
     }
     
 }
+
+struct ShapeSelectionRepresentable: UIViewRepresentable {
+    
+    let shape: SelfShape
+    let weight: ShapeWeight
+    
+    func makeUIView(context: Context) -> SelfShapeSelectionView {
+        let view = SelfShapeSelectionView(selfShape: shape, weight: weight)
+        return view
+    }
+    
+    func updateUIView(_ uiView: SelfShapeSelectionView, context: Context) {
+        
+    }
+    
+    typealias UIViewType = SelfShapeSelectionView
+    
+    func sizeThatFits(_ proposal: ProposedViewSize, uiView: SelfShapeSelectionView, context: Context) -> CGSize? {
+        return uiView.intrinsicContentSize
+    }
+    
+}
+
+#Preview {
+    
+    NavigationStack {
+        List(SelfShape.allCases) { shape in
+            
+            GroupBox {
+                
+                NavigationLink {
+                    DetailView(shape: shape)
+                } label: {
+                    Text(shape.rawValue)
+                }
+                
+            }
+            
+        }
+    }
+
+}
+
+struct DetailView: View {
+    
+    let shape: SelfShape
+    
+    var body: some View {
+        
+        VStack {
+            ShapeSelectionRepresentable(shape: shape, weight: .light)
+                .fixedSize()
+            ShapeSelectionRepresentable(shape: shape, weight: .dark)
+                .fixedSize()
+        }
+        
+    }
+}

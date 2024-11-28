@@ -75,5 +75,62 @@ class SelfShapeHomeView: UIView {
     
 }
 
+struct ShapeHomeRepresentable: UIViewRepresentable {
+    
+    let shape: SelfShape
+    let weight: ShapeWeight
+    
+    func makeUIView(context: Context) -> SelfShapeHomeView {
+        let view = SelfShapeHomeView(selfShape: shape, weight: weight)
+        return view
+    }
+    
+    func updateUIView(_ uiView: SelfShapeHomeView, context: Context) {
+        
+    }
+    
+    typealias UIViewType = SelfShapeHomeView
+    
+    func sizeThatFits(_ proposal: ProposedViewSize, uiView: SelfShapeHomeView, context: Context) -> CGSize? {
+        return uiView.intrinsicContentSize
+    }
+    
+}
+
+#Preview {
+    
+    NavigationStack {
+        List(SelfShape.allCases) { shape in
+            
+            GroupBox {
+                
+                NavigationLink {
+                    DetailViewHome(shape: shape)
+                } label: {
+                    Text(shape.rawValue)
+                }
+                
+            }
+            
+        }
+    }
+
+}
+
+struct DetailViewHome: View {
+    
+    let shape: SelfShape
+    
+    var body: some View {
+        
+        VStack {
+            ShapeHomeRepresentable(shape: shape, weight: .light)
+                .fixedSize()
+            ShapeHomeRepresentable(shape: shape, weight: .dark)
+                .fixedSize()
+        }
+        
+    }
+}
 
 
