@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1013 261">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 13.35;
+        stroke-width: 2.67px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
+        fill: none;
+        stroke: #87b4db;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 0 41.4;
+        stroke-width: 8.28px;
+      }
+
+      .cls-3 {
+        stroke-dasharray: 0 8.33;
+        stroke-width: 1.67px;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 0 19.47;
+        stroke-width: 3.89px;
+      }
+
+      .cls-5 {
+        stroke-dasharray: 0 31.2;
+        stroke-width: 6.24px;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 0 21.4;
+        stroke-width: 4.28px;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 0 34.29;
+        stroke-width: 6.86px;
+      }
+
+      .cls-8 {
+        stroke-dasharray: 0 17.72;
+        stroke-width: 3.54px;
+      }
+
+      .cls-9 {
+        stroke-dasharray: 0 14.67;
+        stroke-width: 2.93px;
+      }
+
+      .cls-10 {
+        stroke-dasharray: 0 16.12;
+        stroke-width: 3.22px;
+      }
+
+      .cls-11 {
+        stroke-dasharray: 0 50;
+        stroke-width: 10px;
+      }
+
+      .cls-12 {
+        stroke-dasharray: 0 37.68;
+        stroke-width: 7.54px;
+      }
+
+      .cls-13 {
+        stroke-dasharray: 0 28.39;
+        stroke-width: 5.68px;
+      }
+
+      .cls-14 {
+        stroke-dasharray: 0 25.84;
+        stroke-width: 5.17px;
+      }
+
+      .cls-15 {
+        stroke-dasharray: 0 45.5;
+        stroke-width: 9.1px;
+      }
+
+      .cls-16 {
+        stroke-dasharray: 0 23.51;
+        stroke-width: 4.7px;
+      }
+
+      .cls-17 {
+        stroke-dasharray: 0 10.06;
+        stroke-width: 2.01px;
+      }
+
+      .cls-18 {
+        stroke-dasharray: 0 12.15;
+        stroke-width: 2.43px;
+      }
+
+      .cls-19 {
+        stroke-dasharray: 0 9.16;
+        stroke-width: 1.83px;
+      }
+
+      .cls-20 {
+        stroke-dasharray: 0 11.06;
+        stroke-width: 2.21px;
+      }
+
+      .cls-21 {
+        fill: #87b4db;
+      }
+    </style>
+  </defs>
+  <g id="low_bad">
+    <g>
+      <circle class="cls-21" cx="63" cy="235" r="5"/>
+      <circle class="cls-21" cx="865" cy="101" r="5"/>
+      <circle class="cls-21" cx="938" cy="178" r="5"/>
+      <circle class="cls-21" cx="839" cy="207" r="5"/>
+      <circle class="cls-21" cx="895.5" cy="115.5" r="3.5"/>
+      <circle class="cls-21" cx="913.5" cy="211.5" r="3.5"/>
+      <circle class="cls-21" cx="99.5" cy="115.5" r="3.5"/>
+      <circle class="cls-21" cx="951.5" cy="154.5" r="3.5"/>
+      <g>
+        <polyline class="cls-3" points="574.63 319.23 604.64 315.56 617.43 258.22"/>
+        <polyline class="cls-19" points="571.77 315.65 604.91 313.35 622.25 251.16"/>
+        <polyline class="cls-17" points="568.84 311.56 605.33 310.94 627.94 243.69"/>
+        <polyline class="cls-20" points="565.85 306.9 605.94 308.32 634.61 235.82"/>
+        <polyline class="cls-18" points="562.84 301.61 606.75 305.48 642.39 227.57"/>
+        <polyline class="cls-1" points="559.84 295.64 607.81 302.41 651.4 218.96"/>
+        <polyline class="cls-9" points="556.9 288.91 609.15 299.11 661.78 210.03"/>
+        <polyline class="cls-10" points="554.05 281.36 610.8 295.55 673.68 200.82"/>
+        <g>
+          <polyline class="cls-8" points="394.78 393.61 493.47 378.12 512.63 259.62"/>
+          <polyline class="cls-8" points="551.36 272.91 612.83 291.75 687.28 191.41"/>
+        </g>
+        <g>
+          <polyline class="cls-4" points="370.13 386.94 479.31 375.61 507.16 246.67"/>
+          <polyline class="cls-4" points="548.9 263.49 615.26 287.69 702.74 181.86"/>
+        </g>
+        <g>
+          <polyline class="cls-6" points="343.45 378.19 463.92 372.04 501.9 232.14"/>
+          <polyline class="cls-6" points="546.74 253 618.17 283.38 720.25 172.27"/>
+        </g>
+        <g>
+          <polyline class="cls-16" points="314.69 367.06 447.24 367.24 496.96 215.9"/>
+          <polyline class="cls-16" points="544.97 241.37 621.61 278.81 740.02 162.76"/>
+        </g>
+        <g>
+          <polyline class="cls-14" points="283.75 353.19 429.21 361.01 492.47 197.79"/>
+          <polyline class="cls-14" points="543.69 228.5 625.65 274 762.27 153.45"/>
+        </g>
+        <g>
+          <polyline class="cls-13" points="250.61 336.19 409.78 353.14 488.59 177.66"/>
+          <polyline class="cls-13" points="543.03 214.3 630.36 268.95 787.22 144.52"/>
+        </g>
+        <g>
+          <polyline class="cls-5" points="215.21 315.63 388.91 343.38 485.49 155.34"/>
+          <polyline class="cls-5" points="543.13 198.69 635.81 263.68 815.11 136.15"/>
+        </g>
+        <g>
+          <polyline class="cls-7" points="177.55 291.03 366.57 331.47 483.38 130.68"/>
+          <polyline class="cls-7" points="544.13 181.56 642.11 258.21 846.19 128.57"/>
+        </g>
+        <g>
+          <polyline class="cls-12" points="137.64 261.87 342.74 317.12 482.47 103.49"/>
+          <polyline class="cls-12" points="546.22 162.82 649.32 252.57 880.75 122.04"/>
+        </g>
+        <g>
+          <polyline class="cls-2" points="95.51 227.57 317.42 300 483.04 73.6"/>
+          <polyline class="cls-2" points="549.58 142.37 657.57 246.8 919.04 116.86"/>
+        </g>
+        <g>
+          <polyline class="cls-15" points="51.26 187.51 290.61 279.76 485.38 40.83"/>
+          <polyline class="cls-15" points="554.45 120.13 666.95 240.94 961.36 113.38"/>
+        </g>
+        <g>
+          <polyline class="cls-11" points="5 141 262.36 256 489.84 5"/>
+          <polyline class="cls-11" points="561.07 96 677.58 235.04 1008 112"/>
+        </g>
+      </g>
+      <circle class="cls-21" cx="142" cy="166" r="5"/>
+      <circle class="cls-21" cx="73" cy="197" r="5"/>
+    </g>
+  </g>
+</svg>

@@ -35,3 +35,7 @@ struct ShapeDemoRepresentable: UIViewControllerRepresentable {
     
     
 }
+
+#Preview {
+    ShapeDemoRepresentable(shape: .anger, isAsyncRendered: true)
+}
