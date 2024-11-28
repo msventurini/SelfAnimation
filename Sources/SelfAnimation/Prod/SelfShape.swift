@@ -11,244 +11,22 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-
-//case anger = "anger"
-//case anxiety = "anxiety"
-//case confusion = "confusion"
-//case disgust = "disgust"
-//case envy = "envy"
-//case fear = "fear"
-//case frustration = "frustration"
-//case overload = "overload"
-//case panic = "panic"
-//case shock = "shock"
-//case stress = "stress"
-//case tension = "tension"
-//case bravery = "bravery"
-//case euphoria = "euphoria"
-//case surprise = "surprise"
-//case pleasure = "pleasure"
-//case curiosity = "curiosity"
-//case fun = "fun"
-//case determination = "determination"
-//case fullfilment = "fullfilment"
-//case happiness = "happiness"
-//case inspiration = "inspiration"
-//case interest = "interest"
-//case joy = "joy"
-
-
-
-public protocol emotionShapeData {
-    
-    var ogFrame: CGRect { get set }
-    var ogGap: CGFloat { get set }
-    
+public enum ShapeWeight {
+    case light
+    case dark
 }
+
+
 
 public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     
-        public var id: String {
+    public var id: String {
         return self.rawValue
     }
     
-    case anger = "anger"
-
     
-    
-    
-    
-        
-    
-    
-    
-        static func ogLineWidth(for weight: ShapeWeight) -> CGFloat {
-            switch weight {
-            case .light:
-                return 7.5
-            case .dark:
-                return 11.5
-            }
-        }
-        
-
-        static func lineWidth(for weight: ShapeWeight) -> CGFloat {
-            return ogLineWidth(for: weight) * 0.5
-        }
-
-    
-    
-        static func lineDashSpacing(for weight: ShapeWeight) -> NSNumber {
-            return NSNumber(floatLiteral: Double(ogGap * 0.5 + SelfShape.lineWidth(for: weight)  * 0.01))
-    }
-    
-    var lineDashAnimationOffset: NSNumber {
-        return NSNumber(floatLiteral: (SelfShape.ogGap+0.5) )
-    }
-    
-    var frame: CGRect {
-        return ogFrame.insetBy(dx: ogFrame.width/4, dy: ogFrame.height/4)
-    }
-    
-    var transform: CATransform3D {
-        var newTransform: CATransform3D
-        switch self {
-            
-            
-        case .bravery:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 5).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
-            
-        case .surprise, .determination:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 7).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                125, 125, 0
-            )
-            
-            
-            
-        case .curiosity:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 11).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
-            
-        case .euphoria:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: -191).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
-            
-        case .fullfilment:
-            
-            newTransform = CATransform3DMakeTranslation(
-                40.72, 42.40, 0
-            )
-            
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-            
-            newTransform = CATransform3DRotate(newTransform,
-                Angle(degrees: 132).radians,
-                0, 0, 1
-            )
-            
-        default:
-            
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 5).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
-        }
-        
-
-        return newTransform
-    }
-            
-    
-    
-    static func path(emotion: SelfShape, rect: CGRect) -> CGPath {
-        
-        switch emotion {
-            
-        case .curiosity:
-            return SelfShape.curiosityShape(rect: rect)
-            
-        case .surprise:
-
-            
-            return SelfShape.surpriseShape(rect: rect)
-            
-            
-        case .euphoria:
-            
-            return SelfShape.euphoriaShape(rect: rect)
-    
-        case .bravery:
-            return SelfShape.braveryShape(rect: rect)
-            
-        case .determination:
-            return SelfShape.determinationShape(rect: rect)
-        case .fullfilment:
-            return SelfShape.fullfilmentShape(rect: rect)
-        default:
-            return SelfShape.braveryShape(rect: rect)
-        }
-        
-        
-    }
-    
-}
-
-//
-//public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
-//    
-//        public var id: String {
-//        return self.rawValue
-//    }
-//    
 //    case anger = "anger"
-//    case anxiety = "anxiety"
+    case anxiety = "anxiety"
 //    case confusion = "confusion"
 //    case disgust = "disgust"
 //    case envy = "envy"
@@ -271,205 +49,76 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 //    case inspiration = "inspiration"
 //    case interest = "interest"
 //    case joy = "joy"
-//    
-//    var ogFrame: CGRect {
-//        switch self {
-//        case .surprise:
-//                .init(x: 0, y: 0, width: 975, height: 558)
-//        case .euphoria:
-//                .init(x: 0, y: 0, width: 608, height: 608)
-//        case .bravery:
-//                .init(x: 0, y: 0, width: 636, height: 904)
-//        case .curiosity:
-//                .init(x: 0, y: 0, width: 752, height: 478)
-//        case .determination:
-//                .init(x: 0, y: 0, width: 814, height: 668)
-//        case .fullfilment:
-//                .init(x: 0, y: 0, width: 684, height: 696)
-//        default:
-//                .init(x: 0, y: 0, width: 752, height: 478)
-//        }
-//    }
-//    
-//        static let ogGap: CGFloat =  37.5
-//        
-//    
-//    
-//    
-//        static func ogLineWidth(for weight: ShapeWeight) -> CGFloat {
-//            switch weight {
-//            case .light:
-//                return 7.5
-//            case .dark:
-//                return 11.5
-//            }
-//        }
-//        
-//
-//        static func lineWidth(for weight: ShapeWeight) -> CGFloat {
-//            return ogLineWidth(for: weight) * 0.5
-//        }
-//
-//    
-//    
-//        static func lineDashSpacing(for weight: ShapeWeight) -> NSNumber {
-//            return NSNumber(floatLiteral: Double(ogGap * 0.5 + SelfShape.lineWidth(for: weight)  * 0.01))
-//    }
-//    
-//    var lineDashAnimationOffset: NSNumber {
-//        return NSNumber(floatLiteral: (SelfShape.ogGap+0.5) )
-//    }
-//    
-//    var frame: CGRect {
-//        return ogFrame.insetBy(dx: ogFrame.width/4, dy: ogFrame.height/4)
-//    }
-//    
-//    var transform: CATransform3D {
-//        var newTransform: CATransform3D
-//        switch self {
-//            
-//            
-//        case .bravery:
-//            newTransform = CATransform3DMakeRotation(
-//                Angle(degrees: 5).radians,
-//                0, 0, 1
-//            )
-//    
-//            newTransform = CATransform3DScale(
-//                newTransform,
-//                0.91, 0.91, 0
-//    
-//            )
-//    
-//            newTransform = CATransform3DTranslate(
-//                newTransform,
-//                0, 0, 0
-//            )
-//            
-//        case .surprise, .determination:
-//            newTransform = CATransform3DMakeRotation(
-//                Angle(degrees: 7).radians,
-//                0, 0, 1
-//            )
-//    
-//            newTransform = CATransform3DScale(
-//                newTransform,
-//                0.91, 0.91, 0
-//    
-//            )
-//    
-//            newTransform = CATransform3DTranslate(
-//                newTransform,
-//                125, 125, 0
-//            )
-//            
-//            
-//            
-//        case .curiosity:
-//            newTransform = CATransform3DMakeRotation(
-//                Angle(degrees: 11).radians,
-//                0, 0, 1
-//            )
-//    
-//            newTransform = CATransform3DScale(
-//                newTransform,
-//                0.91, 0.91, 0
-//    
-//            )
-//    
-//            newTransform = CATransform3DTranslate(
-//                newTransform,
-//                0, 0, 0
-//            )
-//            
-//        case .euphoria:
-//            newTransform = CATransform3DMakeRotation(
-//                Angle(degrees: -191).radians,
-//                0, 0, 1
-//            )
-//    
-//            newTransform = CATransform3DScale(
-//                newTransform,
-//                0.91, 0.91, 0
-//    
-//            )
-//    
-//            newTransform = CATransform3DTranslate(
-//                newTransform,
-//                0, 0, 0
-//            )
-//            
-//        case .fullfilment:
-//            
-//            newTransform = CATransform3DMakeTranslation(
-//                40.72, 42.40, 0
-//            )
-//            
-//            newTransform = CATransform3DScale(
-//                newTransform,
-//                0.91, 0.91, 0
-//    
-//            )
-//            
-//            newTransform = CATransform3DRotate(newTransform,
-//                Angle(degrees: 132).radians,
-//                0, 0, 1
-//            )
-//            
-//        default:
-//            
-//            newTransform = CATransform3DMakeRotation(
-//                Angle(degrees: 5).radians,
-//                0, 0, 1
-//            )
-//    
-//            newTransform = CATransform3DScale(
-//                newTransform,
-//                0.91, 0.91, 0
-//    
-//            )
-//    
-//            newTransform = CATransform3DTranslate(
-//                newTransform,
-//                0, 0, 0
-//            )
-//        }
-//        
-//
-//        return newTransform
-//    }
-//            
-//    
-//    
-//    static func path(emotion: SelfShape, rect: CGRect) -> CGPath {
-//        
-//        switch emotion {
-//            
-//        case .curiosity:
-//            return SelfShape.curiosityShape(rect: rect)
-//            
-//        case .surprise:
-//
-//            
-//            return SelfShape.surpriseShape(rect: rect)
-//            
-//            
-//        case .euphoria:
-//            
-//            return SelfShape.euphoriaShape(rect: rect)
-//    
-//        case .bravery:
-//            return SelfShape.braveryShape(rect: rect)
-//            
-//        case .determination:
-//            return SelfShape.determinationShape(rect: rect)
-//        case .fullfilment:
-//            return SelfShape.fullfilmentShape(rect: rect)
-//        default:
-//            return SelfShape.braveryShape(rect: rect)
-//        }
-//        
-//        
-//    }
-//    
-//}
+    
+    var ogFrame: CGRect {
+        switch self {
+        case .anxiety:
+            return .init(x: 0, y: 0, width: 750, height: 830)
+        }
+    }
+    
+    
+    var ogGap: NSNumber {
+        switch self {
+        case .anxiety:
+            41.72
+        }
+    }
+    
+    
+    static func ogLineWidth(for weight: ShapeWeight) -> CGFloat {
+        switch weight {
+        case .light:
+            return 7.5
+        case .dark:
+            return 11.5
+        }
+    }
+    
+    
+    static func lineWidth(for weight: ShapeWeight) -> CGFloat {
+        return ogLineWidth(for: weight) * 0.5
+    }
+    
+    
+    
+    func lineDashSpacing(for weight: ShapeWeight) -> NSNumber {
+        return NSNumber(floatLiteral: Double(self.ogGap.doubleValue * 0.5 + SelfShape.lineWidth(for: weight)  * 0.01))
+    }
+    
+    var lineDashAnimationOffset: NSNumber {
+        return NSNumber(floatLiteral: (self.ogGap.doubleValue+0.5) )
+    }
+    
+    var frame: CGRect {
+        return ogFrame.insetBy(dx: ogFrame.width/4, dy: ogFrame.height/4)
+    }
+    
+    var transform: CATransform3D {
+        
+        switch self {
+            
+            
+        case .anxiety:
+            return SelfShape.anxietyTransform()
+
+        }
+        
+        
+        
+    }
+    
+    
+    
+    static func path(emotion: SelfShape, rect: CGRect) -> CGPath {
+        
+        switch emotion {
+            
+        case .anxiety:
+            return anxietyPath(rect: rect)
+        }
+        
+        
+    }
+    
+}

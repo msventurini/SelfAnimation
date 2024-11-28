@@ -9,7 +9,7 @@ import UIKit
 extension SelfShape {
     
     static func determinationShape(rect: CGRect) -> CGPath {
-        var path = CGMutablePath()
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
         path.move(to: CGPoint(x: 0.3303*width, y: 0.05122*height))

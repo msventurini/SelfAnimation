@@ -6,9 +6,31 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension SelfShape {
-    static func anxiety(rect: CGRect) -> CGPath {
+    
+    static func anxietyTransform() -> CATransform3D {
+                    var newTransform = CATransform3DMakeRotation(
+                        Angle(degrees: 7).radians,
+                        0, 0, 1
+                    )
+        
+                    newTransform = CATransform3DScale(
+                        newTransform,
+                        0.91, 0.91, 0
+        
+                    )
+        
+                    newTransform = CATransform3DTranslate(
+                        newTransform,
+                        -23, 5, 0
+                    )
+        
+        return newTransform
+    }
+    
+    static func anxietyPath(rect: CGRect) -> CGPath {
         let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
@@ -24,3 +46,11 @@ extension SelfShape {
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        ShapeSelectionRepresentable(shape: .anxiety, weight: .light)
+        ShapeSelectionRepresentable(shape: .anxiety, weight: .dark)
+    }
+    
+})

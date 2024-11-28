@@ -39,14 +39,14 @@ public class SelfShapeHomeView: UIView {
         shapeLayer.strokeColor = UIColor.black.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
-        shapeLayer.lineDashPattern = [0, SelfShape.lineDashSpacing(for: weight)]
+        shapeLayer.lineDashPattern = [0, selfShape.lineDashSpacing(for: weight)]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.masksToBounds = false
         
         
         let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)
         
-        shapeLayer.path = SelfShape.braveryShape(rect: newSize)
+        shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)
         shapeLayer.frame = newSize
         
         replicator.replicatorLayer.addSublayer(shapeLayer)

@@ -8,7 +8,7 @@ import UIKit
 extension SelfShape {
     
     static func fullfilmentShape(rect: CGRect) -> CGPath {
-        var path = CGMutablePath()
+        let path = CGMutablePath()
         
                 let width = rect.size.width
                 let height = rect.size.height

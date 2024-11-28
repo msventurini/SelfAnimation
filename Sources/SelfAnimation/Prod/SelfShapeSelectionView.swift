@@ -38,7 +38,7 @@ public class SelfShapeSelectionView: UIView {
         shapeLayer.strokeColor = UIColor.black.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
-        shapeLayer.lineDashPattern = [0, SelfShape.lineDashSpacing(for: weight)]
+        shapeLayer.lineDashPattern = [0, selfShape.lineDashSpacing(for: weight)]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.masksToBounds = false
         
@@ -46,12 +46,12 @@ public class SelfShapeSelectionView: UIView {
         let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
 
 //        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
-        shapeLayer.path = SelfShape.braveryShape(rect: newSize)
+        shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)//braveryShape(rect: newSize)
         shapeLayer.frame = newSize
         
         replicator.replicatorLayer.addSublayer(shapeLayer)
         
-        replicator.replicatorLayer.instanceCount = 30
+        replicator.replicatorLayer.instanceCount = 10
         let newTransform = selfShape.transform
         replicator.replicatorLayer.instanceTransform = newTransform
         replicator.replicatorLayer.drawsAsynchronously = true

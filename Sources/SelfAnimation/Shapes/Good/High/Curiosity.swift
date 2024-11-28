@@ -8,7 +8,7 @@ import SwiftUI
 
 extension SelfShape {
     static func curiosityShape(rect: CGRect) -> CGPath {
-        var path = CGMutablePath()
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
         path.move(to: CGPoint(x: 0.6*width, y: 0.50007*height))
