@@ -50,8 +50,6 @@ extension SelfShape {
         path.addCurve(to: CGPoint(x: 0.52928*width, y: 0.20446*height), control1: CGPoint(x: 0.48442*width, y: 0.22499*height), control2: CGPoint(x: 0.51481*width, y: 0.22499*height))
         path.closeSubpath()
         
-        
-        path.closeSubpath()
         return path
         
     }
