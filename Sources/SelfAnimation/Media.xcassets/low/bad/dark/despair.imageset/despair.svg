@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1028.1 452.88">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 4.31;
+        stroke-width: .86px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31 {
+        fill: none;
+        stroke: #87b4db;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 0 6.9;
+        stroke-width: 1.38px;
+      }
+
+      .cls-3 {
+        stroke-dasharray: 0 13.35;
+        stroke-width: 2.67px;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 0 5.2;
+        stroke-width: 1.04px;
+      }
+
+      .cls-5 {
+        stroke-dasharray: 0 41.4;
+        stroke-width: 8.28px;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 0 8.33;
+        stroke-width: 1.67px;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 0 3.92;
+        stroke-width: .78px;
+      }
+
+      .cls-8 {
+        stroke-dasharray: 0 19.47;
+        stroke-width: 3.89px;
+      }
+
+      .cls-9 {
+        stroke-dasharray: 0 31.2;
+        stroke-width: 6.24px;
+      }
+
+      .cls-10 {
+        stroke-dasharray: 0 21.4;
+        stroke-width: 4.28px;
+      }
+
+      .cls-11 {
+        stroke-dasharray: 0 34.29;
+        stroke-width: 6.86px;
+      }
+
+      .cls-12 {
+        stroke-dasharray: 0 7.58;
+        stroke-width: 1.52px;
+      }
+
+      .cls-13 {
+        stroke-dasharray: 0 17.72;
+        stroke-width: 3.54px;
+      }
+
+      .cls-14 {
+        stroke-dasharray: 0 6.28;
+        stroke-width: 1.26px;
+      }
+
+      .cls-15 {
+        stroke-dasharray: 0 14.67;
+        stroke-width: 2.93px;
+      }
+
+      .cls-16 {
+        stroke-dasharray: 0 3.57;
+        stroke-width: .71px;
+      }
+
+      .cls-17 {
+        stroke-dasharray: 0 4.73;
+        stroke-width: .95px;
+      }
+
+      .cls-18 {
+        stroke-dasharray: 0 16.12;
+        stroke-width: 3.22px;
+      }
+
+      .cls-19 {
+        stroke-dasharray: 0 50;
+        stroke-width: 10px;
+      }
+
+      .cls-20 {
+        stroke-dasharray: 0 37.68;
+        stroke-width: 7.54px;
+      }
+
+      .cls-21 {
+        stroke-dasharray: 0 3.24;
+        stroke-width: .65px;
+      }
+
+      .cls-22 {
+        stroke-dasharray: 0 28.39;
+        stroke-width: 5.68px;
+      }
+
+      .cls-23 {
+        stroke-dasharray: 0 25.84;
+        stroke-width: 5.17px;
+      }
+
+      .cls-24 {
+        stroke-dasharray: 0 45.5;
+        stroke-width: 9.1px;
+      }
+
+      .cls-25 {
+        stroke-dasharray: 0 23.51;
+        stroke-width: 4.7px;
+      }
+
+      .cls-26 {
+        stroke-dasharray: 0 10.06;
+        stroke-width: 2.01px;
+      }
+
+      .cls-27 {
+        stroke-dasharray: 0 5.71;
+        stroke-width: 1.14px;
+      }
+
+      .cls-28 {
+        stroke-dasharray: 0 12.15;
+        stroke-width: 2.43px;
+      }
+
+      .cls-29 {
+        stroke-dasharray: 0 9.16;
+        stroke-width: 1.83px;
+      }
+
+      .cls-30 {
+        stroke-dasharray: 0 11.06;
+        stroke-width: 2.21px;
+      }
+
+      .cls-31 {
+        stroke-dasharray: 0 2.95;
+        stroke-width: .59px;
+      }
+
+      .cls-32 {
+        fill: #87b4db;
+      }
+    </style>
+  </defs>
+  <g id="low_bad">
+    <g>
+      <g>
+        <polygon class="cls-31" points="212.69 402.83 202.75 421.1 180.54 421.39 161.55 432.36 167.2 414.18 197.62 413.32 212.69 402.83"/>
+        <polygon class="cls-21" points="213.39 405.23 200.1 423.82 175.84 421.17 153.65 430.58 162.25 411.51 195.55 414.65 213.39 405.23"/>
+        <polygon class="cls-16" points="213.83 407.93 196.84 426.43 170.73 420.29 145.28 427.59 157.21 407.93 193.1 415.82 213.83 407.93"/>
+        <polygon class="cls-7" points="213.94 410.94 192.93 428.85 165.29 418.64 136.54 423.2 152.19 403.36 190.28 416.77 213.94 410.94"/>
+        <polygon class="cls-1" points="213.67 414.23 188.35 430.95 159.56 416.12 127.6 417.24 147.32 397.7 187.08 417.43 213.67 414.23"/>
+        <polygon class="cls-17" points="212.92 417.79 183.08 432.64 153.66 412.61 118.65 409.55 142.77 390.87 183.5 417.71 212.92 417.79"/>
+        <polygon class="cls-4" points="211.63 421.57 177.09 433.77 147.69 407.98 109.92 399.95 138.73 382.82 179.55 417.55 211.63 421.57"/>
+        <polygon class="cls-27" points="209.72 425.53 170.42 434.2 141.8 402.14 101.67 388.32 135.4 373.49 175.27 416.84 209.72 425.53"/>
+        <polygon class="cls-14" points="207.11 429.58 163.07 433.78 136.16 394.98 94.24 374.53 133.01 362.87 170.69 415.49 207.11 429.58"/>
+        <polygon class="cls-2" points="203.72 433.65 155.12 432.34 130.96 386.41 87.98 358.5 131.83 350.97 165.89 413.41 203.72 433.65"/>
+        <polygon class="cls-12" points="199.47 437.64 146.65 429.7 126.44 376.37 83.3 340.17 132.13 337.83 160.92 410.49 199.47 437.64"/>
+        <polygon class="cls-6" points="194.3 441.42 137.75 425.68 122.86 364.81 80.65 319.55 134.23 323.54 155.89 406.65 194.3 441.42"/>
+        <polygon class="cls-29" points="188.16 444.85 128.59 420.11 120.5 351.72 80.52 296.7 138.42 308.23 150.92 401.78 188.16 444.85"/>
+        <polygon class="cls-26" points="181 447.78 119.34 412.81 119.67 337.13 83.44 271.77 145.05 292.1 146.16 395.81 181 447.78"/>
+        <polygon class="cls-30" points="172.81 450 110.23 403.61 120.73 321.11 89.97 244.97 154.44 275.39 141.76 388.65 172.81 450"/>
+        <polygon class="cls-28" points="163.57 451.33 101.53 392.35 124.03 303.77 100.67 216.61 166.92 258.42 137.92 380.26 163.57 451.33"/>
+        <polygon class="cls-3" points="153.31 451.55 93.54 378.91 129.95 285.31 116.14 187.1 182.8 241.58 134.85 370.59 153.31 451.55"/>
+        <polygon class="cls-15" points="142.09 450.41 86.64 363.17 138.87 265.96 136.97 157 202.38 225.35 132.8 359.64 142.09 450.41"/>
+        <polygon class="cls-18" points="130.01 447.66 81.21 345.09 151.2 246.05 163.72 126.95 225.91 210.26 132.04 347.41 130.01 447.66"/>
+        <polygon class="cls-13" points="117.2 443.05 77.71 324.64 167.32 225.99 196.92 97.76 253.59 196.96 132.84 333.98 117.2 443.05"/>
+        <polygon class="cls-8" points="103.85 436.3 76.63 301.86 187.58 206.26 237.04 70.37 285.57 186.15 135.51 319.43 103.85 436.3"/>
+        <polygon class="cls-10" points="90.19 427.16 78.51 276.87 212.32 187.46 284.47 45.87 321.9 178.65 140.37 303.92 90.19 427.16"/>
+        <polygon class="cls-25" points="76.52 415.35 83.9 249.87 241.83 170.27 339.48 25.5 362.52 175.33 147.75 287.66 76.52 415.35"/>
+        <polygon class="cls-23" points="63.18 400.65 93.4 221.14 276.31 155.47 402.21 10.64 407.27 177.16 157.98 270.91 63.18 400.65"/>
+        <polygon class="cls-22" points="50.61 382.82 107.6 191.08 315.9 143.95 472.62 2.84 455.84 185.14 171.38 254.01 50.61 382.82"/>
+        <polygon class="cls-9" points="39.28 361.69 127.12 160.19 360.63 136.68 550.46 3.76 507.75 200.35 188.26 237.37 39.28 361.69"/>
+        <polygon class="cls-11" points="29.76 337.13 152.55 129.11 410.39 134.74 635.24 15.19 562.32 223.89 208.9 221.49 29.76 337.13"/>
+        <polygon class="cls-20" points="22.66 309.06 184.45 98.62 464.92 139.29 726.18 39.01 618.7 256.87 233.53 206.92 22.66 309.06"/>
+        <polygon class="cls-5" points="18.67 277.5 223.32 69.64 523.79 151.56 822.17 77.17 675.77 300.4 262.36 194.34 18.67 277.5"/>
+        <polygon class="cls-24" points="18.55 242.54 269.61 43.23 586.35 172.82 921.77 131.64 732.19 355.52 295.48 184.47 18.55 242.54"/>
+        <polygon class="cls-19" points="23.1 204.4 323.62 20.63 651.74 204.4 1023.1 204.4 786.34 423.19 332.93 178.14 23.1 204.4"/>
+      </g>
+      <circle class="cls-32" cx="23" cy="166.19" r="5"/>
+      <circle class="cls-32" cx="110" cy="70.19" r="5"/>
+      <circle class="cls-32" cx="59" cy="139.19" r="5"/>
+      <circle class="cls-32" cx="105" cy="115.19" r="5"/>
+      <circle class="cls-32" cx="150" cy="87.19" r="5"/>
+      <circle class="cls-32" cx="45.5" cy="174.69" r="3.5"/>
+      <circle class="cls-32" cx="125.5" cy="95.69" r="3.5"/>
+      <circle class="cls-32" cx="59.5" cy="99.69" r="3.5"/>
+      <circle class="cls-32" cx="84.5" cy="143.69" r="3.5"/>
+      <circle class="cls-32" cx="132.5" cy="64.69" r="3.5"/>
+      <circle class="cls-32" cx="3.5" cy="115.69" r="3.5"/>
+    </g>
+  </g>
+</svg>

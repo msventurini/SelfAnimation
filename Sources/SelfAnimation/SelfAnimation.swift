@@ -19,7 +19,8 @@ public struct CoverageView: View {
                 ForEach(SelfShape.allCases) { shape in
               
                     NavigationLink {
-                        ShapeDemoRepresentable(shape: shape, weight: .light, isAsyncRendered: true)
+                        DetailView(shape: shape)
+//                        ShapeDemoRepresentable(shape: shape, weight: .light, isAsyncRendered: true)
                             .scaledToFit()
                     } label: {
                         CoverageListRowView(item: shape)
@@ -56,8 +57,8 @@ struct CoverageListRowView: View {
         .padding()
         
         
-        .background(.ultraThickMaterial.blendMode(.colorDodge))
-        .background((Image(SelfShape.imageFor(shape: item))))
+//        .background(.ultraThickMaterial.blendMode(.colorDodge))
+//        .background((Image(SelfShape.imageFor(shape: item))))
         
         .frame(maxWidth: .infinity, idealHeight: 120, maxHeight: 220)
         
@@ -73,24 +74,24 @@ struct CoverageListRowView: View {
 
 extension SelfShape {
     
-    static func imageFor(shape: SelfShape) -> ImageResource {
-        switch shape {
-        case .surprise:
-                .Dark.surprise
-        case .euphoria:
-                .Dark.euphoria
-        case .bravery:
-                .Dark.bravery
-        case .curiosity:
-                .Dark.curiosity
-        case .determination:
-                .Dark.determination
-        case .fullfilment:
-                .Dark.fullfilment
-        default:
-                .Dark.bravery
-        }
-    }
+//    static func imageFor(shape: SelfShape) -> ImageResource {
+//        switch shape {
+//        case .surprise:
+//                .Dark.surprise
+//        case .euphoria:
+//                .Dark.euphoria
+//        case .bravery:
+//                .Dark.bravery
+//        case .curiosity:
+//                .Dark.curiosity
+//        case .determination:
+//                .Dark.determination
+//        case .fullfilment:
+//                .Dark.fullfilment
+//        default:
+//                .Dark.bravery
+//        }
+//    }
     
     
     

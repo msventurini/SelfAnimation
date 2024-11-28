@@ -38,15 +38,15 @@ public class SelfShapeSelectionView: UIView {
         shapeLayer.strokeColor = UIColor.black.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
-        shapeLayer.lineDashPattern = [0, SelfShape.lineDashSpacing(for: weight)]
+        shapeLayer.lineDashPattern = [0, selfShape.lineDashSpacing(for: weight)]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.masksToBounds = false
         
         
-        let newSize = AVMakeRect(aspectRatio: selfShape.frame.size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
+        let newSize = AVMakeRect(aspectRatio: selfShape.ogFrame.size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
 
 //        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
-        shapeLayer.path = SelfShape.braveryShape(rect: newSize)
+        shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)//braveryShape(rect: newSize)
         shapeLayer.frame = newSize
         
         replicator.replicatorLayer.addSublayer(shapeLayer)
@@ -103,22 +103,22 @@ public struct ShapeSelectionRepresentable: UIViewRepresentable {
 }
 
 #Preview {
-    
-    NavigationStack {
-        List(SelfShape.allCases) { shape in
-            
-            GroupBox {
-                
-                NavigationLink {
-                    DetailView(shape: shape)
-                } label: {
-                    Text(shape.rawValue)
-                }
-                
-            }
-            
-        }
-    }
+    DetailView(shape: .panic)
+//    NavigationStack {
+//        List(SelfShape.allCases) { shape in
+//            
+//            GroupBox {
+//                
+//                NavigationLink {
+//                    DetailView(shape: shape)
+//                } label: {
+//                    Text(shape.rawValue)
+//                }
+//                
+//            }
+//            
+//        }
+//    }
 
 }
 

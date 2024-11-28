@@ -11,9 +11,16 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
+public enum ShapeWeight {
+    case light
+    case dark
+}
+
+
+
 public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     
-        public var id: String {
+    public var id: String {
         return self.rawValue
     }
     
@@ -42,205 +49,267 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     case inspiration = "inspiration"
     case interest = "interest"
     case joy = "joy"
-    
+
     var ogFrame: CGRect {
         switch self {
-        case .surprise:
-                .init(x: 0, y: 0, width: 975, height: 558)
-        case .euphoria:
-                .init(x: 0, y: 0, width: 608, height: 608)
+        case .anxiety:
+            return .init(x: 0, y: 0, width: 1092, height: 1146)
+        case .anger:
+            return .init(x: 0, y: 0, width: 750, height: 750)
+        case .confusion:
+            return .init(x: 0, y: 0, width: 842, height: 842)
         case .bravery:
-                .init(x: 0, y: 0, width: 636, height: 904)
+            return .init(x: 0, y: 0, width: 848, height: 1204)
         case .curiosity:
-                .init(x: 0, y: 0, width: 752, height: 478)
+            return .init(x: 0, y: 0, width: 752, height: 478)
         case .determination:
-                .init(x: 0, y: 0, width: 814, height: 668)
+            return .init(x: 0, y: 0, width: 814, height: 668)
+            
+        case .disgust:
+            return .init(x: 0, y: 0, width: 842, height: 644)
+        case .envy:
+            return .init(x: 0, y: 0, width: 650, height: 750)
+        case .fear:
+            return .init(x: 0, y: 0, width: 750, height: 732)
+        case .frustration:
+            return .init(x: 0, y: 0, width: 750, height: 730)
+        case .overload:
+            return .init(x: 0, y: 0, width: 800, height: 850)
+        case .panic:
+            return .init(x: 0, y: 0, width: 870, height: 794)
+        case .shock:
+            return .init(x: 0, y: 0, width: 750, height: 684)
+        case .tension:
+            return .init(x: 0, y: 0, width: 758, height: 800)
+            
+            
+        case .stress:
+            return .init(x: 0, y: 0, width: 750, height: 606)
+        case .interest:
+            return .init(x: 0, y: 0, width: 808, height: 466)
         case .fullfilment:
-                .init(x: 0, y: 0, width: 684, height: 696)
-        default:
-                .init(x: 0, y: 0, width: 752, height: 478)
+            return .init(x: 0, y: 0, width: 750, height: 731)
+        case .inspiration:
+            return .init(x: 0, y: 0, width: 450, height: 908)
+        case .euphoria:
+            return .init(x: 0, y: 0, width: 825, height: 825)
+        case .surprise:
+            return .init(x: 0, y: 0, width: 1059, height: 578)
+        case .pleasure:
+            return .init(x: 0, y: 0, width: 1015, height: 1046)
+        case .fun:
+            return .init(x: 0, y: 0, width: 986, height: 989)
+        case .happiness:
+            return .init(x: 0, y: 0, width: 1038, height: 1036)
+        case .joy:
+            return .init(x: 0, y: 0, width: 762, height: 652)
+
         }
     }
     
-        static let ogGap: CGFloat =  37.5
-        
-    
-    
-    
-        static func ogLineWidth(for weight: ShapeWeight) -> CGFloat {
-            switch weight {
-            case .light:
-                return 7.5
-            case .dark:
-                return 11.5
-            }
+    var instanceDelay: CGFloat {
+        switch self {
+        case .anxiety:
+            -1.35
+        case .curiosity, .interest:
+            -0.15
+        case .fun:
+            0
+        default:
+            0
         }
+    }
+    
+    
+    
+    var direction: CGFloat {
+        switch self {
         
-
-        static func lineWidth(for weight: ShapeWeight) -> CGFloat {
-            return ogLineWidth(for: weight) * 0.5
+        case .anger, .panic, .fun:
+            return -1
+        default:
+            return 1
         }
-
+    }
+    
+    var ogGap: NSNumber {
+        switch self {
+        case .anxiety, .fun:
+            41.72
+        case .determination:
+            40.0
+        case .confusion:
+            35.72
+        case .fullfilment:
+            32.5
+        
+        case .stress, .fun:
+            28.0
+        default:
+            37.5
+        }
+    }
     
     
-        static func lineDashSpacing(for weight: ShapeWeight) -> NSNumber {
-            return NSNumber(floatLiteral: Double(ogGap * 0.5 + SelfShape.lineWidth(for: weight)  * 0.01))
+    static func ogLineWidth(for weight: ShapeWeight) -> CGFloat {
+        switch weight {
+        case .light:
+            return 7.5
+        case .dark:
+            return 10
+        }
+    }
+    
+    
+    static func lineWidth(for weight: ShapeWeight) -> CGFloat {
+        return ogLineWidth(for: weight) * 0.5
+    }
+    
+    
+    
+    func lineDashSpacing(for weight: ShapeWeight) -> NSNumber {
+        return NSNumber(floatLiteral: Double(self.ogGap.doubleValue * 0.5 + SelfShape.lineWidth(for: weight)  * 0.01))
     }
     
     var lineDashAnimationOffset: NSNumber {
-        return NSNumber(floatLiteral: (SelfShape.ogGap+0.5) )
+        return NSNumber(floatLiteral: (self.ogGap.doubleValue+0.5) )
     }
     
-    var frame: CGRect {
-        return ogFrame.insetBy(dx: ogFrame.width/4, dy: ogFrame.height/4)
-    }
     
     var transform: CATransform3D {
-        var newTransform: CATransform3D
+        
         switch self {
             
             
+        case .anxiety:
+            return SelfShape.anxietyTransform()
+        case .anger:
+            return SelfShape.angerTransform()
+
+        case .confusion:
+            return SelfShape.confusionTransform()
+        
         case .bravery:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 5).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
-            
-        case .surprise, .determination:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 7).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                125, 125, 0
-            )
-            
+            return SelfShape.braveryTransform()
             
             
         case .curiosity:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 11).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
+            return SelfShape.curiosityTransform()
             
-        case .euphoria:
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: -191).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
+        case .determination:
+            return SelfShape.determinationTransform()
             
+            
+        case .disgust:
+            return SelfShape.disgustTransform()
+        case .envy:
+            return SelfShape.envyTransform()
+        case .fear:
+            return SelfShape.fearTransform()
+        case .frustration:
+            return SelfShape.frustrationTransform()
+        case .overload:
+            return SelfShape.overloadTransform()
+        case .panic:
+            return SelfShape.panicTransform()
+        case .shock:
+            return SelfShape.shockTransform()
+        case .tension:
+            return SelfShape.shockTransform()
+        case .stress:
+            return SelfShape.stressTransform()
+        case .interest:
+            return SelfShape.interestTransform()
         case .fullfilment:
-            
-            newTransform = CATransform3DMakeTranslation(
-                40.72, 42.40, 0
-            )
-            
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-            
-            newTransform = CATransform3DRotate(newTransform,
-                Angle(degrees: 132).radians,
-                0, 0, 1
-            )
-            
-        default:
-            
-            newTransform = CATransform3DMakeRotation(
-                Angle(degrees: 5).radians,
-                0, 0, 1
-            )
-    
-            newTransform = CATransform3DScale(
-                newTransform,
-                0.91, 0.91, 0
-    
-            )
-    
-            newTransform = CATransform3DTranslate(
-                newTransform,
-                0, 0, 0
-            )
+            return SelfShape.fullfilmentTransform()
+        case .euphoria:
+            return SelfShape.euphoriaTransform()
+        case .surprise:
+            return SelfShape.surpriseTransform()
+        case .pleasure:
+            return SelfShape.pleasureTransform()
+        case .fun:
+            return SelfShape.funTransform()
+        case .happiness:
+            return SelfShape.happinessTransform()
+        case .inspiration:
+            return SelfShape.inspirationTransform()
+        case .joy:
+            return SelfShape.joyTransform()
         }
         
-
-        return newTransform
+        
+        
     }
-            
+    
     
     
     static func path(emotion: SelfShape, rect: CGRect) -> CGPath {
         
         switch emotion {
             
+        case .anxiety:
+            return anxietyPath(rect: rect)
+        case .anger:
+            return angerPath(rect: rect)
+            
+        case .confusion:
+            return confusionPath(rect: rect)
+        case .bravery:
+            return SelfShape.braveryShape(rect: rect)
         case .curiosity:
             return SelfShape.curiosityShape(rect: rect)
             
-        case .surprise:
-
-            
-            return SelfShape.surpriseShape(rect: rect)
-            
-            
-        case .euphoria:
-            
-            return SelfShape.euphoriaShape(rect: rect)
-    
-        case .bravery:
-            return SelfShape.braveryShape(rect: rect)
-            
         case .determination:
             return SelfShape.determinationShape(rect: rect)
+        case .disgust:
+            return disgustPath(rect: rect)
+        case .envy:
+            return envyPath(rect: rect)
+        case .fear:
+            return fearPath(rect: rect)
+        case .frustration:
+            return frustrationPath(rect: rect)
+        case .overload:
+            return ovearloadPath(rect: rect)
+        case .panic:
+            return panicPath(rect: rect)
+        case .shock:
+            return shockPath(rect: rect)
+        case .tension:
+            return tensionPath(rect: rect)
+        case .stress:
+            return stressPath(rect: rect)
+        case .interest:
+            return interestPath(rect: rect)
         case .fullfilment:
-            return SelfShape.fullfilmentShape(rect: rect)
-        default:
-            return SelfShape.braveryShape(rect: rect)
+            return fullfilmentShape(rect: rect)
+        case .euphoria:
+            return euphoriaShape(rect: rect)
+        case .surprise:
+            return surpriseShape(rect: rect)
+        case .pleasure:
+            return pleasurePath(rect: rect)
+        case .fun:
+            return funPath(rect: rect)
+        case .happiness:
+            return happinessPath(rect: rect)
+        case .inspiration:
+            return inspirationPath(rect: rect)
+        case .joy:
+            return joyPath(rect: rect)
         }
         
         
     }
     
 }
+
+#Preview(body: {
+    VStack {
+        
+        ShapeHomeRepresentable(shape: .fun, weight: .light)
+        ShapeHomeRepresentable(shape: .fun, weight: .dark)
+    }
+    
+})
