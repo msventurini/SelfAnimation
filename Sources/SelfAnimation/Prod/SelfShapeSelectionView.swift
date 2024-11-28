@@ -12,16 +12,16 @@ import AVFoundation
 import UIKit
 import SwiftUI
 
-class SelfShapeSelectionView: UIView {
+public class SelfShapeSelectionView: UIView {
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return .init(width: 200, height: 200)
     }
     
     var selfShape: SelfShape
     var weight: ShapeWeight
     
-    init(selfShape: SelfShape, weight: ShapeWeight) {
+    public init(selfShape: SelfShape, weight: ShapeWeight) {
         self.selfShape = selfShape
         self.weight = weight
         
@@ -75,23 +75,23 @@ class SelfShapeSelectionView: UIView {
     
 }
 
-struct ShapeSelectionRepresentable: UIViewRepresentable {
+public struct ShapeSelectionRepresentable: UIViewRepresentable {
     
     let shape: SelfShape
     let weight: ShapeWeight
     
-    func makeUIView(context: Context) -> SelfShapeSelectionView {
+    public func makeUIView(context: Context) -> SelfShapeSelectionView {
         let view = SelfShapeSelectionView(selfShape: shape, weight: weight)
         return view
     }
     
-    func updateUIView(_ uiView: SelfShapeSelectionView, context: Context) {
+    public func updateUIView(_ uiView: SelfShapeSelectionView, context: Context) {
         
     }
     
-    typealias UIViewType = SelfShapeSelectionView
+    public typealias UIViewType = SelfShapeSelectionView
     
-    func sizeThatFits(_ proposal: ProposedViewSize, uiView: SelfShapeSelectionView, context: Context) -> CGSize? {
+    public func sizeThatFits(_ proposal: ProposedViewSize, uiView: SelfShapeSelectionView, context: Context) -> CGSize? {
         return uiView.intrinsicContentSize
     }
     
@@ -117,11 +117,11 @@ struct ShapeSelectionRepresentable: UIViewRepresentable {
 
 }
 
-struct DetailView: View {
+public struct DetailView: View {
     
     let shape: SelfShape
     
-    var body: some View {
+    public var body: some View {
         
         VStack {
             ShapeSelectionRepresentable(shape: shape, weight: .light)

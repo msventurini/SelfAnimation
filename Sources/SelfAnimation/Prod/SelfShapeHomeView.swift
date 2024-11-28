@@ -12,16 +12,16 @@ import AVFoundation
 import UIKit
 import SwiftUI
 
-class SelfShapeHomeView: UIView {
+public class SelfShapeHomeView: UIView {
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return .init(width: 250, height: 250)
     }
     
     var selfShape: SelfShape
     var weight: ShapeWeight
     
-    init(selfShape: SelfShape, weight: ShapeWeight) {
+    public init(selfShape: SelfShape, weight: ShapeWeight) {
         self.selfShape = selfShape
         self.weight = weight
         
@@ -75,23 +75,23 @@ class SelfShapeHomeView: UIView {
     
 }
 
-struct ShapeHomeRepresentable: UIViewRepresentable {
+public struct ShapeHomeRepresentable: UIViewRepresentable {
     
     let shape: SelfShape
     let weight: ShapeWeight
     
-    func makeUIView(context: Context) -> SelfShapeHomeView {
+    public func makeUIView(context: Context) -> SelfShapeHomeView {
         let view = SelfShapeHomeView(selfShape: shape, weight: weight)
         return view
     }
     
-    func updateUIView(_ uiView: SelfShapeHomeView, context: Context) {
+    public func updateUIView(_ uiView: SelfShapeHomeView, context: Context) {
         
     }
     
-    typealias UIViewType = SelfShapeHomeView
+    public typealias UIViewType = SelfShapeHomeView
     
-    func sizeThatFits(_ proposal: ProposedViewSize, uiView: SelfShapeHomeView, context: Context) -> CGSize? {
+    public func sizeThatFits(_ proposal: ProposedViewSize, uiView: SelfShapeHomeView, context: Context) -> CGSize? {
         return uiView.intrinsicContentSize
     }
     
@@ -117,11 +117,11 @@ struct ShapeHomeRepresentable: UIViewRepresentable {
 
 }
 
-struct DetailViewHome: View {
+public struct DetailViewHome: View {
     
     let shape: SelfShape
     
-    var body: some View {
+    public var body: some View {
         
         VStack {
             ShapeHomeRepresentable(shape: shape, weight: .light)
