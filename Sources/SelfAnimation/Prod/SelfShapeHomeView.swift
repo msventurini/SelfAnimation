@@ -74,3 +74,6 @@ class SelfShapeHomeView: UIView {
     }
     
 }
+
+
+
