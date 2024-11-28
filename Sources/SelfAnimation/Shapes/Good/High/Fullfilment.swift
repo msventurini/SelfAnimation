@@ -4,8 +4,36 @@
 //
 //  Created by Matheus Silveira Venturini on 27/11/24.
 //
+import SwiftUI
 import UIKit
+
 extension SelfShape {
+    static func fullfilmentTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            41/30, 42.46/30, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 132).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
     
     static func fullfilmentShape(rect: CGRect) -> CGPath {
         let path = CGMutablePath()

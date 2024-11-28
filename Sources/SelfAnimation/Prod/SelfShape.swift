@@ -43,7 +43,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 //    case pleasure = "pleasure"
     case curiosity = "curiosity"
 //    case fun = "fun"
-//    case determination = "determination"
+    case determination = "determination"
 //    case fullfilment = "fullfilment"
 //    case happiness = "happiness"
 //    case inspiration = "inspiration"
@@ -62,6 +62,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return .init(x: 0, y: 0, width: 848, height: 1204)
         case .curiosity:
             return .init(x: 0, y: 0, width: 752, height: 478)
+        case .determination:
+            return .init(x: 0, y: 0, width: 814, height: 668)
             
         }
     }
@@ -94,6 +96,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         
         case .confusion:
             35.72
+        case .determination:
+            40.0
         default:
             37.5
         }
@@ -144,6 +148,11 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             
         case .curiosity:
             return SelfShape.curiosityTransform()
+            
+        case .determination:
+            return SelfShape.determinationTransform()
+            
+            
         }
         
         
@@ -167,6 +176,9 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return SelfShape.braveryShape(rect: rect)
         case .curiosity:
             return SelfShape.curiosityShape(rect: rect)
+            
+        case .determination:
+            return SelfShape.determinationShape(rect: rect)
         }
         
         

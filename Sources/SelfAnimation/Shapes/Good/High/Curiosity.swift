@@ -5,6 +5,7 @@
 //  Created by Matheus Silveira Venturini on 27/11/24.
 //
 import SwiftUI
+import UIKit
 
 extension SelfShape {
     

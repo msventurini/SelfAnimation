@@ -4,10 +4,38 @@
 //
 //  Created by Matheus Silveira Venturini on 27/11/24.
 //
+import SwiftUI
 import UIKit
 
 
+
 extension SelfShape {
+    static func euphoriaTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 192).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
     static func euphoriaShape(rect: CGRect) -> CGPath{
         
         let path = CGMutablePath()
