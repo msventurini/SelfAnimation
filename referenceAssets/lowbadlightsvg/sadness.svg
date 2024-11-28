@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1018 266">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 13.35;
+        stroke-width: 4.01px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
+        fill: none;
+        stroke: #87b4db;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 0 41.4;
+        stroke-width: 12.42px;
+      }
+
+      .cls-3 {
+        stroke-dasharray: 0 19.47;
+        stroke-width: 5.84px;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 0 31.2;
+        stroke-width: 9.36px;
+      }
+
+      .cls-5 {
+        stroke-dasharray: 0 21.4;
+        stroke-width: 6.42px;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 0 17.72;
+        stroke-width: 5.32px;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 0 34.29;
+        stroke-width: 10.29px;
+      }
+
+      .cls-8 {
+        stroke-dasharray: 0 14.67;
+        stroke-width: 4.4px;
+      }
+
+      .cls-9 {
+        stroke-dasharray: 0 50;
+        stroke-width: 15px;
+      }
+
+      .cls-10 {
+        stroke-dasharray: 0 37.68;
+        stroke-width: 11.3px;
+      }
+
+      .cls-11 {
+        stroke-dasharray: 0 8.33;
+        stroke-width: 2.5px;
+      }
+
+      .cls-12 {
+        stroke-dasharray: 0 16.12;
+        stroke-width: 4.84px;
+      }
+
+      .cls-13 {
+        stroke-dasharray: 0 10.06;
+        stroke-width: 3.02px;
+      }
+
+      .cls-14 {
+        stroke-dasharray: 0 28.39;
+        stroke-width: 8.52px;
+      }
+
+      .cls-15 {
+        stroke-dasharray: 0 11.06;
+        stroke-width: 3.32px;
+      }
+
+      .cls-16 {
+        stroke-dasharray: 0 25.84;
+        stroke-width: 7.75px;
+      }
+
+      .cls-17 {
+        stroke-dasharray: 0 45.5;
+        stroke-width: 13.65px;
+      }
+
+      .cls-18 {
+        stroke-dasharray: 0 23.51;
+        stroke-width: 7.05px;
+      }
+
+      .cls-19 {
+        stroke-dasharray: 0 9.16;
+        stroke-width: 2.75px;
+      }
+
+      .cls-20 {
+        stroke-dasharray: 0 12.15;
+        stroke-width: 3.65px;
+      }
+
+      .cls-21 {
+        fill: #87b4db;
+      }
+    </style>
+  </defs>
+  <g id="low_bad">
+    <g>
+      <circle class="cls-21" cx="65.5" cy="237.5" r="7.5"/>
+      <circle class="cls-21" cx="867.5" cy="103.5" r="7.5"/>
+      <circle class="cls-21" cx="940.5" cy="180.5" r="7.5"/>
+      <circle class="cls-21" cx="841.5" cy="209.5" r="7.5"/>
+      <circle class="cls-21" cx="898" cy="118" r="5"/>
+      <circle class="cls-21" cx="916" cy="214" r="5"/>
+      <circle class="cls-21" cx="102" cy="118" r="5"/>
+      <circle class="cls-21" cx="954" cy="157" r="5"/>
+      <g>
+        <polyline class="cls-11" points="577.13 321.73 607.14 318.06 619.93 260.72"/>
+        <polyline class="cls-19" points="574.27 318.15 607.41 315.85 624.75 253.66"/>
+        <polyline class="cls-13" points="571.34 314.06 607.83 313.44 630.44 246.19"/>
+        <polyline class="cls-15" points="568.35 309.4 608.44 310.82 637.11 238.32"/>
+        <polyline class="cls-20" points="565.34 304.11 609.25 307.98 644.89 230.07"/>
+        <polyline class="cls-1" points="562.34 298.14 610.31 304.91 653.9 221.46"/>
+        <polyline class="cls-8" points="559.4 291.41 611.65 301.61 664.28 212.53"/>
+        <polyline class="cls-12" points="556.55 283.86 613.3 298.05 676.18 203.32"/>
+        <g>
+          <polyline class="cls-6" points="397.28 396.11 495.97 380.62 515.13 262.12"/>
+          <polyline class="cls-6" points="553.86 275.41 615.33 294.25 689.78 193.91"/>
+        </g>
+        <g>
+          <polyline class="cls-3" points="372.63 389.44 481.81 378.11 509.66 249.17"/>
+          <polyline class="cls-3" points="551.4 265.99 617.76 290.19 705.24 184.36"/>
+        </g>
+        <g>
+          <polyline class="cls-5" points="345.95 380.69 466.42 374.54 504.4 234.64"/>
+          <polyline class="cls-5" points="549.24 255.5 620.67 285.88 722.75 174.77"/>
+        </g>
+        <g>
+          <polyline class="cls-18" points="317.19 369.56 449.74 369.74 499.46 218.4"/>
+          <polyline class="cls-18" points="547.47 243.87 624.11 281.31 742.52 165.26"/>
+        </g>
+        <g>
+          <polyline class="cls-16" points="286.25 355.69 431.71 363.51 494.97 200.29"/>
+          <polyline class="cls-16" points="546.19 231 628.15 276.5 764.77 155.95"/>
+        </g>
+        <g>
+          <polyline class="cls-14" points="253.11 338.69 412.28 355.64 491.09 180.16"/>
+          <polyline class="cls-14" points="545.53 216.8 632.86 271.45 789.72 147.02"/>
+        </g>
+        <g>
+          <polyline class="cls-4" points="217.71 318.13 391.41 345.88 487.99 157.84"/>
+          <polyline class="cls-4" points="545.63 201.19 638.31 266.18 817.61 138.65"/>
+        </g>
+        <g>
+          <polyline class="cls-7" points="180.05 293.53 369.07 333.97 485.88 133.18"/>
+          <polyline class="cls-7" points="546.63 184.06 644.61 260.71 848.69 131.07"/>
+        </g>
+        <g>
+          <polyline class="cls-10" points="140.14 264.37 345.24 319.62 484.97 105.99"/>
+          <polyline class="cls-10" points="548.72 165.32 651.82 255.07 883.25 124.54"/>
+        </g>
+        <g>
+          <polyline class="cls-2" points="98.01 230.07 319.92 302.5 485.54 76.1"/>
+          <polyline class="cls-2" points="552.08 144.87 660.07 249.3 921.54 119.36"/>
+        </g>
+        <g>
+          <polyline class="cls-17" points="53.76 190.01 293.11 282.26 487.88 43.33"/>
+          <polyline class="cls-17" points="556.95 122.63 669.45 243.44 963.86 115.88"/>
+        </g>
+        <g>
+          <polyline class="cls-9" points="7.5 143.5 264.86 258.5 492.34 7.5"/>
+          <polyline class="cls-9" points="563.57 98.5 680.08 237.54 1010.5 114.5"/>
+        </g>
+      </g>
+      <circle class="cls-21" cx="144.5" cy="168.5" r="5"/>
+      <circle class="cls-21" cx="75.5" cy="199.5" r="7.5"/>
+    </g>
+  </g>
+</svg>

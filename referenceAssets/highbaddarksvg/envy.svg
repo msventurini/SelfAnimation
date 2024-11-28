@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 921 1027.33">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 41.4;
+        stroke-width: 8.28px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31 {
+        fill: none;
+        stroke: #ee472c;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 0 23.51;
+        stroke-width: 4.7px;
+      }
+
+      .cls-3 {
+        stroke-dasharray: 0 3.57;
+        stroke-width: .71px;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 0 13.35;
+        stroke-width: 2.67px;
+      }
+
+      .cls-5 {
+        stroke-dasharray: 0 25.84;
+        stroke-width: 5.17px;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 0 12.15;
+        stroke-width: 2.43px;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 0 31.2;
+        stroke-width: 6.24px;
+      }
+
+      .cls-8 {
+        stroke-dasharray: 0 11.06;
+        stroke-width: 2.21px;
+      }
+
+      .cls-9 {
+        stroke-dasharray: 0 3.24;
+        stroke-width: .65px;
+      }
+
+      .cls-10 {
+        stroke-dasharray: 0 37.68;
+        stroke-width: 7.54px;
+      }
+
+      .cls-11 {
+        stroke-dasharray: 0 21.4;
+        stroke-width: 4.28px;
+      }
+
+      .cls-12 {
+        stroke-dasharray: 0 19.47;
+        stroke-width: 3.89px;
+      }
+
+      .cls-32 {
+        fill: #ee472c;
+      }
+
+      .cls-13 {
+        stroke-dasharray: 0 4.73;
+        stroke-width: .95px;
+      }
+
+      .cls-14 {
+        stroke-dasharray: 0 34.29;
+        stroke-width: 6.86px;
+      }
+
+      .cls-15 {
+        stroke-dasharray: 0 5.71;
+        stroke-width: 1.14px;
+      }
+
+      .cls-16 {
+        stroke-dasharray: 0 6.9;
+        stroke-width: 1.38px;
+      }
+
+      .cls-17 {
+        stroke-dasharray: 0 3.92;
+        stroke-width: .78px;
+      }
+
+      .cls-18 {
+        stroke-dasharray: 0 45.5;
+        stroke-width: 9.1px;
+      }
+
+      .cls-19 {
+        stroke-dasharray: 0 16.12;
+        stroke-width: 3.22px;
+      }
+
+      .cls-20 {
+        stroke-dasharray: 0 17.72;
+        stroke-width: 3.54px;
+      }
+
+      .cls-21 {
+        stroke-dasharray: 0 2.95;
+        stroke-width: .59px;
+      }
+
+      .cls-22 {
+        stroke-dasharray: 0 4.31;
+        stroke-width: .86px;
+      }
+
+      .cls-23 {
+        stroke-dasharray: 0 6.28;
+        stroke-width: 1.26px;
+      }
+
+      .cls-24 {
+        stroke-dasharray: 0 7.58;
+        stroke-width: 1.52px;
+      }
+
+      .cls-25 {
+        stroke-dasharray: 0 10.06;
+        stroke-width: 2.01px;
+      }
+
+      .cls-26 {
+        stroke-dasharray: 0 50;
+        stroke-width: 10px;
+      }
+
+      .cls-27 {
+        stroke-dasharray: 0 8.33;
+        stroke-width: 1.67px;
+      }
+
+      .cls-28 {
+        stroke-dasharray: 0 5.2;
+        stroke-width: 1.04px;
+      }
+
+      .cls-29 {
+        stroke-dasharray: 0 9.16;
+        stroke-width: 1.83px;
+      }
+
+      .cls-30 {
+        stroke-dasharray: 0 14.67;
+        stroke-width: 2.93px;
+      }
+
+      .cls-31 {
+        stroke-dasharray: 0 28.39;
+        stroke-width: 5.68px;
+      }
+    </style>
+  </defs>
+  <g id="high_bad">
+    <g>
+      <g>
+        <path class="cls-21" d="M463.17,478.69c3.54-19.95,13.76-36.82,29.53-51.14-31.48,17.91-52.1,19.33-59.05,0l29.53,51.14Z"/>
+        <path class="cls-9" d="M462.08,481.46c5.03-21.69,17.22-39.61,35.34-54.42-35.57,17.84-58.28,18.21-64.8-3.4l29.46,57.82Z"/>
+        <path class="cls-3" d="M460.71,484.43c6.76-23.51,21.18-42.48,41.92-57.69-40.06,17.53-65,16.63-70.92-7.45l29,65.15Z"/>
+        <path class="cls-17" d="M459.05,487.62c8.78-25.41,25.68-45.4,49.32-60.9-44.98,16.94-72.29,14.52-77.4-12.26l28.08,73.16Z"/>
+        <path class="cls-22" d="M457.04,491.02c11.09-27.38,30.8-48.34,57.62-64-50.33,16-80.17,11.77-84.23-17.9l26.61,81.9Z"/>
+        <path class="cls-13" d="M454.64,494.64c13.75-29.41,36.58-51.28,66.91-66.91-56.15,14.67-88.65,8.31-91.41-24.49l24.49,91.41Z"/>
+        <path class="cls-28" d="M451.79,498.48c16.78-31.48,43.09-54.17,77.28-69.58-62.46,12.86-97.77,4.02-98.9-32.13l21.62,101.72Z"/>
+        <path class="cls-15" d="M448.45,502.52c20.22-33.58,50.4-56.97,88.81-71.92-69.29,10.52-107.52-1.21-106.69-40.95l17.88,112.87Z"/>
+        <path class="cls-23" d="M444.55,506.77c24.12-35.69,58.58-59.62,101.59-73.81-76.64,7.56-117.92-7.51-114.72-51.08l13.13,124.89Z"/>
+        <path class="cls-16" d="M440.03,511.2c28.53-37.78,67.72-62.05,115.73-75.16-84.54,3.89-128.97-15.03-122.96-62.65l7.22,137.81Z"/>
+        <path class="cls-24" d="M434.81,515.8c33.48-39.82,77.88-64.2,131.33-75.82-93-.59-140.67-23.91-131.33-75.82v151.64Z"/>
+        <path class="cls-27" d="M428.81,520.56c39.03-41.77,89.16-65.98,148.48-75.65-102.02-6-153-34.33-139.76-90.76l-8.72,166.41Z"/>
+        <path class="cls-29" d="M421.96,525.43c45.23-43.6,101.64-67.27,167.29-74.48-111.61-12.45-165.92-46.47-148.15-107.64l-19.14,182.12Z"/>
+        <path class="cls-25" d="M414.17,530.38c52.14-45.24,115.41-67.98,187.87-72.12-121.77-20.08-179.41-60.54-156.39-126.64l-31.48,198.76Z"/>
+        <path class="cls-8" d="M405.33,535.37c59.82-46.65,130.56-67.97,210.31-68.34-132.47-29.04-193.4-76.75-164.34-147.97l-45.98,216.31Z"/>
+        <path class="cls-6" d="M395.34,540.33c68.33-47.75,147.18-67.08,234.73-62.9-143.71-39.48-207.82-95.35-171.83-171.83l-62.9,234.73Z"/>
+        <path class="cls-4" d="M384.09,545.21c77.73-48.47,165.37-65.14,261.21-55.52-155.43-51.59-222.58-116.59-178.69-198.45l-82.52,253.97Z"/>
+        <path class="cls-30" d="M371.47,549.91c88.09-48.72,185.23-61.98,289.84-45.91-167.6-65.56-237.55-140.75-184.68-228.06l-105.16,273.96Z"/>
+        <path class="cls-19" d="M357.34,554.34c99.47-48.4,206.83-57.36,320.71-33.71-180.16-81.58-252.6-168.12-189.55-260.89l-131.16,294.6Z"/>
+        <path class="cls-20" d="M341.59,558.39c111.95-47.4,230.28-51.05,353.88-18.55-193.01-99.89-267.53-199.02-193-297.2l-160.88,315.74Z"/>
+        <path class="cls-12" d="M324.07,561.93c125.58-45.57,255.64-42.78,389.42,0-206.06-120.72-282.14-233.79-194.71-337.24l-194.71,337.24Z"/>
+        <path class="cls-11" d="M304.64,564.81c140.43-42.79,283-32.25,427.34,22.4-219.19-144.33-296.17-272.79-194.28-381.29l-233.07,358.89Z"/>
+        <path class="cls-2" d="M283.15,566.85c156.57-38.88,312.42-19.11,467.68,49.15-232.24-170.99-309.33-316.39-191.27-429.6l-276.41,380.44Z"/>
+        <path class="cls-5" d="M259.45,567.86c174.05-33.66,343.94-3,510.4,80.84-245.02-201-321.26-364.99-185.19-482.44l-325.21,401.6Z"/>
+        <path class="cls-31" d="M233.38,567.59c192.94-26.93,377.61,16.48,555.46,118.07-257.33-234.67-331.56-419.02-175.48-540.08l-379.98,422.01Z"/>
+        <path class="cls-7" d="M204.79,565.81c213.28-18.46,413.44,39.81,602.77,161.51C538.67,455,467.81,248.42,646.05,124.55l-441.26,441.26Z"/>
+        <path class="cls-14" d="M173.52,562.2c235.11-7.99,451.42,67.46,652.19,211.91C546.29,459.8,480.41,229.03,683.13,103.35l-509.61,458.86Z"/>
+        <path class="cls-10" d="M139.41,556.45c258.47,4.75,491.51,100,703.52,270.06C554.38,465.51,495.35,208.48,725.05,82.21L139.41,556.45Z"/>
+        <path class="cls-1" d="M102.31,548.17c283.37,20.08,533.63,138,756.51,336.82C562.92,472.24,512.93,186.78,772.26,61.43L102.31,548.17Z"/>
+        <path class="cls-18" d="M62.08,536.96c309.81,38.33,577.66,182.13,810.82,413.13-300.98-469.96-339.42-786.1-47.63-908.75L62.08,536.96Z"/>
+        <path class="cls-26" d="M18.57,522.33c337.78,59.88,623.45,233.09,866.03,500-303.27-533.04-327.27-882.19,0-1000L18.57,522.33Z"/>
+      </g>
+      <circle class="cls-32" cx="847" cy="70" r="5"/>
+      <circle class="cls-32" cx="892" cy="65" r="5"/>
+      <circle class="cls-32" cx="883" cy="5" r="5"/>
+      <circle class="cls-32" cx="775" cy="129" r="5"/>
+      <circle class="cls-32" cx="837" cy="116" r="5"/>
+      <circle class="cls-32" cx="604" cy="814" r="5"/>
+      <circle class="cls-32" cx="539" cy="761" r="5"/>
+      <circle class="cls-32" cx="544" cy="819" r="5"/>
+      <circle class="cls-32" cx="575" cy="780" r="5"/>
+      <circle class="cls-32" cx="181" cy="404" r="5"/>
+      <circle class="cls-32" cx="176" cy="366" r="5"/>
+      <circle class="cls-32" cx="222" cy="381" r="5"/>
+      <circle class="cls-32" cx="392" cy="282" r="5"/>
+      <circle class="cls-32" cx="408" cy="246" r="5"/>
+      <circle class="cls-32" cx="336" cy="306" r="5"/>
+      <circle class="cls-32" cx="495" cy="228" r="5"/>
+      <circle class="cls-32" cx="291" cy="338" r="5"/>
+      <circle class="cls-32" cx="196.5" cy="389.5" r="3.5"/>
+      <circle class="cls-32" cx="48" cy="477" r="5"/>
+      <circle class="cls-32" cx="412.5" cy="270.5" r="3.5"/>
+      <circle class="cls-32" cx="353.5" cy="270.5" r="3.5"/>
+      <circle class="cls-32" cx="810.5" cy="96.5" r="3.5"/>
+      <circle class="cls-32" cx="897.5" cy="40.5" r="3.5"/>
+      <circle class="cls-32" cx="813.5" cy="148.5" r="3.5"/>
+      <circle class="cls-32" cx="578.5" cy="809.5" r="3.5"/>
+      <circle class="cls-32" cx="628.5" cy="842.5" r="3.5"/>
+      <circle class="cls-32" cx="569.5" cy="863.5" r="3.5"/>
+      <circle class="cls-32" cx="17.5" cy="494.5" r="3.5"/>
+      <circle class="cls-32" cx="3.5" cy="466.5" r="3.5"/>
+      <circle class="cls-32" cx="917.5" cy="53.5" r="3.5"/>
+      <circle class="cls-32" cx="385.5" cy="215.5" r="3.5"/>
+      <circle class="cls-32" cx="402.5" cy="191.5" r="3.5"/>
+      <circle class="cls-32" cx="374.5" cy="250.5" r="3.5"/>
+    </g>
+  </g>
+</svg>
