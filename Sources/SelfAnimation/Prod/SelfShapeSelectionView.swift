@@ -80,6 +80,11 @@ public struct ShapeSelectionRepresentable: UIViewRepresentable {
     let shape: SelfShape
     let weight: ShapeWeight
     
+    public init(shape: SelfShape, weight: ShapeWeight) {
+        self.shape = shape
+        self.weight = weight
+    }
+    
     public func makeUIView(context: Context) -> SelfShapeSelectionView {
         let view = SelfShapeSelectionView(selfShape: shape, weight: weight)
         return view
