@@ -57,7 +57,7 @@ struct CoverageListRowView: View {
         .padding()
         
         
-//        .background(.ultraThickMaterial.blendMode(.colorDodge))
+        .background(.ultraThickMaterial.blendMode(.colorDodge))
 //        .background((Image(SelfShape.imageFor(shape: item))))
         
         .frame(maxWidth: .infinity, idealHeight: 120, maxHeight: 220)
@@ -70,10 +70,10 @@ struct CoverageListRowView: View {
 }
 
 
-
-
-extension SelfShape {
-    
+//
+//
+//extension SelfShape {
+//    
 //    static func imageFor(shape: SelfShape) -> ImageResource {
 //        switch shape {
 //        case .surprise:
@@ -92,7 +92,7 @@ extension SelfShape {
 //                .Dark.bravery
 //        }
 //    }
-    
-    
-    
-}
+//    
+//    
+//    
+//}

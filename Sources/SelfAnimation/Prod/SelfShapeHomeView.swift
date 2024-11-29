@@ -48,7 +48,7 @@ public class SelfShapeHomeView: UIView {
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.masksToBounds = false
         replicator.replicatorLayer.preservesDepth = true
-        let newSize = AVMakeRect(aspectRatio: selfShape.ogFrame.size, insideRect: replicator.bounds)
+        let newSize = AVMakeRect(aspectRatio: SelfShape.ogFrame(shape: selfShape).size, insideRect: replicator.bounds)
         shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)
         shapeLayer.frame = newSize
         
