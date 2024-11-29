@@ -30,12 +30,12 @@ extension SelfShape {
         
         newTransform = CATransform3DTranslate(
             newTransform,
-            0, 0, 0
+            6.6, 33.3/3, 0
         )
         
         
         
-        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: -354).radians,
                                           0, 0, 1
         )
         
