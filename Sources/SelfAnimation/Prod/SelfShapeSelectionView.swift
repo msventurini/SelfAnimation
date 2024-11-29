@@ -129,20 +129,23 @@ public struct ShapeSelectionRepresentable: UIViewRepresentable {
     
     let shape: SelfShape
     let weight: ShapeWeight
+    let withAnimationOn: Bool
     
-    public init(shape: SelfShape, weight: ShapeWeight) {
+    public init(shape: SelfShape, weight: ShapeWeight, withAnimationOn: Bool = true) {
         self.shape = shape
         self.weight = weight
+        self.withAnimationOn = withAnimationOn
     }
     
     public func makeUIView(context: Context) -> SelfShapeSelectionView {
-        let view = SelfShapeSelectionView(selfShape: shape, weight: weight)
+        let view = SelfShapeSelectionView(selfShape: shape, weight: weight,withAnimationOn: withAnimationOn)
         return view
     }
     
     public func updateUIView(_ uiView: SelfShapeSelectionView, context: Context) {
         
     }
+    
     
     public typealias UIViewType = SelfShapeSelectionView
     

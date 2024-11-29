@@ -15,22 +15,15 @@ public struct CoverageView: View {
     public var body: some View {
         
         NavigationStack {
-//            ScrollView {
-//                ForEach(SelfShape.allCases) { shape in
                 List(SelfShape.allCases) { shape in
-              
                     NavigationLink {
                         DetailView(shape: shape)
-//                        ShapeDemoRepresentable(shape: shape, weight: .light, isAsyncRendered: true)
-                            .scaledToFit()
                     } label: {
-                        CoverageListRowView(item: shape)
-                            .drawingGroup()
-                    }
-                    .tint(.black)
-   
-//                }
+                        DetailView2(shape: shape)
+                            .listRowBackground(Color(cgColor: shape.tintColor).opacity(0.2))                    }
             }
+            
+                .buttonStyle(.plain)
 
             .ignoresSafeArea(.keyboard)
         }
@@ -41,6 +34,27 @@ public struct CoverageView: View {
     CoverageView()
     
 }
+
+public struct DetailView2: View {
+    
+    let shape: SelfShape
+    
+    public var body: some View {
+        
+        
+            ShapeSelectionRepresentable(shape: shape, weight: .light, withAnimationOn: false)
+                .scaleEffect(3)
+        .overlay {
+                    Text(shape.rawValue)
+                        .padding(16)
+                        .background(Material.thickMaterial)
+                        .mask(Capsule())
+
+                }
+
+    }
+}
+
 
 struct CoverageListRowView: View {
 
@@ -58,10 +72,8 @@ struct CoverageListRowView: View {
         .padding()
         
         
-//        .background(.ultraThickMaterial.blendMode(.colorDodge))
-//        .background((Image(SelfShape.imageFor(shape: item))))
         
-//        .frame(maxWidth: .infinity, idealHeight: 120, maxHeight: 220)
+        .frame(maxWidth: .infinity, idealHeight: 120, maxHeight: 120)
         
         
         
