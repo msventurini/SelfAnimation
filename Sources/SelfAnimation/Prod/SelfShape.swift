@@ -49,7 +49,17 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     case inspiration = "inspiration"
     case interest = "interest"
     case joy = "joy"
-
+    
+    case exaustion = "exaustion"
+    case guilt = "guilt"
+    case impotence = "impotence"
+    case loneliness = "loneliness"
+    case sadness = "sadness"
+    case shame = "shame"
+    case worry = "worry"
+    
+    
+    
     var ogFrame: CGRect {
         switch self {
         case .anxiety:
@@ -103,7 +113,28 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return .init(x: 0, y: 0, width: 1038, height: 1036)
         case .joy:
             return .init(x: 0, y: 0, width: 762, height: 652)
-
+            
+            
+        case .exaustion:
+            return .init(x: 0, y: 0, width: 750, height: 408)
+        case .guilt:
+            return .init(x: 0, y: 0, width: 682, height: 410)
+            
+        case .impotence:
+            return .init(x: 0, y: 0, width: 768, height: 450)
+            
+        case .loneliness:
+            return .init(x: 0, y: 0, width: 375, height: 375)
+            
+        case .sadness:
+            return .init(x: 0, y: 0, width: 752, height: 188)
+            
+        case .shame:
+            return .init(x: 0, y: 0, width: 748, height: 410)
+            
+        case .worry:
+            return .init(x: 0, y: 0, width: 750, height: 330)
+            
         }
     }
     
@@ -113,8 +144,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             -1.35
         case .curiosity, .interest:
             -0.15
-        case .fun:
-            0
+        case .loneliness:
+            -3
         default:
             0
         }
@@ -124,7 +155,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     
     var direction: CGFloat {
         switch self {
-        
+            
         case .anger, .panic, .fun:
             return -1
         default:
@@ -142,8 +173,8 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             35.72
         case .fullfilment:
             32.5
-        
-        case .stress, .fun:
+            
+        case .stress:
             28.0
         default:
             37.5
@@ -185,10 +216,10 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return SelfShape.anxietyTransform()
         case .anger:
             return SelfShape.angerTransform()
-
+            
         case .confusion:
             return SelfShape.confusionTransform()
-        
+            
         case .bravery:
             return SelfShape.braveryTransform()
             
@@ -236,6 +267,20 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return SelfShape.inspirationTransform()
         case .joy:
             return SelfShape.joyTransform()
+        case .exaustion:
+            return SelfShape.exaustionTransform()
+        case .guilt:
+            return SelfShape.guiltTransform()
+        case .impotence:
+            return SelfShape.impotenceTransform()
+        case .loneliness:
+            return SelfShape.lonelinessTransform()
+        case .sadness:
+            return SelfShape.sadnessTransform()
+        case .shame:
+            return SelfShape.shameTransform()
+        case .worry:
+            return SelfShape.worryTransform()
         }
         
         
@@ -298,6 +343,20 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return inspirationPath(rect: rect)
         case .joy:
             return joyPath(rect: rect)
+        case .exaustion:
+            return exaustionPath(rect: rect)
+        case .guilt:
+            return guiltPath(rect: rect)
+        case .impotence:
+            return impotencePath(rect: rect)
+        case .loneliness:
+            return lonelinessPath(rect: rect)
+        case .sadness:
+            return sadnessPath(rect: rect)
+        case .shame:
+            return shamePath(rect: rect)
+        case .worry:
+            return worryPath(rect: rect)
         }
         
         
@@ -308,8 +367,23 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 #Preview(body: {
     VStack {
         
-        ShapeHomeRepresentable(shape: .fun, weight: .light)
-        ShapeHomeRepresentable(shape: .fun, weight: .dark)
+        ShapeHomeRepresentable(shape: .loneliness, weight: .light)
+        ShapeHomeRepresentable(shape: .loneliness, weight: .dark)
     }
     
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
