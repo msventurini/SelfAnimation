@@ -55,30 +55,11 @@ public class SelfShapeHomeView: UIView {
         replicator.replicatorLayer.addSublayer(shapeLayer)
         
         replicator.replicatorLayer.instanceCount = 30
-        let newTransform = selfShape.transform
+        let newTransform = SelfShape.transform(shape: selfShape)
         replicator.replicatorLayer.instanceTransform = newTransform
         replicator.replicatorLayer.instanceDelay = selfShape.instanceDelay
         replicator.replicatorLayer.drawsAsynchronously = true
-        
-        
-//        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
-//        lineDashAnimation.fromValue = 0
-//        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
-//        lineDashAnimation.duration = 3
-//        lineDashAnimation.fillMode = .removed
-//        lineDashAnimation.speed = Float(1 * selfShape.direction)
-//        
-//        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-//        
-//        shapeLayer.add(lineDashAnimation, forKey: nil)
-//
-//        replicatorPt1()
-        
-        if selfShape == .fun {
-            alternate()
-        } else {
-            
-        }
+
         lineDashAnimation()
 
     }
@@ -86,30 +67,10 @@ public class SelfShapeHomeView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    func alternate() {
-//        var maskLayer = CAGradientLayer()
-//        maskLayer.type = .conic
-//        maskLayer.frame = shapeLayer.bounds
-//        maskLayer.colors = [UIColor.black, UIColor.clear].map { $0.cgColor }
-//        
-//        shapeLayer.mask = maskLayer
-//        shapeLayer.lineJoin = .miter
-    }
+
     
     func lineDashAnimation() {
 
-        
-//        var maskLayer = CAGradientLayer()
-//        maskLayer.type = .conic
-//        maskLayer.frame = shapeLayer.bounds
-//        maskLayer.colors = [UIColor.black, UIColor.clear].map { $0.cgColor }
-//        
-//        shapeLayer.mask = maskLayer
-//        shapeLayer.lineJoin = .miter
-        
-        
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
         lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
@@ -118,10 +79,7 @@ public class SelfShapeHomeView: UIView {
         lineDashAnimation.speed = Float(1 * selfShape.direction)
     
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-        shapeLayer.add(lineDashAnimation, forKey: nil)
-        
-        
-        
+        shapeLayer.add(lineDashAnimation, forKey: nil)   
     }
     
     func replicatorPt1() {
@@ -170,22 +128,8 @@ public class SelfShapeHomeView: UIView {
 
 
 #Preview {
-    
-//    NavigationStack {
-//        List(SelfShape.allCases) { shape in
-//            
-//            GroupBox {
-//                
-//                NavigationLink {
+
     DetailViewHome(shape: .anxiety)
-//                } label: {
-//                    Text(shape.rawValue)
-//                }
-//                
-//            }
-//            
-//        }
-//    }
 
 }
 

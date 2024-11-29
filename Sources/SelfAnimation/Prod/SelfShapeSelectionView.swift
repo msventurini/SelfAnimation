@@ -44,15 +44,13 @@ public class SelfShapeSelectionView: UIView {
         
         
         let newSize = AVMakeRect(aspectRatio: SelfShape.ogFrame(shape: selfShape).size, insideRect: replicator.bounds)//.offsetBy(dx: 125, dy: 125)
-
-//        path.addPath(UIBezierPath(emotionShape: selfShape, in: newSize).cgPath)
-        shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)//braveryShape(rect: newSize)
+        shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)
         shapeLayer.frame = newSize
         
         replicator.replicatorLayer.addSublayer(shapeLayer)
         
         replicator.replicatorLayer.instanceCount = 30
-        let newTransform = selfShape.transform
+        let newTransform = SelfShape.transform(shape: selfShape)
         replicator.replicatorLayer.instanceTransform = newTransform
         replicator.replicatorLayer.drawsAsynchronously = true
         
@@ -104,21 +102,6 @@ public struct ShapeSelectionRepresentable: UIViewRepresentable {
 
 #Preview {
     DetailView(shape: .panic)
-//    NavigationStack {
-//        List(SelfShape.allCases) { shape in
-//            
-//            GroupBox {
-//                
-//                NavigationLink {
-//                    DetailView(shape: shape)
-//                } label: {
-//                    Text(shape.rawValue)
-//                }
-//                
-//            }
-//            
-//        }
-//    }
 
 }
 
