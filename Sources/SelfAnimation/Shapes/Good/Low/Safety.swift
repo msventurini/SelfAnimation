@@ -1,13 +1,54 @@
+//
+//  Safety.swift
+//  SelfAnimation
+//
+//  Created by Matheus Silveira Venturini on 28/11/24.
+//
+
+
 import UIKit
 import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Safety: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+
+
+extension SelfShape {
+    
+    static func safetyTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func safetyPath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.83849*width, y: 0.17056*height))
         path.addCurve(to: CGPoint(x: 0.85507*width, y: 0.27506*height), control1: CGPoint(x: 0.84947*width, y: 0.20162*height), control2: CGPoint(x: 0.8612*width, y: 0.23481*height))
         path.addCurve(to: CGPoint(x: 0.71275*width, y: 0.40906*height), control1: CGPoint(x: 0.84314*width, y: 0.35343*height), control2: CGPoint(x: 0.77165*width, y: 0.40451*height))
@@ -39,6 +80,21 @@ struct Safety: Shape {
         path.addCurve(to: CGPoint(x: 0.39258*width, y: 0.83633*height), control1: CGPoint(x: 0.34332*width, y: 0.75106*height), control2: CGPoint(x: 0.38417*width, y: 0.78067*height))
         path.addLine(to: CGPoint(x: 0.39258*width, y: 0.83633*height))
         path.closeSubpath()
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .safety, weight: .light)
+        ShapeHomeRepresentable(shape: .safety, weight: .dark)
+    }
+    
+})
+

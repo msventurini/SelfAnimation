@@ -11,11 +11,42 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Confidence: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+extension SelfShape {
+    
+    static func confidenceTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func confidencePath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.87701*width, y: 0.37206*height))
         path.addCurve(to: CGPoint(x: 0.62382*width, y: 0.29799*height), control1: CGPoint(x: 0.76069*width, y: 0.38066*height), control2: CGPoint(x: 0.67757*width, y: 0.33773*height))
         path.addCurve(to: CGPoint(x: 0.33874*width, y: 0.02807*height), control1: CGPoint(x: 0.50464*width, y: 0.20987*height), control2: CGPoint(x: 0.46246*width, y: 0.08758*height))
@@ -38,3 +69,13 @@ struct Confidence: Shape {
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        ShapeHomeRepresentable(shape: .confidence, weight: .light)
+        ShapeHomeRepresentable(shape: .confidence, weight: .dark)
+    }
+    
+})
+

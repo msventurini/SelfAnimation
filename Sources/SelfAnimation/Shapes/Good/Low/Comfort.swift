@@ -1,13 +1,53 @@
+//
+//  Comfort.swift
+//  SelfAnimation
+//
+//  Created by Matheus Silveira Venturini on 28/11/24.
+//
+
+
 import UIKit
 import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Comfort: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+
+extension SelfShape {
+    
+    static func comfortTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func comfortPath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.97918*width, y: 0.53046*height))
         path.addCurve(to: CGPoint(x: 0.48982*width, y: 0.97664*height), control1: CGPoint(x: 0.94*width, y: 0.79825*height), control2: CGPoint(x: 0.69721*width, y: 0.97868*height))
         path.addCurve(to: CGPoint(x: 0.00045*width, y: 0.53046*height), control1: CGPoint(x: 0.23669*width, y: 0.97415*height), control2: CGPoint(x: -0.01206*width, y: 0.69941*height))
@@ -19,7 +59,21 @@ struct Comfort: Shape {
         path.addCurve(to: CGPoint(x: 0.94613*width, y: 0.25366*height), control1: CGPoint(x: 0.81195*width, y: 0.26743*height), control2: CGPoint(x: 0.89146*width, y: 0.18122*height))
         path.addCurve(to: CGPoint(x: 0.97917*width, y: 0.53046*height), control1: CGPoint(x: 0.99336*width, y: 0.31626*height), control2: CGPoint(x: 0.9902*width, y: 0.45507*height))
         path.addLine(to: CGPoint(x: 0.97918*width, y: 0.53046*height))
-        path.closeSubpath()
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .comfort, weight: .light)
+        ShapeHomeRepresentable(shape: .comfort, weight: .dark)
+    }
+    
+})
+

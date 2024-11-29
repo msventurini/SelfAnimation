@@ -11,11 +11,42 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Affection: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+extension SelfShape {
+    
+    static func affectionTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func affectionPath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.59394*width, y: 0.62411*height))
         path.addCurve(to: CGPoint(x: 0.78694*width, y: 0.83901*height), control1: CGPoint(x: 0.68264*width, y: 0.63609*height), control2: CGPoint(x: 0.69974*width, y: 0.80813*height))
         path.addCurve(to: CGPoint(x: 0.92633*width, y: 0.76209*height), control1: CGPoint(x: 0.83733*width, y: 0.85688*height), control2: CGPoint(x: 0.89625*width, y: 0.8223*height))
@@ -36,6 +67,21 @@ struct Affection: Shape {
         path.addCurve(to: CGPoint(x: 0.46335*width, y: 0.31079*height), control1: CGPoint(x: 0.66761*width, y: 0.01947*height), control2: CGPoint(x: 0.63054*width, y: 0.24832*height))
         path.addCurve(to: CGPoint(x: 0.3919*width, y: 0.32046*height), control1: CGPoint(x: 0.4348*width, y: 0.32146*height), control2: CGPoint(x: 0.41635*width, y: 0.328*height))
         path.closeSubpath()
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .affection, weight: .light)
+        ShapeHomeRepresentable(shape: .affection, weight: .dark)
+    }
+    
+})
+

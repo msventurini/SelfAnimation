@@ -11,11 +11,44 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Gratitude: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+
+
+extension SelfShape {
+    
+    static func gratitudeTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func gratitudePath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.50437*width, y: 0.97585*height))
         path.addCurve(to: CGPoint(x: 0.86359*width, y: 0.78327*height), control1: CGPoint(x: 0.62534*width, y: 0.97282*height), control2: CGPoint(x: 0.78342*width, y: 0.87169*height))
         path.addCurve(to: CGPoint(x: 0.97189*width, y: 0.56758*height), control1: CGPoint(x: 0.94104*width, y: 0.69786*height), control2: CGPoint(x: 0.96463*width, y: 0.60356*height))
@@ -34,6 +67,21 @@ struct Gratitude: Shape {
         path.addCurve(to: CGPoint(x: 0.29967*width, y: 0.56117*height), control1: CGPoint(x: 0.28648*width, y: 0.46561*height), control2: CGPoint(x: 0.2771*width, y: 0.51254*height))
         path.addCurve(to: CGPoint(x: 0.47532*width, y: 0.66389*height), control1: CGPoint(x: 0.32485*width, y: 0.6154*height), control2: CGPoint(x: 0.39311*width, y: 0.67902*height))
         path.addCurve(to: CGPoint(x: 0.59814*width, y: 0.54192*height), control1: CGPoint(x: 0.53446*width, y: 0.65301*height), control2: CGPoint(x: 0.58271*width, y: 0.6047*height))
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .gratitude, weight: .light)
+        ShapeHomeRepresentable(shape: .gratitude, weight: .dark)
+    }
+    
+})
+

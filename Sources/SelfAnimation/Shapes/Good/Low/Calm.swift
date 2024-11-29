@@ -11,11 +11,45 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Calm: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+
+
+
+extension SelfShape {
+    
+    static func calmTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func calmPath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.46325*width, y: 0.97518*height))
         path.addCurve(to: CGPoint(x: 0.27256*width, y: 0.79348*height), control1: CGPoint(x: 0.39832*width, y: 0.87872*height), control2: CGPoint(x: 0.32172*width, y: 0.82323*height))
         path.addCurve(to: CGPoint(x: 0.07098*width, y: 0.73368*height), control1: CGPoint(x: 0.20923*width, y: 0.75516*height), control2: CGPoint(x: 0.1351*width, y: 0.7103*height))
@@ -46,6 +80,21 @@ struct Calm: Shape {
         path.addCurve(to: CGPoint(x: 0.60491*width, y: 0.61643*height), control1: CGPoint(x: 0.66633*width, y: 0.61642*height), control2: CGPoint(x: 0.60984*width, y: 0.61649*height))
         path.addCurve(to: CGPoint(x: 0.50411*width, y: 0.56813*height), control1: CGPoint(x: 0.55025*width, y: 0.6158*height), control2: CGPoint(x: 0.51572*width, y: 0.58012*height))
         path.addCurve(to: CGPoint(x: 0.46597*width, y: 0.47152*height), control1: CGPoint(x: 0.46691*width, y: 0.52967*height), control2: CGPoint(x: 0.46565*width, y: 0.48596*height))
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .calm, weight: .light)
+        ShapeHomeRepresentable(shape: .calm, weight: .dark)
+    }
+    
+})
+

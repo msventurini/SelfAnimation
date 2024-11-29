@@ -63,6 +63,19 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     case despair = "despair"
     case disconnection = "disconnection"
     
+    case affection = "affection"
+    case comfort = "comfort"
+    case empathy = "empathy"
+    case relaxation = "relaxation"
+    case balance = "balance"
+    case confidence = "confidence"
+    case gratitude = "gratitude"
+    case relief = "relief"
+    case calm = "calm"
+    case contentment = "contentment"
+    case hope = "hope"
+    case safety = "safety"
+    
     
     
     var ogFrame: CGRect {
@@ -150,6 +163,30 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return .init(x: 0, y: 0, width: 750, height: 302)
         case .disconnection:
             return .init(x: 0, y: 0, width: 750, height: 375)
+        case .affection:
+            return .init(x: 0, y: 0, width: 750, height: 457)
+        case .comfort:
+            return .init(x: 0, y: 0, width: 750, height: 462)
+        case .empathy:
+            return .init(x: 0, y: 0, width: 714, height: 433)
+        case .relaxation:
+            return .init(x: 0, y: 0, width: 774, height: 357)
+        case .balance:
+            return .init(x: 0, y: 0, width: 750, height: 478)
+        case .confidence:
+            return .init(x: 0, y: 0, width: 713, height: 392)
+        case .gratitude:
+            return .init(x: 0, y: 0, width: 556, height: 446)
+        case .relief:
+            return .init(x: 0, y: 0, width: 498, height: 412)
+        case .calm:
+            return .init(x: 0, y: 0, width: 750, height: 441)
+        case .contentment:
+            return .init(x: 0, y: 0, width: 758, height: 347)
+        case .hope:
+            return .init(x: 0, y: 0, width: 684, height: 440)
+        case .safety:
+            return .init(x: 0, y: 0, width: 736, height: 520)
         }
     }
     
@@ -306,6 +343,30 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return SelfShape.despairTransform()
         case .disconnection:
             return SelfShape.disconnectionTransform()
+        case .affection:
+            return SelfShape.affectionTransform()
+        case .comfort:
+            return SelfShape.comfortTransform()
+        case .empathy:
+            return SelfShape.empathyTransform()
+        case .relaxation:
+            return SelfShape.relaxationTransform()
+        case .balance:
+            return SelfShape.balanceTransform()
+        case .confidence:
+            return SelfShape.confidenceTransform()
+        case .gratitude:
+            return SelfShape.gratitudeTransform()
+        case .relief:
+            return SelfShape.reliefTransform()
+        case .calm:
+            return SelfShape.calmTransform()
+        case .contentment:
+            return SelfShape.contentmentTransform()
+        case .hope:
+            return SelfShape.hopeTransform()
+        case .safety:
+            return SelfShape.safetyTransform()
         }
         
         
@@ -392,6 +453,30 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return despairPath(rect: rect)
         case .disconnection:
             return disconnectionPath(rect: rect)
+        case .affection:
+            return affectionPath(rect: rect)
+        case .comfort:
+            return comfortPath(rect: rect)
+        case .empathy:
+            return empathyPath(rect: rect)
+        case .relaxation:
+            return relaxationPath(rect: rect)
+        case .balance:
+            return balancePath(rect: rect)
+        case .confidence:
+            return confusionPath(rect: rect)
+        case .gratitude:
+            return gratitudePath(rect: rect)
+        case .relief:
+            return reliefPath(rect: rect)
+        case .calm:
+            return calmPath(rect: rect)
+        case .contentment:
+            return contentmentPath(rect: rect)
+        case .hope:
+            return hopePath(rect: rect)
+        case .safety:
+            return safetyPath(rect: rect)
         }
         
         
@@ -410,6 +495,30 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 //
 //
 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

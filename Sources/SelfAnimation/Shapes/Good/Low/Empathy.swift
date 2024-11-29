@@ -11,11 +11,43 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Empathy: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+
+extension SelfShape {
+    
+    static func empathyTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func empathyPath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.97559*width, y: 0.92404*height))
         path.addCurve(to: CGPoint(x: 0.64079*width, y: 0.90047*height), control1: CGPoint(x: 0.92722*width, y: 1.02444*height), control2: CGPoint(x: 0.74204*width, y: 0.96263*height))
         path.addCurve(to: CGPoint(x: 0.41446*width, y: 0.81084*height), control1: CGPoint(x: 0.54975*width, y: 0.84458*height), control2: CGPoint(x: 0.47333*width, y: 0.75565*height))
@@ -27,6 +59,21 @@ struct Empathy: Shape {
         path.addCurve(to: CGPoint(x: 0.67887*width, y: 0.22637*height), control1: CGPoint(x: 0.64838*width, y: 0.23617*height), control2: CGPoint(x: 0.65265*width, y: 0.22459*height))
         path.addCurve(to: CGPoint(x: 0.97559*width, y: 0.92404*height), control1: CGPoint(x: 0.71876*width, y: 0.22907*height), control2: CGPoint(x: 1.05611*width, y: 0.7569*height))
         path.closeSubpath()
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .empathy, weight: .light)
+        ShapeHomeRepresentable(shape: .empathy, weight: .dark)
+    }
+    
+})
+

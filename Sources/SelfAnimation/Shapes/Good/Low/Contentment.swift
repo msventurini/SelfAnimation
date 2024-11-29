@@ -11,11 +11,44 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Contentment: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+
+
+extension SelfShape {
+    
+    static func contentmentTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func contentmentPath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.02993*width, y: 0.21271*height))
         path.addCurve(to: CGPoint(x: 0.29339*width, y: 0.2053*height), control1: CGPoint(x: 0.17345*width, y: 0.17408*height), control2: CGPoint(x: 0.2452*width, y: 0.15479*height))
         path.addCurve(to: CGPoint(x: 0.38885*width, y: 0.38328*height), control1: CGPoint(x: 0.31709*width, y: 0.23013*height), control2: CGPoint(x: 0.30247*width, y: 0.23281*height))
@@ -49,6 +82,21 @@ struct Contentment: Shape {
         path.addCurve(to: CGPoint(x: 0.26679*width, y: 0.47192*height), control1: CGPoint(x: 0.26149*width, y: 0.35427*height), control2: CGPoint(x: 0.26613*width, y: 0.45737*height))
         path.addLine(to: CGPoint(x: 0.26678*width, y: 0.47194*height))
         path.closeSubpath()
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .contentment, weight: .light)
+        ShapeHomeRepresentable(shape: .contentment, weight: .dark)
+    }
+    
+})
+

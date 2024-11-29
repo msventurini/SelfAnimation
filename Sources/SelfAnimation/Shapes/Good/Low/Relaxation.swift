@@ -11,11 +11,44 @@ import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Relaxation: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+
+
+extension SelfShape {
+    
+    static func relaxationTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func relaxationPath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
         path.move(to: CGPoint(x: 0.99954*width, y: 0.62364*height))
         path.addCurve(to: CGPoint(x: 0.68151*width, y: 0.77038*height), control1: CGPoint(x: 0.99015*width, y: 0.70711*height), control2: CGPoint(x: 0.84333*width, y: 0.57739*height))
         path.addCurve(to: CGPoint(x: 0.49999*width, y: 0.99992*height), control1: CGPoint(x: 0.59104*width, y: 0.87827*height), control2: CGPoint(x: 0.57195*width, y: 0.99634*height))
@@ -31,7 +64,21 @@ struct Relaxation: Shape {
         path.addCurve(to: CGPoint(x: 0.40318*width, y: 0.20963*height), control1: CGPoint(x: 0.44652*width, y: 0.41925*height), control2: CGPoint(x: 0.40318*width, y: 0.3254*height))
         path.addCurve(to: CGPoint(x: 0.49999*width, y: 0), control1: CGPoint(x: 0.40318*width, y: 0.09385*height), control2: CGPoint(x: 0.44652*width, y: 0))
         path.addCurve(to: CGPoint(x: 0.5968*width, y: 0.20963*height), control1: CGPoint(x: 0.55346*width, y: 0), control2: CGPoint(x: 0.5968*width, y: 0.09385*height))
-        path.closeSubpath()
+        
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .relaxation, weight: .light)
+        ShapeHomeRepresentable(shape: .relaxation, weight: .dark)
+    }
+    
+})
+

@@ -1,13 +1,53 @@
+//
+//  Balance.swift
+//  SelfAnimation
+//
+//  Created by Matheus Silveira Venturini on 28/11/24.
+//
+
+
 import UIKit
 import SwiftUI
 import UIKit
 import SwiftUI
 
-struct Balance: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
+extension SelfShape {
+    
+    static func balanceTransform() -> CATransform3D {
+        
+        
+        var newTransform = CATransform3DIdentity
+        
+        newTransform = CATransform3DScale(
+            newTransform,
+            0.91, 0.91, 0
+            
+        )
+        
+        
+        newTransform = CATransform3DTranslate(
+            newTransform,
+            0, 0, 0
+        )
+        
+        
+        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: 0).radians,
+                                          0, 0, 1
+        )
+        
+        
+        return newTransform
+    }
+    
+
+    
+    static func balancePath(rect: CGRect) -> CGPath {
+        let path = CGMutablePath()
         let width = rect.size.width
         let height = rect.size.height
+
+        
         path.move(to: CGPoint(x: 0.1217*width, y: 0.56269*height))
         path.addCurve(to: CGPoint(x: 0.00598*width, y: 0.69105*height), control1: CGPoint(x: 0.03939*width, y: 0.56269*height), control2: CGPoint(x: -0.01945*width, y: 0.62765*height))
         path.addCurve(to: CGPoint(x: 0.4938*width, y: 0.97785*height), control1: CGPoint(x: 0.07276*width, y: 0.8575*height), control2: CGPoint(x: 0.26592*width, y: 0.97785*height))
@@ -29,6 +69,20 @@ struct Balance: Shape {
         path.addCurve(to: CGPoint(x: 0.40349*width, y: 0.13667*height), control1: CGPoint(x: 0.43172*width, y: 0.31328*height), control2: CGPoint(x: 0.39302*width, y: 0.22694*height))
         path.addCurve(to: CGPoint(x: 0.52786*width, y: 0.00266*height), control1: CGPoint(x: 0.41397*width, y: 0.04641*height), control2: CGPoint(x: 0.46965*width, y: -0.01359*height))
         path.closeSubpath()
+        
+        
         return path
     }
 }
+
+#Preview(body: {
+    VStack {
+        
+        
+        //        MyIconsdasa()
+        ShapeHomeRepresentable(shape: .balance, weight: .light)
+        ShapeHomeRepresentable(shape: .balance, weight: .dark)
+    }
+    
+})
+
