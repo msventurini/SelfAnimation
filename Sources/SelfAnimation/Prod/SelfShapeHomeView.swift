@@ -196,9 +196,9 @@ public struct DetailViewHome: View {
     public var body: some View {
         
         VStack {
-            ShapeHomeRepresentable(shape: .fun, weight: .light)
+            ShapeHomeRepresentable(shape: .loneliness, weight: .light)
                 .fixedSize()
-            ShapeHomeRepresentable(shape: .fun, weight: .dark)
+            ShapeHomeRepresentable(shape: .loneliness, weight: .dark)
                 .fixedSize()
         }
         
