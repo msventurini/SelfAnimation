@@ -13,6 +13,7 @@ import UIKit
 import SwiftUI
 
 
+
 public class SelfShapeHomeView: UIView {
     
     public override var intrinsicContentSize: CGSize {
@@ -27,7 +28,7 @@ public class SelfShapeHomeView: UIView {
     let shapeLayer = CAShapeLayer()
 
     
-    public init(selfShape: SelfShape, weight: ShapeWeight) {
+    public init(selfShape: SelfShape, weight: ShapeWeight, withAnimationOn: Bool = true) {
         self.selfShape = selfShape
         self.weight = weight
         replicator = SelfReplicatorview(emotion: selfShape, frame: .init(x: 0, y: 0, width: 250, height: 250))
@@ -41,75 +42,39 @@ public class SelfShapeHomeView: UIView {
         replicator.anchorPoint = .init(x: 0.5, y: 0.5)
         
         
-        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.strokeColor = selfShape.tintColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
         shapeLayer.lineDashPattern = [0, selfShape.lineDashSpacing(for: weight)]
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.masksToBounds = false
         replicator.replicatorLayer.preservesDepth = true
-        let newSize = AVMakeRect(aspectRatio: selfShape.ogFrame.size, insideRect: replicator.bounds)
+        let newSize = AVMakeRect(aspectRatio: SelfShape.ogFrame(shape: selfShape).size, insideRect: replicator.bounds)
         shapeLayer.path = SelfShape.path(emotion: selfShape, rect: newSize)
         shapeLayer.frame = newSize
         
         replicator.replicatorLayer.addSublayer(shapeLayer)
         
         replicator.replicatorLayer.instanceCount = 30
-        let newTransform = selfShape.transform
+        let newTransform = SelfShape.transform(shape: selfShape)
         replicator.replicatorLayer.instanceTransform = newTransform
         replicator.replicatorLayer.instanceDelay = selfShape.instanceDelay
         replicator.replicatorLayer.drawsAsynchronously = true
-        
-        
-//        let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
-//        lineDashAnimation.fromValue = 0
-//        lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
-//        lineDashAnimation.duration = 3
-//        lineDashAnimation.fillMode = .removed
-//        lineDashAnimation.speed = Float(1 * selfShape.direction)
-//        
-//        lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-//        
-//        shapeLayer.add(lineDashAnimation, forKey: nil)
-//
-//        replicatorPt1()
-        
-        if selfShape == .fun {
-            alternate()
-        } else {
-            
+
+        if withAnimationOn {
+            lineDashAnimation()
         }
-        lineDashAnimation()
+        
 
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    func alternate() {
-//        var maskLayer = CAGradientLayer()
-//        maskLayer.type = .conic
-//        maskLayer.frame = shapeLayer.bounds
-//        maskLayer.colors = [UIColor.black, UIColor.clear].map { $0.cgColor }
-//        
-//        shapeLayer.mask = maskLayer
-//        shapeLayer.lineJoin = .miter
-    }
+
     
     func lineDashAnimation() {
 
-        
-//        var maskLayer = CAGradientLayer()
-//        maskLayer.type = .conic
-//        maskLayer.frame = shapeLayer.bounds
-//        maskLayer.colors = [UIColor.black, UIColor.clear].map { $0.cgColor }
-//        
-//        shapeLayer.mask = maskLayer
-//        shapeLayer.lineJoin = .miter
-        
-        
         let lineDashAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.lineDashPhase))
         lineDashAnimation.fromValue = 0
         lineDashAnimation.toValue = shapeLayer.lineDashPattern?.reduce(0) { $0 + $1.intValue + selfShape.lineDashAnimationOffset.intValue }
@@ -118,10 +83,7 @@ public class SelfShapeHomeView: UIView {
         lineDashAnimation.speed = Float(1 * selfShape.direction)
     
         lineDashAnimation.repeatCount = Float.greatestFiniteMagnitude
-        shapeLayer.add(lineDashAnimation, forKey: nil)
-        
-        
-        
+        shapeLayer.add(lineDashAnimation, forKey: nil)   
     }
     
     func replicatorPt1() {
@@ -170,22 +132,8 @@ public class SelfShapeHomeView: UIView {
 
 
 #Preview {
-    
-//    NavigationStack {
-//        List(SelfShape.allCases) { shape in
-//            
-//            GroupBox {
-//                
-//                NavigationLink {
+
     DetailViewHome(shape: .anxiety)
-//                } label: {
-//                    Text(shape.rawValue)
-//                }
-//                
-//            }
-//            
-//        }
-//    }
 
 }
 
