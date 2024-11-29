@@ -57,6 +57,11 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     case sadness = "sadness"
     case shame = "shame"
     case worry = "worry"
+    case disapointment = "disapointment"
+    case apathy = "apathy"
+    case boredom = "boredom"
+    case despair = "despair"
+    case disconnection = "disconnection"
     
     
     
@@ -135,6 +140,16 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
         case .worry:
             return .init(x: 0, y: 0, width: 750, height: 330)
             
+        case .disapointment:
+            return .init(x: 0, y: 0, width: 704, height: 356)
+        case .apathy:
+            return .init(x: 0, y: 0, width: 750, height: 274)
+        case .boredom:
+            return .init(x: 0, y: 0, width: 750, height: 375)
+        case .despair:
+            return .init(x: 0, y: 0, width: 750, height: 302)
+        case .disconnection:
+            return .init(x: 0, y: 0, width: 750, height: 375)
         }
     }
     
@@ -281,6 +296,16 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return SelfShape.shameTransform()
         case .worry:
             return SelfShape.worryTransform()
+        case .disapointment:
+            return SelfShape.disapointmentTransform()
+        case .apathy:
+            return SelfShape.apathyTransform()
+        case .boredom:
+            return SelfShape.boredomTransform()
+        case .despair:
+            return SelfShape.despairTransform()
+        case .disconnection:
+            return SelfShape.disconnectionTransform()
         }
         
         
@@ -357,6 +382,16 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
             return shamePath(rect: rect)
         case .worry:
             return worryPath(rect: rect)
+        case .disapointment:
+            return disapointmentPath(rect: rect)
+        case .apathy:
+            return apathyPath(rect: rect)
+        case .boredom:
+            return boredomPath(rect: rect)
+        case .despair:
+            return despairPath(rect: rect)
+        case .disconnection:
+            return disconnectionPath(rect: rect)
         }
         
         
@@ -364,14 +399,20 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     
 }
 
-#Preview(body: {
-    VStack {
-        
-        ShapeHomeRepresentable(shape: .loneliness, weight: .light)
-        ShapeHomeRepresentable(shape: .loneliness, weight: .dark)
-    }
-    
-})
+//#Preview(body: {
+//    VStack {
+//        
+//        ShapeHomeRepresentable(shape: .loneliness, weight: .light)
+//        ShapeHomeRepresentable(shape: .loneliness, weight: .dark)
+//    }
+//    
+//})
+//
+//
+//
+
+
+
 
 
 
