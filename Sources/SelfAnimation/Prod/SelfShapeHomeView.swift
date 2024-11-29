@@ -13,6 +13,7 @@ import UIKit
 import SwiftUI
 
 
+
 public class SelfShapeHomeView: UIView {
     
     public override var intrinsicContentSize: CGSize {
@@ -27,7 +28,7 @@ public class SelfShapeHomeView: UIView {
     let shapeLayer = CAShapeLayer()
 
     
-    public init(selfShape: SelfShape, weight: ShapeWeight) {
+    public init(selfShape: SelfShape, weight: ShapeWeight, withAnimationOn: Bool = true) {
         self.selfShape = selfShape
         self.weight = weight
         replicator = SelfReplicatorview(emotion: selfShape, frame: .init(x: 0, y: 0, width: 250, height: 250))
@@ -41,7 +42,7 @@ public class SelfShapeHomeView: UIView {
         replicator.anchorPoint = .init(x: 0.5, y: 0.5)
         
         
-        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.strokeColor = selfShape.tintColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = SelfShape.lineWidth(for: weight)
         shapeLayer.lineDashPattern = [0, selfShape.lineDashSpacing(for: weight)]
@@ -60,7 +61,10 @@ public class SelfShapeHomeView: UIView {
         replicator.replicatorLayer.instanceDelay = selfShape.instanceDelay
         replicator.replicatorLayer.drawsAsynchronously = true
 
-        lineDashAnimation()
+        if withAnimationOn {
+            lineDashAnimation()
+        }
+        
 
     }
     

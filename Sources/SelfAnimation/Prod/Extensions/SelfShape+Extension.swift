@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 extension SelfShape {
     static func path(emotion: SelfShape, rect: CGRect) -> CGPath {
         
@@ -16,14 +18,12 @@ extension SelfShape {
             return anxietyPath(rect: rect)
         case .anger:
             return angerPath(rect: rect)
-            
         case .confusion:
             return confusionPath(rect: rect)
         case .bravery:
             return SelfShape.braveryShape(rect: rect)
         case .curiosity:
             return SelfShape.curiosityShape(rect: rect)
-            
         case .determination:
             return SelfShape.determinationShape(rect: rect)
         case .disgust:

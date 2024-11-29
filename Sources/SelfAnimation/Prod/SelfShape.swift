@@ -18,7 +18,7 @@ public enum ShapeWeight {
 
 
 
-public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
+public enum SelfShape: String, Identifiable, CaseIterable, Hashable, Sendable {
     
     public var id: String {
         return self.rawValue
@@ -82,6 +82,28 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
     case safety = "safety"
     
     
+    static let highBadItems: Set<SelfShape> = [.anger, .anxiety, .confusion, .disgust, .envy, .fear, .frustration, .overload, .panic, .shock, .stress, .tension]
+    static let highGoodItems: Set<SelfShape> = [.bravery, .euphoria, .surprise, .pleasure, .curiosity, .fun, .determination, .fullfilment, .happiness, .inspiration, .interest, .joy]
+    static let lowBadItems: Set<SelfShape> = [.exaustion, .guilt, .impotence, .loneliness, .sadness, .shame, .worry, .disapointment, .apathy, .boredom, .despair, .disconnection]
+    static let lowGoodItems: Set<SelfShape> = [.affection, .comfort, .empathy, .relaxation, .balance, .confidence, .gratitude, .relief, .calm, .contentment, .hope, .safety]
+    
+    var tintColor: CGColor {
+        
+        if SelfShape.highBadItems.contains(self) {
+            return UIColor.highBadEmotionTint.cgColor
+        } else if SelfShape.highGoodItems.contains(self) {
+            return UIColor.highGoodEmotionTint.cgColor
+
+        } else if SelfShape.lowBadItems.contains(self) {
+            return UIColor.lowBadEmotionTint.cgColor
+
+        } else if SelfShape.lowGoodItems.contains(self) {
+            return UIColor.lowGoodEmotionTint.cgColor
+            
+        }
+        
+        return UIColor.black.cgColor
+    }
     
     
     
@@ -159,38 +181,7 @@ public enum SelfShape: String, Identifiable, CaseIterable, Hashable {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 

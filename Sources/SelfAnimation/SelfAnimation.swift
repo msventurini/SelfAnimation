@@ -15,8 +15,9 @@ public struct CoverageView: View {
     public var body: some View {
         
         NavigationStack {
-            ScrollView {
-                ForEach(SelfShape.allCases) { shape in
+//            ScrollView {
+//                ForEach(SelfShape.allCases) { shape in
+                List(SelfShape.allCases) { shape in
               
                     NavigationLink {
                         DetailView(shape: shape)
@@ -28,7 +29,7 @@ public struct CoverageView: View {
                     }
                     .tint(.black)
    
-                }
+//                }
             }
 
             .ignoresSafeArea(.keyboard)
@@ -57,10 +58,10 @@ struct CoverageListRowView: View {
         .padding()
         
         
-        .background(.ultraThickMaterial.blendMode(.colorDodge))
+//        .background(.ultraThickMaterial.blendMode(.colorDodge))
 //        .background((Image(SelfShape.imageFor(shape: item))))
         
-        .frame(maxWidth: .infinity, idealHeight: 120, maxHeight: 220)
+//        .frame(maxWidth: .infinity, idealHeight: 120, maxHeight: 220)
         
         
         
