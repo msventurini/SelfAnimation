@@ -18,10 +18,10 @@ extension SelfShape {
         
         
         var newTransform = CATransform3DIdentity
-        
+        newTransform = CATransform3DRotate(newTransform, Angle(degrees: -207).radians, 0, 0, 1)
         newTransform = CATransform3DScale(
             newTransform,
-            0.91, 0.91, 0
+            0.91, -0.91, 0
             
         )
         
@@ -30,16 +30,7 @@ extension SelfShape {
             0, 0, 0
         )
         
-        newTransform = CATransform3DRotate(newTransform, Angle(degrees: -2.07).radians, 0, 0, 1)
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         return newTransform
     }
     
@@ -48,23 +39,23 @@ extension SelfShape {
         
         let width = rect.size.width
         let height = rect.size.height
-        path.move(to: CGPoint(x: 0.10978*width, y: 0.10977*height))
-        path.addLine(to: CGPoint(x: 1.09018*width, y: 0.10977*height))
-        path.addLine(to: CGPoint(x: 1.09018*width, y: 1.09016*height))
-        path.addLine(to: CGPoint(x: 0.10978*width, y: 1.09016*height))
-        path.addLine(to: CGPoint(x: 0.10978*width, y: 0.10977*height))
+        path.move(to: CGPoint(x: 0.01456*width, y: 0.01456*height))
+        path.addLine(to: CGPoint(x: 0.98544*width, y: 0.01456*height))
+        path.addLine(to: CGPoint(x: 0.98544*width, y: 0.98544*height))
+        path.addLine(to: CGPoint(x: 0.01456*width, y: 0.98544*height))
+        path.addLine(to: CGPoint(x: 0.01456*width, y: 0.01456*height))
         path.closeSubpath()
-        path.move(to: CGPoint(x: 0.25752*width, y: 0.36388*height))
-        path.addLine(to: CGPoint(x: 0.83604*width, y: 0.25738*height))
-        path.addLine(to: CGPoint(x: 0.94252*width, y: 0.8359*height))
-        path.addLine(to: CGPoint(x: 0.36401*width, y: 0.94239*height))
-        path.addLine(to: CGPoint(x: 0.25752*width, y: 0.36388*height))
+        path.move(to: CGPoint(x: 0.16086*width, y: 0.26621*height))
+        path.addLine(to: CGPoint(x: 0.73376*width, y: 0.16075*height))
+        path.addLine(to: CGPoint(x: 0.83922*width, y: 0.73365*height))
+        path.addLine(to: CGPoint(x: 0.26631*width, y: 0.83911*height))
+        path.addLine(to: CGPoint(x: 0.16086*width, y: 0.26621*height))
         path.closeSubpath()
-        path.move(to: CGPoint(x: 0.4819*width, y: 0.67264*height))
-        path.addLine(to: CGPoint(x: 0.52731*width, y: 0.48189*height))
-        path.addLine(to: CGPoint(x: 0.71806*width, y: 0.5273*height))
-        path.addLine(to: CGPoint(x: 0.67265*width, y: 0.71804*height))
-        path.addLine(to: CGPoint(x: 0.4819*width, y: 0.67264*height))
+        path.move(to: CGPoint(x: 0.38306*width, y: 0.57196*height))
+        path.addLine(to: CGPoint(x: 0.42803*width, y: 0.38307*height))
+        path.addLine(to: CGPoint(x: 0.61693*width, y: 0.42803*height))
+        path.addLine(to: CGPoint(x: 0.57196*width, y: 0.61693*height))
+        path.addLine(to: CGPoint(x: 0.38306*width, y: 0.57196*height))
         path.closeSubpath()
         return path
     }
@@ -80,3 +71,32 @@ extension SelfShape {
     }
     
 })
+
+
+
+struct MyIcon: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        path.move(to: CGPoint(x: 0.01456*width, y: 0.01456*height))
+        path.addLine(to: CGPoint(x: 0.98544*width, y: 0.01456*height))
+        path.addLine(to: CGPoint(x: 0.98544*width, y: 0.98544*height))
+        path.addLine(to: CGPoint(x: 0.01456*width, y: 0.98544*height))
+        path.addLine(to: CGPoint(x: 0.01456*width, y: 0.01456*height))
+        path.closeSubpath()
+        path.move(to: CGPoint(x: 0.16086*width, y: 0.26621*height))
+        path.addLine(to: CGPoint(x: 0.73376*width, y: 0.16075*height))
+        path.addLine(to: CGPoint(x: 0.83922*width, y: 0.73365*height))
+        path.addLine(to: CGPoint(x: 0.26631*width, y: 0.83911*height))
+        path.addLine(to: CGPoint(x: 0.16086*width, y: 0.26621*height))
+        path.closeSubpath()
+        path.move(to: CGPoint(x: 0.38306*width, y: 0.57196*height))
+        path.addLine(to: CGPoint(x: 0.42803*width, y: 0.38307*height))
+        path.addLine(to: CGPoint(x: 0.61693*width, y: 0.42803*height))
+        path.addLine(to: CGPoint(x: 0.57196*width, y: 0.61693*height))
+        path.addLine(to: CGPoint(x: 0.38306*width, y: 0.57196*height))
+        path.closeSubpath()
+        return path
+    }
+}

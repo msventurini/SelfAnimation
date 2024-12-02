@@ -63,9 +63,21 @@ public class SelfShapeHomeView: UIView {
 
         if withAnimationOn {
             lineDashAnimation()
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
         
 
+//        self.backgroundColor = .green
+        
     }
     
     required init?(coder: NSCoder) {
